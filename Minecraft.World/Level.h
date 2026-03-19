@@ -63,16 +63,16 @@ public:
 
 
 public:
-	static const int MAX_XBOX_BOATS = 40;										// Max number of boats
-	static const int MAX_CONSOLE_MINECARTS = 40;
-	static const int MAX_DISPENSABLE_FIREBALLS = 200;
-	static const int MAX_DISPENSABLE_PROJECTILES = 300;
+	static const int MAX_XBOX_BOATS = 400;										// Max number of boats
+	static const int MAX_CONSOLE_MINECARTS = 400;
+	static const int MAX_DISPENSABLE_FIREBALLS = 2000;
+	static const int MAX_DISPENSABLE_PROJECTILES = 3000;
 
 	static const int MAX_LEVEL_SIZE = 30000000;
 	static const int maxMovementHeight = 512;	// 4J added
 
 	static const int minBuildHeight = 0;		// 4J - brought forward from 1.2.3
-	static const int maxBuildHeight = 256;		// 4J - brought forward from 1.2.3
+	static const int maxBuildHeight = 512;		// 4J - brought forward from 1.2.3
 	static const int genDepthBits = 7;
 	static const int genDepthBitsPlusFour = genDepthBits + 4;
 	static const int genDepth = 1 << genDepthBits;

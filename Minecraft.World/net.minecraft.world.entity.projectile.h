@@ -22,3 +22,4 @@
 #include "LargeFireball.h"
 #include "Projectile.h"
 #include "WitherSkull.h"
+#include "HellSphere.h"

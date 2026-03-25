@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAX_ORE_RECIPES 8
+#define MAX_ORE_RECIPES 9
 
 class OreRecipies 
 {

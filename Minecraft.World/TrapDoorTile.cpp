@@ -4,7 +4,7 @@
 #include "net.minecraft.world.level.tile.h"
 #include "net.minecraft.h"
 #include "TrapDoorTile.h"
-
+#include "AABB.h"
 
 TrapDoorTile::TrapDoorTile(int id, Material *material) : Tile(id, material,isSolidRender())
 {
@@ -50,6 +50,29 @@ AABB *TrapDoorTile::getTileAABB(Level *level, int x, int y, int z)
 
 AABB *TrapDoorTile::getAABB(Level *level, int x, int y, int z)
 {
+	int data = level->getData(x, y, z);
+	if (isOpen(data))
+	{
+		int xt = x, zt = z;
+		int dir = data & 3;
+
+		if (dir == 0) zt++;
+		if (dir == 1) zt--;
+		if (dir == 2) xt++;
+		if (dir == 3) xt--;
+
+		if (level->getTile(x, y - 1, z) == Tile::ladder_Id && attachesTo(level->getTile(xt, y, zt)))
+		{
+			float r = 2 / 16.0f; // From LadderTile
+
+			// Using only newTemp from AABB to just manipulate collision to our liking
+			if (dir == 0) return AABB::newTemp(x, y, z + 1 - r, x + 1, y + 1, z + 1);
+			if (dir == 1) return AABB::newTemp(x, y, z, x + 1, y + 1, z + r);
+			if (dir == 2) return AABB::newTemp(x + 1 - r, y, z, x + 1, y + 1, z + 1);
+			if (dir == 3) return AABB::newTemp(x, y, z, x + r, y + 1, z + 1);
+		}
+	}
+	// Default behaviour
 	updateShape(level, x, y, z);
 	return Tile::getAABB(level, x, y, z);
 }

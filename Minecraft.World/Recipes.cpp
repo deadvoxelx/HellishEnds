@@ -79,6 +79,13 @@ Recipes::Recipes()
 
 		L'#', new ItemInstance(Tile::treeTrunk, 1, TreeTile::JUNGLE_TRUNK),
 		L'S');
+		
+	addShapedRecipy(new ItemInstance(Tile::netherPlanks, 4, 0), //
+		L"sczg",
+		L"#", //
+
+		L'#', new ItemInstance(Tile::netherWood, 1, 0),
+		L'S');
 
 	addShapedRecipy(new ItemInstance(Item::stick, 4), //
 		L"ssctg",
@@ -121,7 +128,7 @@ Recipes::Recipes()
 		L'S');
 
 	// 4J Stu - Reordered for crafting menu
-	addShapedRecipy(new ItemInstance(Tile::ladder, 3), //
+	addShapedRecipy(new ItemInstance(Tile::ladder, 6), //
 		L"ssscig",
 		L"# #", //
 		L"###", //
@@ -138,7 +145,7 @@ Recipes::Recipes()
 		L'#', Item::stick, L'W', Tile::wood,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::fence, 2), //
+	addShapedRecipy(new ItemInstance(Tile::fence, 4), //
 		L"sscig",
 		L"###", //
 		L"###", //
@@ -178,7 +185,7 @@ Recipes::Recipes()
 		L'#', Tile::mossyCobblestone,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Item::door_wood, 1), //
+	addShapedRecipy(new ItemInstance(Item::door_wood, 4), //
 		L"sssctg",
 		L"##", //
 		L"##", //
@@ -187,7 +194,7 @@ Recipes::Recipes()
 		L'#', Tile::wood,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Item::door_iron, 1), //
+	addShapedRecipy(new ItemInstance(Item::door_iron, 4), //
 		L"ssscig",
 		L"##", //
 		L"##", //
@@ -196,7 +203,7 @@ Recipes::Recipes()
 		L'#', Item::ironIngot,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::stairs_wood, 4), //
+	addShapedRecipy(new ItemInstance(Tile::stairs_wood, 6), //
 		L"sssczg",
 		L"#  ", //
 		L"## ", //
@@ -205,14 +212,14 @@ Recipes::Recipes()
 		L'#', new ItemInstance(Tile::wood, 1, 0),
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::trapdoor, 2), //
+	addShapedRecipy(new ItemInstance(Tile::trapdoor, 4), //
 		L"ssctg",
 		L"###", //
 		L"###", //
 
 		L'#', Tile::wood,
 		L'S');
-	addShapedRecipy(new ItemInstance(Tile::stairs_stone, 4), //
+	addShapedRecipy(new ItemInstance(Tile::stairs_stone, 6), //
 		L"sssctg",
 		L"#  ", //
 		L"## ", //
@@ -221,7 +228,7 @@ Recipes::Recipes()
 		L'#', Tile::cobblestone,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::stairs_bricks, 4), //
+	addShapedRecipy(new ItemInstance(Tile::stairs_bricks, 6), //
 		L"sssctg",
 		L"#  ", //
 		L"## ", //
@@ -230,7 +237,7 @@ Recipes::Recipes()
 		L'#', Tile::redBrick,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::stairs_stoneBrickSmooth, 4), //
+	addShapedRecipy(new ItemInstance(Tile::stairs_stoneBrickSmooth, 6), //
 		L"sssctg",
 		L"#  ", //
 		L"## ", //
@@ -239,7 +246,7 @@ Recipes::Recipes()
 		L'#', Tile::stoneBrick,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::stairs_netherBricks, 4), //
+	addShapedRecipy(new ItemInstance(Tile::stairs_netherBricks, 6), //
 		L"sssctg",
 		L"#  ", //
 		L"## ", //
@@ -248,7 +255,7 @@ Recipes::Recipes()
 		L'#', Tile::netherBrick,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::stairs_sandstone, 4), //
+	addShapedRecipy(new ItemInstance(Tile::stairs_sandstone, 6), //
 		L"sssctg",
 		L"#  ", //
 		L"## ", //
@@ -257,7 +264,7 @@ Recipes::Recipes()
 		L'#', Tile::sandStone,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::woodStairsBirch, 4), //
+	addShapedRecipy(new ItemInstance(Tile::woodStairsBirch, 6), //
 		L"sssczg",
 		L"#  ", //
 		L"## ", //
@@ -266,7 +273,7 @@ Recipes::Recipes()
 		L'#', new ItemInstance(Tile::wood, 1, TreeTile::BIRCH_TRUNK),
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::woodStairsDark, 4), //
+	addShapedRecipy(new ItemInstance(Tile::woodStairsDark, 6), //
 		L"sssczg",
 		L"#  ", //
 		L"## ", //
@@ -275,7 +282,7 @@ Recipes::Recipes()
 		L'#', new ItemInstance(Tile::wood, 1, TreeTile::DARK_TRUNK),
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::woodStairsJungle, 4), //
+	addShapedRecipy(new ItemInstance(Tile::woodStairsJungle, 6), //
 		L"sssczg",
 		L"#  ", //
 		L"## ", //
@@ -284,7 +291,7 @@ Recipes::Recipes()
 		L'#', new ItemInstance(Tile::wood, 1, TreeTile::JUNGLE_TRUNK),
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::stairs_quartz, 4), //
+	addShapedRecipy(new ItemInstance(Tile::stairs_quartz, 6), //
 		L"sssctg",
 		L"#  ", //
 		L"## ", //

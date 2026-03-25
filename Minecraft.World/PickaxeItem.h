@@ -2,7 +2,7 @@
 
 #include "DiggerItem.h"
 
-#define PICKAXE_DIGGABLES 23
+#define PICKAXE_DIGGABLES 27
 
 class PickaxeItem : public DiggerItem
 {

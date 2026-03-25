@@ -11,6 +11,8 @@ WeighedTreasure *MonsterRoomFeature::monsterRoomTreasure[MonsterRoomFeature::TRE
 {
 		new WeighedTreasure(Item::saddle_Id, 0, 1, 1, 10),
 		new WeighedTreasure(Item::ironIngot_Id, 0, 1, 4, 10),
+		new WeighedTreasure(Item::goldIngot_Id, 0, 1, 3, 8),
+		new WeighedTreasure(Item::diamond_Id, 0, 1, 2, 2),
 		new WeighedTreasure(Item::bread_Id, 0, 1, 1, 10),
 		new WeighedTreasure(Item::wheat_Id, 0, 1, 4, 10),
 		new WeighedTreasure(Item::gunpowder_Id, 0, 1, 4, 10),
@@ -110,7 +112,7 @@ bool MonsterRoomFeature::place(Level *level, Random *random, int x, int y, int z
 			WeighedTreasureArray wrapperArray(monsterRoomTreasure, TREASURE_ITEMS_COUNT);
 			WeighedTreasureArray treasure = WeighedTreasure::addToTreasure(wrapperArray, Item::enchantedBook->createForRandomTreasure(random));
 			shared_ptr<ChestTileEntity> chest = dynamic_pointer_cast<ChestTileEntity >( level->getTileEntity(xc, yc, zc) );
-			if (chest != nullptr )
+			if (chest != NULL )
 			{
 				WeighedTreasure::addChestItems(random, treasure, chest, 8);
 			}
@@ -122,7 +124,7 @@ bool MonsterRoomFeature::place(Level *level, Random *random, int x, int y, int z
 
 	level->setTileAndData(x, y, z, Tile::mobSpawner_Id, 0, Tile::UPDATE_CLIENTS);
 	shared_ptr<MobSpawnerTileEntity> entity = dynamic_pointer_cast<MobSpawnerTileEntity>( level->getTileEntity(x, y, z) );
-	if( entity != nullptr )
+	if( entity != NULL )
 	{
 		entity->getSpawner()->setEntityId(randomEntityId(random));
 	}
@@ -133,10 +135,11 @@ bool MonsterRoomFeature::place(Level *level, Random *random, int x, int y, int z
 
 wstring MonsterRoomFeature::randomEntityId(Random *random)
 {
-	int id = random->nextInt(4);
+	int id = random->nextInt(5);
 	if (id == 0) return wstring(L"Skeleton");
 	if (id == 1) return wstring(L"Zombie");
 	if (id == 2) return wstring(L"Zombie");
 	if (id == 3) return wstring(L"Spider");
+	if (id == 4) return wstring(L"Creeper");
 	return wstring(L"");
 }

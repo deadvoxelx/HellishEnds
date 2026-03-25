@@ -3,12 +3,12 @@
 #include "LargeHellCaveFeature.h"
 #include "net.minecraft.world.level.tile.h"
 
-void LargeHellCaveFeature::addRoom(int64_t seed, int xOffs, int zOffs, byteArray blocks, double xRoom, double yRoom, double zRoom)
+void LargeHellCaveFeature::addRoom(__int64 seed, int xOffs, int zOffs, byteArray blocks, double xRoom, double yRoom, double zRoom)
 {
 	addTunnel(seed, xOffs, zOffs, blocks, xRoom, yRoom, zRoom, 1 + random->nextFloat() * 6, 0, 0, -1, -1, 0.5);
 }
 
-void LargeHellCaveFeature::addTunnel(int64_t seed, int xOffs, int zOffs, byteArray blocks, double xCave, double yCave, double zCave, float thickness, float yRot, float xRot, int step, int dist, double yScale)
+void LargeHellCaveFeature::addTunnel(__int64 seed, int xOffs, int zOffs, byteArray blocks, double xCave, double yCave, double zCave, float thickness, float yRot, float xRot, int step, int dist, double yScale)
 {
 	double xMid = xOffs * 16 + 8;
 	double zMid = zOffs * 16 + 8;
@@ -136,9 +136,9 @@ void LargeHellCaveFeature::addTunnel(int64_t seed, int xOffs, int zOffs, byteArr
 					if (yd > -0.7 && xd * xd + yd * yd + zd * zd < 1)
 					{
 						int block = blocks[p];
-						if (block == Tile::netherRack_Id || block == Tile::dirt_Id || block == Tile::grass_Id)
+						if (block == Tile::netherRack_Id || block == Tile::netherSoil_Id || block == Tile::soulsand_Id)
 						{
-							blocks[p] = static_cast<byte>(0);
+							blocks[p] = (byte) 0;
 						}
 					}
 					p--;

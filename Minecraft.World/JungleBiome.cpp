@@ -60,4 +60,15 @@ void JungleBiome::decorate(Level *level, Random *random, int xo, int zo)
 		vines->place(level, random, x, y, z);
 	}
 	PIXEndNamedEvent();
+
+	PIXBeginNamedEvent(0,"Melon patches");
+	for (int i = 0; i < 32; i++)
+	{
+		int x = xo + random->nextInt(16) + 8;
+		int y = random->nextInt(Level::genDepth);
+		int z = zo + random->nextInt(16) + 8;
+		MelonFeature mrf;
+		mrf.place(level, random, x, y, z);
+	}
+	PIXEndNamedEvent();
 }

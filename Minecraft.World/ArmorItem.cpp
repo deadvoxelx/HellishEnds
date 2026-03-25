@@ -63,11 +63,13 @@ const int _ArmorMaterial::chainArray[] = {2, 5, 4, 1};
 const int _ArmorMaterial::ironArray[] = {2, 6, 5, 2};
 const int _ArmorMaterial::goldArray[] = {2, 5, 3, 1};
 const int _ArmorMaterial::diamondArray[] = {3, 8, 6, 3};
+const int _ArmorMaterial::nethaniumArray[] = {3, 8, 6, 3};
 const _ArmorMaterial *_ArmorMaterial::CLOTH = new _ArmorMaterial(5, _ArmorMaterial::clothArray, 15);
 const _ArmorMaterial *_ArmorMaterial::CHAIN = new _ArmorMaterial(15, _ArmorMaterial::chainArray, 12);
 const _ArmorMaterial *_ArmorMaterial::IRON = new _ArmorMaterial(15, _ArmorMaterial::ironArray, 9);
 const _ArmorMaterial *_ArmorMaterial::GOLD = new _ArmorMaterial(7, _ArmorMaterial::goldArray, 25);
 const _ArmorMaterial *_ArmorMaterial::DIAMOND = new _ArmorMaterial(33, _ArmorMaterial::diamondArray, 10);
+const _ArmorMaterial *_ArmorMaterial::NETHANIUM = new _ArmorMaterial(33, _ArmorMaterial::nethaniumArray, 15);
 
 _ArmorMaterial::ArmorMaterial(int durabilityMultiplier, const int slotProtections[], int enchantmentValue)
 {
@@ -117,6 +119,10 @@ int _ArmorMaterial::getTierItemId() const
 	else if (this == DIAMOND)
 	{
 		return Item::diamond_Id;
+	}
+	else if (this == NETHANIUM)
+	{
+		return Item::nethanium_Id;
 	}
 	return 0;
 }
@@ -170,9 +176,9 @@ int ArmorItem::getColor(shared_ptr<ItemInstance> item)
 	if (armorType != ArmorMaterial::CLOTH) return -1;
 
 	CompoundTag *tag = item->getTag();
-	if (tag == nullptr) return Minecraft::GetInstance()->getColourTable()->getColor( DEFAULT_LEATHER_COLOR );
+	if (tag == NULL) return Minecraft::GetInstance()->getColourTable()->getColor( DEFAULT_LEATHER_COLOR );
 	CompoundTag *display = tag->getCompound(L"display");
-	if (display == nullptr) return Minecraft::GetInstance()->getColourTable()->getColor( DEFAULT_LEATHER_COLOR );
+	if (display == NULL) return Minecraft::GetInstance()->getColourTable()->getColor( DEFAULT_LEATHER_COLOR );
 
 	if (display->contains(L"color"))
 	{
@@ -197,7 +203,7 @@ void ArmorItem::clearColor(shared_ptr<ItemInstance> item)
 {
 	if (armorType != ArmorMaterial::CLOTH) return;
 	CompoundTag *tag = item->getTag();
-	if (tag == nullptr) return;
+	if (tag == NULL) return;
 	CompoundTag *display = tag->getCompound(L"display");
 	if (display->contains(L"color")) display->remove(L"color");
 }
@@ -215,7 +221,7 @@ void ArmorItem::setColor(shared_ptr<ItemInstance> item, int color)
 
 	CompoundTag *tag = item->getTag();
 
-	if (tag == nullptr)
+	if (tag == NULL)
 	{
 		tag = new CompoundTag();
 		item->setTag(tag);
@@ -262,5 +268,5 @@ Icon *ArmorItem::getEmptyIcon(int slot)
 		return Item::boots_diamond->iconEmpty;
 	}
 
-	return nullptr;
+	return NULL;
 }

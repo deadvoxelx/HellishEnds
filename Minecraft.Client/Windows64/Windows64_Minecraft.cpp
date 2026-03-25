@@ -1843,6 +1843,18 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 			SetFocus(g_hWnd);
 		}
 
+		//Zoom
+		if (!ui.GetMenuDisplayed(0) && pMinecraft->screen == NULL) {
+			Minecraft* mc = Minecraft::GetInstance();
+			if (mc && mc->gameRenderer) {
+				if (g_KBMInput.IsKeyDown(KeyboardMouseInput::KEY_ZOOM)) {
+					mc->gameRenderer->zoomRegion(5.0, 0.0, 0.0);
+				} else {
+					mc->gameRenderer->unZoomRegion();
+				}
+			}
+		}
+
 #if 0
 		// has the game defined profile data been changed (by a profile load)
 		if(app.uiGameDefinedDataChangedBitmask!=0)

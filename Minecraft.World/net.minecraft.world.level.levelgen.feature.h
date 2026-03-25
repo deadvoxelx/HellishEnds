@@ -35,3 +35,8 @@
 #include "MegaTreeFeature.h"
 #include "VinesFeature.h"
 #include "GroundBushFeature.h"
+#include "NetherTreeFeature.h"
+#include "NetherDungeonFeature.h"
+#include "NetherSoilFireFeature.h"
+#include "NetherMushroomHuge.h"
+#include "MelonFeature.h"

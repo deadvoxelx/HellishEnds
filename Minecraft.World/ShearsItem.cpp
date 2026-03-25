@@ -6,7 +6,7 @@
 ShearsItem::ShearsItem(int itemId) : Item(itemId)
 {
 	setMaxStackSize(1);
-	setMaxDamage(238);
+	setMaxDamage(385);
 }
 
 bool ShearsItem::mineBlock(shared_ptr<ItemInstance> itemInstance, Level *level, int tile, int x, int y, int z, shared_ptr<LivingEntity> owner)

@@ -29,7 +29,11 @@ void PickaxeItem::staticCtor()
 	diggables.data[19] = Tile::rail;
 	diggables.data[20] = Tile::detectorRail;
 	diggables.data[21] = Tile::goldenRail;
-	diggables.data[21] = Tile::activatorRail;
+	diggables.data[22] = Tile::activatorRail;
+	diggables.data[23] = Tile::netherGold;
+	diggables.data[24] = Tile::netherDiamond;
+	diggables.data[25] = Tile::nethaniumOre;
+	diggables.data[26] = Tile::nethaniumBlock;
 }
 
 PickaxeItem::PickaxeItem(int id, const Tier *tier) : DiggerItem(id, 2, tier, &diggables)
@@ -38,13 +42,16 @@ PickaxeItem::PickaxeItem(int id, const Tier *tier) : DiggerItem(id, 2, tier, &di
 
 bool PickaxeItem::canDestroySpecial(Tile *tile)
 {
-	if (tile == Tile::obsidian) return tier->getLevel() == 3;
+	if (tile == Tile::obsidian) return tier->getLevel() >= 3;
 	if (tile == Tile::diamondBlock || tile == Tile::diamondOre) return tier->getLevel() >= 2;
 	if (tile == Tile::emeraldBlock || tile == Tile::emeraldOre) return tier->getLevel() >= 2;
 	if (tile == Tile::goldBlock || tile == Tile::goldOre) return tier->getLevel() >= 2;
 	if (tile == Tile::ironBlock || tile == Tile::ironOre) return tier->getLevel() >= 1;
 	if (tile == Tile::lapisBlock || tile == Tile::lapisOre) return tier->getLevel() >= 1;
 	if (tile == Tile::redStoneOre || tile == Tile::redStoneOre_lit) return tier->getLevel() >= 2;
+	if (tile == Tile::netherGold) return tier->getLevel() >= 1;
+	if (tile == Tile::netherDiamond) return tier->getLevel() >= 2;
+	if (tile == Tile::nethaniumBlock || tile == Tile::nethaniumOre) return tier->getLevel() >= 3;
 	if (tile->material == Material::stone) return true;
 	if (tile->material == Material::metal) return true;
 	if (tile->material == Material::heavyMetal) return true;
@@ -54,7 +61,7 @@ bool PickaxeItem::canDestroySpecial(Tile *tile)
 // 4J - brought forward from 1.2.3
 float PickaxeItem::getDestroySpeed(shared_ptr<ItemInstance> itemInstance, Tile *tile)
 {
-	if (tile != nullptr && (tile->material == Material::metal || tile->material == Material::heavyMetal || tile->material == Material::stone))
+	if (tile != NULL && (tile->material == Material::metal || tile->material == Material::heavyMetal || tile->material == Material::stone))
 	{
 		return speed;
 	}

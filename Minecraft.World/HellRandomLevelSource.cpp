@@ -7,11 +7,11 @@
 #include "BiomeSource.h"
 #include "HellRandomLevelSource.h"
 
-HellRandomLevelSource::HellRandomLevelSource(Level *level, int64_t seed)
+HellRandomLevelSource::HellRandomLevelSource(Level *level, __int64 seed)
 {
 	int xzSize = level->getLevelData()->getXZSize();
 	int hellScale = level->getLevelData()->getHellScale();
-	m_XZSize = ceil(static_cast<float>(xzSize) / hellScale);
+	m_XZSize = ceil((float)xzSize / hellScale);
 
 	netherBridgeFeature = new NetherBridgeFeature();
 	caveFeature = new LargeHellCaveFeature();
@@ -64,7 +64,7 @@ void HellRandomLevelSource::prepareHeights(int xOffs, int zOffs, byteArray block
 		{
 			for (int yc = 0; yc < Level::genDepth / CHUNK_HEIGHT; yc++)
 			{
-				double yStep = 1 / static_cast<double>(CHUNK_HEIGHT);
+				double yStep = 1 / (double) CHUNK_HEIGHT;
 				double s0 = buffer[((xc + 0) * zSize + (zc + 0)) * ySize + (yc + 0)];
 				double s1 = buffer[((xc + 0) * zSize + (zc + 1)) * ySize + (yc + 0)];
 				double s2 = buffer[((xc + 1) * zSize + (zc + 0)) * ySize + (yc + 0)];
@@ -77,7 +77,7 @@ void HellRandomLevelSource::prepareHeights(int xOffs, int zOffs, byteArray block
 
 				for (int y = 0; y < CHUNK_HEIGHT; y++)
 				{
-					double xStep = 1 / static_cast<double>(CHUNK_WIDTH);
+					double xStep = 1 / (double) CHUNK_WIDTH;
 
 					double _s0 = s0;
 					double _s1 = s1;
@@ -88,7 +88,7 @@ void HellRandomLevelSource::prepareHeights(int xOffs, int zOffs, byteArray block
 					{
 						int offs = (x + xc * CHUNK_WIDTH) << Level::genDepthBitsPlusFour | (0 + zc * CHUNK_WIDTH) << Level::genDepthBits | (yc * CHUNK_HEIGHT + y);
 						int step = 1 << Level::genDepthBits;
-						double zStep = 1 / static_cast<double>(CHUNK_WIDTH);
+						double zStep = 1 / (double) CHUNK_WIDTH;
 
 						double val = _s0;
 						double vala = (_s1 - _s0) * zStep;
@@ -104,7 +104,7 @@ void HellRandomLevelSource::prepareHeights(int xOffs, int zOffs, byteArray block
 								tileId = Tile::netherRack_Id;
 							}
 
-							blocks[offs] = static_cast<byte>(tileId);
+							blocks[offs] = (byte) tileId;
 							offs += step;
 							val += vala;
 						}
@@ -143,7 +143,7 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 		{
 			bool sand = (sandBuffer[x + z * 16] + random->nextDouble() * 0.2) > 0;
 			bool gravel = (gravelBuffer[x + z * 16] + random->nextDouble() * 0.2) > 0;
-			int runDepth = static_cast<int>(depthBuffer[x + z * 16] / 3 + 3 + random->nextDouble() * 0.25);
+			int runDepth = (int) (depthBuffer[x + z * 16] / 3 + 3 + random->nextDouble() * 0.25);
 
 			int run = -1;
 
@@ -160,7 +160,7 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 				{
 					if( z - random->nextInt( 4 ) <= 0 || xOffs < -(m_XZSize/2) )
 					{
-						blocks[offs] = static_cast<byte>(Tile::unbreakable_Id);
+						blocks[offs] = (byte) Tile::unbreakable_Id;
 						blockSet = true;
 					}
 				}
@@ -168,7 +168,7 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 				{
 					if( x - random->nextInt( 4 ) <= 0 || zOffs < -(m_XZSize/2))
 					{
-						blocks[offs] = static_cast<byte>(Tile::unbreakable_Id);
+						blocks[offs] = (byte) Tile::unbreakable_Id;
 						blockSet = true;
 					}
 				}
@@ -176,7 +176,7 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 				{
 					if( z + random->nextInt(4) >= 15 || xOffs > (m_XZSize/2))
 					{
-						blocks[offs] = static_cast<byte>(Tile::unbreakable_Id);
+						blocks[offs] = (byte) Tile::unbreakable_Id;
 						blockSet = true;
 					}
 				}
@@ -184,7 +184,7 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 				{
 					if( x + random->nextInt(4) >= 15 || zOffs > (m_XZSize/2) )
 					{
-						blocks[offs] = static_cast<byte>(Tile::unbreakable_Id);
+						blocks[offs] = (byte) Tile::unbreakable_Id;
 						blockSet = true;
 					}
 				}
@@ -193,7 +193,7 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 
 				if (y >= Level::genDepthMinusOne - random->nextInt(5) || y <= 0 + random->nextInt(5))
 				{
-					blocks[offs] = static_cast<byte>(Tile::unbreakable_Id);
+					blocks[offs] = (byte) Tile::unbreakable_Id;
 				}
 				else
 				{
@@ -210,20 +210,20 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 							if (runDepth <= 0)
 							{
 								top = 0;
-								material = static_cast<byte>(Tile::netherRack_Id);
+								material = (byte) Tile::netherRack_Id;
 							}
 							else if (y >= waterHeight - 4 && y <= waterHeight + 1)
 							{
-								top = static_cast<byte>(Tile::netherRack_Id);
-								material = static_cast<byte>(Tile::netherRack_Id);
-								if (gravel) top = static_cast<byte>(Tile::gravel_Id);
-								if (gravel) material = static_cast<byte>(Tile::netherRack_Id);
+								top = (byte) Tile::netherSoil_Id;
+								material = (byte) Tile::netherSoil_Id;
+								if (gravel) top = (byte) Tile::gravel_Id;
+								if (gravel) material = (byte) Tile::netherRack_Id;
 								if (sand)
 								{
 									// 4J Stu - Make some nether wart spawn outside of the nether fortresses
 									if(random->nextInt(16) == 0)
 									{
-										top = static_cast<byte>(Tile::netherStalk_Id);
+										top = (byte) Tile::netherStalk_Id;
 
 										// Place the nether wart on top of the soul sand
 										y += 1;
@@ -234,13 +234,58 @@ void HellRandomLevelSource::buildSurfaces(int xOffs, int zOffs, byteArray blocks
 									}
 									else
 									{
-										top = static_cast<byte>(Tile::soulsand_Id);
+										top = (byte) Tile::soulsand_Id;
 									}
 								}
-								if (sand) material = static_cast<byte>(Tile::soulsand_Id);
+								if (sand) material = (byte) Tile::soulsand_Id;
+							}
+							else if (y >= waterHeight - 30 && y <= waterHeight)
+							{
+								top = (byte) Tile::netherSoil_Id;
+								material = (byte) Tile::netherSoil_Id;
+								if (gravel) top = (byte) Tile::netherRack_Id;
+								if (gravel) material = (byte) Tile::netherRack_Id;
+								if (sand)
+								{
+									// 4J Stu - Make some nether wart spawn outside of the nether fortresses
+									if(random->nextInt(16) == 0)
+									{
+										top = (byte) Tile::netherStalk_Id;
+
+										// Place the nether wart on top of the soul sand
+										y += 1;
+										int genDepthMinusOne = Level::genDepthMinusOne; // Take into local int for PS4 as min takes a reference to the const int there and then needs the value to exist for the linker
+										y = min(y, genDepthMinusOne);
+										runDepth += 1;
+										offs = (z * 16 + x) * Level::genDepth + y;
+									}
+									else
+									{
+										top = (byte) Tile::soulsand_Id;
+									}
+								}
+								if (sand) material = (byte) Tile::soulsand_Id;
 							}
 
-							if (y < waterHeight && top == 0) top = static_cast<byte>(Tile::calmLava_Id);
+							else if (y >= waterHeight && y <= waterHeight + 52)
+							{
+								top = (byte) Tile::netherSoil_Id;
+								material = (byte) Tile::netherSoil_Id;
+								if (gravel) top = (byte) Tile::netherSoil_Id;
+								if (gravel) material = (byte) Tile::netherSoil_Id;
+							}
+
+							else if (y >= waterHeight - 42 && y <= waterHeight - 32)
+							{
+								top = (byte) Tile::lavaRock_Id;
+								material = (byte) Tile::lavaRock_Id;
+								if (gravel) top = (byte) Tile::lavaRock_Id;
+								if (gravel) material = (byte) Tile::lavaRock_Id;
+								if (sand) top = (byte) Tile::lavaRock_Id;
+								if (sand) material = (byte) Tile::lavaRock_Id;
+							}
+
+							//if (y < waterHeight && top == 0) top = (byte) Tile::calmLava_Id;
 
 							run = runDepth;
 							// 4J Stu - If sand, then allow adding nether wart at heights below the water level
@@ -273,7 +318,7 @@ LevelChunk *HellRandomLevelSource::getChunk(int xOffs, int zOffs)
 
 	// 4J - now allocating this with a physical alloc & bypassing general memory management so that it will get cleanly freed
 	int blocksSize = Level::genDepth * 16 * 16;
-	byte *tileData = static_cast<byte *>(XPhysicalAlloc(blocksSize, MAXULONG_PTR, 4096, PAGE_READWRITE));
+	byte *tileData = (byte *)XPhysicalAlloc(blocksSize, MAXULONG_PTR, 4096, PAGE_READWRITE);
 	XMemSet128(tileData,0,blocksSize);
 	byteArray blocks = byteArray(tileData,blocksSize);
 	//    byteArray blocks = byteArray(16 * level->depth * 16);
@@ -303,7 +348,7 @@ void HellRandomLevelSource::lightChunk(LevelChunk *lc)
 
 doubleArray HellRandomLevelSource::getHeights(doubleArray buffer, int x, int y, int z, int xSize, int ySize, int zSize)
 {
-	if (buffer.data == nullptr)
+	if (buffer.data == NULL)
 	{
 		buffer = doubleArray(xSize * ySize * zSize);
 	}
@@ -325,7 +370,7 @@ doubleArray HellRandomLevelSource::getHeights(doubleArray buffer, int x, int y, 
 	doubleArray yoffs = doubleArray(ySize);
 	for (int yy = 0; yy < ySize; yy++)
 	{
-		yoffs[yy] = cos(yy * PI * 6 / static_cast<double>(ySize)) * 2;
+		yoffs[yy] = cos(yy * PI * 6 / (double) ySize) * 2;
 
 		double dd = yy;
 		if (yy > ySize / 2)
@@ -430,8 +475,8 @@ void HellRandomLevelSource::postProcess(ChunkSource *parent, int xt, int zt)
 	// we need to use a separate random - have used the same initialisation code as used in RandomLevelSource::postProcess to make sure this random value
 	// is consistent for each world generation. Also changed all uses of random here to pprandom.
 	pprandom->setSeed(level->getSeed());
-	int64_t xScale = pprandom->nextLong() / 2 * 2 + 1;
-	int64_t zScale = pprandom->nextLong() / 2 * 2 + 1;
+	__int64 xScale = pprandom->nextLong() / 2 * 2 + 1;
+	__int64 zScale = pprandom->nextLong() / 2 * 2 + 1;
 	pprandom->setSeed(((xt * xScale) + (zt * zScale)) ^ level->getSeed());
 
 	netherBridgeFeature->postProcess(level, pprandom, xt, zt);
@@ -455,6 +500,17 @@ void HellRandomLevelSource::postProcess(ChunkSource *parent, int xt, int zt)
 	}
 
 	count = pprandom->nextInt(pprandom->nextInt(10) + 1);
+
+	for (int i = 0; i < count; i++)
+	{
+		int x = xo + pprandom->nextInt(16) + 8;
+		int y = pprandom->nextInt(Level::genDepth - 8) + 4;
+		int z = zo + pprandom->nextInt(16) + 8;
+		NetherSoilFireFeature().place(level, pprandom, x, y, z);
+	}
+
+	count = pprandom->nextInt(pprandom->nextInt(10) + 1);
+
 	for (int i = 0; i < count; i++)
 	{
 		int x = xo + pprandom->nextInt(16) + 8;
@@ -470,6 +526,24 @@ void HellRandomLevelSource::postProcess(ChunkSource *parent, int xt, int zt)
 		int z = zo + pprandom->nextInt(16) + 8;
 		HellPortalFeature().place(level, pprandom, x, y, z);
 	}
+
+	for (int i = 0; i < 96; i++)
+	{
+		int x = xo + pprandom->nextInt(16) + 8;
+		int y = pprandom->nextInt(Level::genDepth - 8) + 4;
+		int z = zo + pprandom->nextInt(16) + 8;
+		NetherTreeFeature().place(level, pprandom, x, y, z);
+	}
+
+	for (int i = 0; i < 64; i++)
+	{
+		int x = xo + pprandom->nextInt(16) + 8;
+		int y = pprandom->nextInt(Level::genDepth - 8) + 4;
+		int z = zo + pprandom->nextInt(16) + 8;
+		NetherMushroomHugeFeature().place(level, pprandom, x, y, z);
+	}
+
+	count = pprandom->nextInt(pprandom->nextInt(1) + 1);
 
 	if (pprandom->nextInt(1) == 0)
 	{
@@ -487,8 +561,8 @@ void HellRandomLevelSource::postProcess(ChunkSource *parent, int xt, int zt)
 		FlowerFeature(Tile::mushroom_red_Id).place(level, pprandom, x, y, z);
 	}
 
-	OreFeature quartzFeature(Tile::netherQuartz_Id, 13, Tile::netherRack_Id);
-	for (int i = 0; i < 16; i++)
+	OreFeature quartzFeature(Tile::netherQuartz_Id, 17, Tile::netherRack_Id);
+	for (int i = 0; i < 19; i++)
 	{
 		int x = xo + pprandom->nextInt(16);
 		int y = pprandom->nextInt(Level::genDepth - 20) + 10;
@@ -496,7 +570,52 @@ void HellRandomLevelSource::postProcess(ChunkSource *parent, int xt, int zt)
 		quartzFeature.place(level, pprandom, x, y, z);
 	}
 
+	OreFeature netherDiamondFeature(Tile::netherDiamond_Id, 4, Tile::netherRack_Id);
 	for (int i = 0; i < 16; i++)
+	{
+		int x = xo + pprandom->nextInt(16);
+		int y = pprandom->nextInt(Level::genDepth - 20) + 10;
+		int z = zo + pprandom->nextInt(16);
+		netherDiamondFeature.place(level, pprandom, x, y, z);
+	}
+
+	OreFeature netherGoldFeature(Tile::netherGold_Id, 9, Tile::netherRack_Id);
+	for (int i = 0; i < 32; i++)
+	{
+		int x = xo + pprandom->nextInt(16);
+		int y = pprandom->nextInt(Level::genDepth - 20) + 10;
+		int z = zo + pprandom->nextInt(16);
+		netherGoldFeature.place(level, pprandom, x, y, z);
+	}
+
+	OreFeature netherGravelFeature(Tile::gravel_Id, 24, Tile::netherRack_Id);
+	for (int i = 0; i < 16; i++)
+	{
+		int x = xo + pprandom->nextInt(16);
+		int y = pprandom->nextInt(Level::genDepth - 20) + 10;
+		int z = zo + pprandom->nextInt(16);
+		netherGravelFeature.place(level, pprandom, x, y, z);
+	}
+
+	OreFeature goldenclinFeature(Tile::goldenclin_Id, 24, Tile::netherRack_Id);
+	for (int i = 0; i < 18; i++)
+	{
+		int x = xo + pprandom->nextInt(16);
+		int y = pprandom->nextInt(Level::genDepth - 20) + 10;
+		int z = zo + pprandom->nextInt(16);
+		goldenclinFeature.place(level, pprandom, x, y, z);
+	}
+
+	OreFeature nethaniumFeature(Tile::nethaniumOre_Id, 8, Tile::netherRack_Id);
+	for (int i = 0; i < 16; i++)
+	{
+		int x = xo + pprandom->nextInt(16);
+		int y = pprandom->nextInt(Level::genDepth - 20) + 10;
+		int z = zo + pprandom->nextInt(16);
+		nethaniumFeature.place(level, pprandom, x, y, z);
+	}
+
+	for (int i = 0; i < 19; i++)
 	{
 		int x = xo + random->nextInt(16);
 		int y = random->nextInt(Level::genDepth - 20) + 10;
@@ -504,6 +623,28 @@ void HellRandomLevelSource::postProcess(ChunkSource *parent, int xt, int zt)
 		HellSpringFeature hellSpringFeature(Tile::lava_Id, true);
 		hellSpringFeature.place(level, random, x, y, z);
 	}
+
+	PIXBeginNamedEvent(0,"Nether dungeons");
+	for (int i = 0; i < 48; i++)
+	{
+		int x = xo + pprandom->nextInt(16) + 8;
+		int y = pprandom->nextInt(Level::genDepth);
+		int z = zo + pprandom->nextInt(16) + 8;
+		NetherDungeonFeature mrf;
+		mrf.place(level, pprandom, x, y, z);
+	}
+	PIXEndNamedEvent();
+
+		PIXBeginNamedEvent(0,"Nether house");
+	for (int i = 0; i < 12; i++)
+	{
+		int x = xo + pprandom->nextInt(16) + 8;
+		int y = pprandom->nextInt(Level::genDepth);
+		int z = zo + pprandom->nextInt(16) + 8;
+		HouseFeature mrf;
+		mrf.place(level, pprandom, x, y, z);
+	}
+	PIXEndNamedEvent();
 
 	HeavyTile::instaFall = false;
 
@@ -547,19 +688,19 @@ vector<Biome::MobSpawnerData *> *HellRandomLevelSource::getMobsAt(MobCategory *m
 	}
 
 	Biome *biome = level->getBiome(x, z);
-	if (biome == nullptr)
+	if (biome == NULL)
 	{
-		return nullptr;
+		return NULL;
 	}
 	return biome->getMobs(mobCategory);
 }
 
 TilePos *HellRandomLevelSource::findNearestMapFeature(Level *level, const wstring& featureName, int x, int y, int z)
 {
-	return nullptr;
+	return NULL;
 }
 
 void HellRandomLevelSource::recreateLogicStructuresForChunk(int chunkX, int chunkZ)
 {
-	netherBridgeFeature->apply(this, level, chunkX, chunkZ, byteArray());
+	netherBridgeFeature->apply(this, level, chunkX, chunkZ, NULL);
 }

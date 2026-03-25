@@ -34,30 +34,35 @@ void ToolRecipies::_init()
 	ADD_OBJECT(map[0],Item::ironIngot);
 	ADD_OBJECT(map[0],Item::diamond);
 	ADD_OBJECT(map[0],Item::goldIngot);
+	ADD_OBJECT(map[0],Item::nethanium);
 
 	ADD_OBJECT(map[1],Item::pickAxe_wood);
 	ADD_OBJECT(map[1],Item::pickAxe_stone);
 	ADD_OBJECT(map[1],Item::pickAxe_iron);
 	ADD_OBJECT(map[1],Item::pickAxe_diamond);
 	ADD_OBJECT(map[1],Item::pickAxe_gold);
+	ADD_OBJECT(map[1],Item::nethaniumPickaxe);
 
 	ADD_OBJECT(map[2],Item::shovel_wood);
 	ADD_OBJECT(map[2],Item::shovel_stone);
 	ADD_OBJECT(map[2],Item::shovel_iron);
 	ADD_OBJECT(map[2],Item::shovel_diamond);
 	ADD_OBJECT(map[2],Item::shovel_gold);
+	ADD_OBJECT(map[2],Item::nethaniumShovel);
 
 	ADD_OBJECT(map[3],Item::hatchet_wood);
 	ADD_OBJECT(map[3],Item::hatchet_stone);
 	ADD_OBJECT(map[3],Item::hatchet_iron);
 	ADD_OBJECT(map[3],Item::hatchet_diamond);
 	ADD_OBJECT(map[3],Item::hatchet_gold);
+	ADD_OBJECT(map[3],Item::nethaniumAxe);
 
 	ADD_OBJECT(map[4],Item::hoe_wood);
 	ADD_OBJECT(map[4],Item::hoe_stone);
 	ADD_OBJECT(map[4],Item::hoe_iron);
 	ADD_OBJECT(map[4],Item::hoe_diamond);
 	ADD_OBJECT(map[4],Item::hoe_gold);
+	ADD_OBJECT(map[4],Item::nethaniumHoe);
 }
 
 void ToolRecipies::addRecipes(Recipes *r) 
@@ -103,11 +108,19 @@ void ToolRecipies::addRecipes(Recipes *r)
 			}
 		}
 	}
-	r->addShapedRecipy(new ItemInstance(static_cast<Item *>(Item::shears)), 
+	r->addShapedRecipy(new ItemInstance((Item *)Item::shears), 
 		L"sscig",
         L" #", //
         L"# ", //
 		L'#', Item::ironIngot,
+		L'T'
+		);
+
+	r->addShapedRecipy(new ItemInstance((Item *)Item::hellSphere), 
+		L"sscig",
+        L"##", //
+        L"##", //
+		L'#', Item::magmaCream,
 		L'T'
 		);
 }

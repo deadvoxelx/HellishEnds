@@ -12,7 +12,7 @@
 FlintAndSteelItem::FlintAndSteelItem(int id) : Item( id )
 {
 	maxStackSize = 1;
-	setMaxDamage(64);
+	setMaxDamage(385);
 }
 
 bool FlintAndSteelItem::useOn(shared_ptr<ItemInstance> instance, shared_ptr<Player> player, Level *level, int x, int y, int z, int face, float clickX, float clickY, float clickZ, bool bTestUseOnOnly) 

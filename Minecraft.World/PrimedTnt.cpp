@@ -33,7 +33,7 @@ PrimedTnt::PrimedTnt(Level *level, double x, double y, double z, shared_ptr<Livi
 
 	setPos(x, y, z);
 
-	float rot = static_cast<float>(Math::random() * PI * 2);
+	float rot = (float) (Math::random() * PI * 2);
 	xd = -sin(rot) * 0.02f;
 	yd = +0.2f;
 	zd = -cos(rot) * 0.02f;
@@ -98,14 +98,14 @@ void PrimedTnt::tick()
 
 void PrimedTnt::explode()
 {
-	float r = 4.0f;
+	float r = 8.0f;
 	level->explode(shared_from_this(), x, y, z, r, true);
 }
 
 
 void PrimedTnt::addAdditonalSaveData(CompoundTag *entityTag)
 {
-	entityTag->putByte(L"Fuse", static_cast<byte>(life));
+	entityTag->putByte(L"Fuse", (byte) life);
 }
 
 void PrimedTnt::readAdditionalSaveData(CompoundTag *tag)

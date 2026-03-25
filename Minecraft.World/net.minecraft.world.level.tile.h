@@ -129,5 +129,10 @@
 #include "HalfSlabTile.h"
 #include "WoodSlabTile.h"
 #include "WoolCarpetTile.h"
+#include "NetherSoilTile.h"
+#include "NetherLeavesTile.h"
+#include "NetherWoodTile.h"
+#include "NetherPlanks.h"
+#include "NetherVineTile.h"
 
 

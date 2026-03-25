@@ -41,7 +41,7 @@ bool HouseFeature::place(Level *level, Random *random, int x, int y, int z)
 			}
 			else
 			{
-				if (t == Tile::cobblestone_Id || t == Tile::mossyCobblestone_Id) return false;
+				if (t == Tile::netherBrick_Id || t == Tile::netherBricksMossy_Id) return false;
 			}
 
 		}
@@ -101,15 +101,15 @@ bool HouseFeature::place(Level *level, Random *random, int x, int y, int z)
 				int material = -1;
 				if (yy == y0 + h - 1)
 				{
-					material = Tile::wood_Id;
+					material = Tile::netherPlanks_Id;
 				}
 				else if (xx >= xx0 && xx <= xx1 && zz >= zz0 && zz <= zz1)
 				{
 					material = 0;
 					if (yy == y0 - 1 || yy == y0 + h - 1 || xx == xx0 || zz == zz0 || xx == xx1 || zz == zz1)
 					{
-						if (yy <= y0 + random->nextInt(3)) material = Tile::mossyCobblestone_Id;
-						else material = Tile::cobblestone_Id;
+						if (yy <= y0 + random->nextInt(3)) material = Tile::netherBricksMossy_Id;
+						else material = Tile::netherBrick_Id;
 					}
 				}
 
@@ -162,30 +162,7 @@ bool HouseFeature::place(Level *level, Random *random, int x, int y, int z)
 			}
 		}
 	}
-
-	int ww = xx1 - xx0;
-	int dd = zz1 - zz0;
-	for (int i = 0; i < (ww * 2 + dd * 2); i++)
-	{
-		int xx = xx0 + random->nextInt(ww - 1) + 1;
-		int zz = zz0 + random->nextInt(dd - 1) + 1;
-		int yy = y0;
-
-		if (level->getTile(xx, yy + 2, zz) == 0)
-		{
-			int count = 0;
-			if (level->isSolidBlockingTile(xx - 1, yy + 2, zz)) count++;
-			if (level->isSolidBlockingTile(xx + 1, yy + 2, zz)) count++;
-			if (level->isSolidBlockingTile(xx, yy + 2, zz - 1)) count++;
-			if (level->isSolidBlockingTile(xx, yy + 2, zz + 1)) count++;
-			if (count == 1)
-			{
-				level->setTileAndData(xx, y0 + 2, zz, Tile::torch_Id, 0, Tile::UPDATE_CLIENTS);
-			}
-		}
-	}
-
-	shared_ptr<PigZombie>(pz) = std::make_shared<PigZombie>(level);
+	shared_ptr<PigZombie>(pz) = shared_ptr<PigZombie>(new PigZombie(level));
 	pz->moveTo(x0 + w / 2.0 + 0.5, y0 + 0.5, z0 + d / 2.0 + 0.5, 0, 0);
 	level->addEntity(pz);
 

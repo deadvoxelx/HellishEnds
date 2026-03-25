@@ -59,13 +59,13 @@ protected:
 		ThreadStorage();
 	};
 	static DWORD tlsIdxShape;
-public:
+public:	
 	// Each new thread that needs to use Vec3 pools will need to call one of the following 2 functions, to either create its own
 	// local storage, or share the default storage already allocated by the main thread
 	static void CreateNewThreadStorage();
 	static void ReleaseThreadStorage();
 
-public:
+public:	
 	static const int TILE_NUM_COUNT = 4096;
 	static const int TILE_NUM_MASK = 0xfff; // 4096 - 1
 	static const int TILE_NUM_SHIFT = 12; // 4096 is 12 bits
@@ -118,7 +118,7 @@ public:
 	static SoundType *SOUND_NORMAL;
 	static SoundType *SOUND_WOOD;
 	static SoundType *SOUND_GRAVEL;
-	static SoundType *SOUND_GRASS;
+	static SoundType *SOUND_GRASS; 
 	static SoundType *SOUND_STONE;
 	static SoundType *SOUND_METAL;
 	static SoundType *SOUND_GLASS;
@@ -364,6 +364,20 @@ public:
 	static const int woolCarpet_Id = 171;
 	static const int clayHardened_Id = 172;
 	static const int coalBlock_Id = 173;
+	static const int netherDiamond_Id = 174;
+	static const int netherGold_Id = 175;
+	static const int goldenclin_Id = 176;
+	static const int goldenclinBricks_Id = 177;
+	static const int netherSoil_Id = 178;
+	static const int lavaRock_Id = 179;
+	static const int netherLeaves_Id = 180;
+	static const int netherWood_Id = 181;
+	static const int netherPlanks_Id = 182;
+	static const int netherVine_Id = 183;
+	static const int netherBricksMossy_Id = 184;
+	static const int nethaniumOre_Id = 185;
+	static const int nethaniumBlock_Id = 186;
+	static const int netherSapling_Id = 187;
 
 
 	static Tile *stone;
@@ -540,6 +554,20 @@ public:
 	static Tile *woolCarpet;
 	static Tile *clayHardened;
 	static Tile *coalBlock;
+	static Tile *netherDiamond;
+	static Tile *netherGold;
+	static Tile *goldenclin;
+	static Tile *goldenclinBricks;
+	static Tile *netherSoil;
+	static Tile *lavaRock;
+	static Tile *netherLeaves;
+	static Tile *netherWood;
+	static Tile *netherPlanks;
+	static Tile *netherVine;
+	static Tile *netherBricksMossy;
+	static Tile *nethaniumOre;
+	static Tile *nethaniumBlock;
+	static Tile *netherSapling;
 
 	static void staticCtor();
 
@@ -704,7 +732,7 @@ public:
 	virtual void playerWillDestroy(Level *level, int x, int y, int z, int data, shared_ptr<Player> player);
 	virtual void onRemoving(Level *level, int x, int y, int z, int data);
 	virtual void handleRain(Level *level, int x, int y, int z);
-	virtual void levelTimeChanged(Level *level, int64_t delta, int64_t newTime);
+	virtual void levelTimeChanged(Level *level, __int64 delta, __int64 newTime);
 	virtual bool useOwnCloneData();
 	virtual bool canInstantlyTick();
 	virtual bool dropFromExplosion(Explosion *explosion);
@@ -719,7 +747,7 @@ protected:
 
 public:
 	virtual void registerIcons(IconRegister *iconRegister);
-	virtual wstring getTileItemIconName();
+	virtual wstring getTileItemIconName();	
 
 	// AP - added this function so we can generate the faceFlags for a block in a single fast function
 	int getFaceFlags(LevelSource *level, int x, int y, int z);

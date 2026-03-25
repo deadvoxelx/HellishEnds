@@ -496,6 +496,7 @@ bool WitherBoss::hurt(DamageSource *source, float dmg)
 void WitherBoss::dropDeathLoot(bool wasKilledByPlayer, int playerBonusLevel)
 {
 	spawnAtLocation(Item::netherStar_Id, 1);
+	spawnAtLocation(Item::relicMallet_Id, 1);
 }
 
 void WitherBoss::checkDespawn()

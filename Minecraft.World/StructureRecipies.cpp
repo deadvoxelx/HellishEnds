@@ -56,6 +56,14 @@ void StructureRecipies::addRecipes(Recipes *r)
 
 		L'#', Tile::wood,
 		L'S');
+
+	r->addShapedRecipy(new ItemInstance(Tile::workBench), //
+		L"ssctg",
+		L"##", //
+		L"##", //
+
+		L'#', Tile::netherPlanks,
+		L'S');
 	
 	r->addShapedRecipy(new ItemInstance(Tile::furnace), //
 		L"sssctg",
@@ -66,13 +74,31 @@ void StructureRecipies::addRecipes(Recipes *r)
 		L'#', Tile::cobblestone,
 		L'S');
 
-	r->addShapedRecipy(new ItemInstance(static_cast<Tile *>(Tile::chest)), //
+	r->addShapedRecipy(new ItemInstance(Tile::furnace), //
+		L"sssctg",
+		L"###", //
+		L"# #", //
+		L"###", //
+
+		L'#', Tile::goldenclin,
+		L'S');
+
+	r->addShapedRecipy(new ItemInstance((Tile*)Tile::chest), //
 		L"sssctg",
 		L"###", //
 		L"# #", //
 		L"###", //
 
 		L'#', Tile::wood,
+		L'S');
+
+	r->addShapedRecipy(new ItemInstance((Tile*)Tile::chest), //
+		L"sssctg",
+		L"###", //
+		L"# #", //
+		L"###", //
+
+		L'#', Tile::netherPlanks,
 		L'S');
 
 	r->addShapedRecipy(new ItemInstance(Tile::chest_trap), //
@@ -115,10 +141,8 @@ void StructureRecipies::addRecipes(Recipes *r)
 
 		L'#', Tile::glass,
 		L'D');
+
 	
-
-
-
 // Stained Glass block + pane per color
 for (int i = 0; i < 16; i++)
 {
@@ -144,6 +168,13 @@ for (int i = 0; i < 16; i++)
 		L"NN", //
 
 		L'N', Item::netherbrick,
+		L'S');
+
+	r->addShapedRecipy(new ItemInstance(Tile::netherBricksMossy, 1), //
+		L"sctctg",
+		L"#-", //
+
+		L'#', Tile::netherBrick, L'-', Tile::netherVine,
 		L'S');
 
 	r->addShapedRecipy(new ItemInstance(Tile::redstoneLight, 1), //

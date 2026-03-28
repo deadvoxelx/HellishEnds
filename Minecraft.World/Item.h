@@ -91,6 +91,7 @@ public:
 		eMaterial_bookshelf,
 		eMaterial_wheat,
 		eMaterial_nethanium,
+		eMaterial_bread,
 
 	}
 	eMaterial;
@@ -141,6 +142,7 @@ public:
 		eBaseItemType_fireworks,
 		eBaseItemType_lever,
 		eBaseItemType_paper,
+		eBaseItemType_bread,
 		eBaseItemType_MAXTYPES,
 	}
 	eBaseItemType;
@@ -425,6 +427,9 @@ public:
 	static Item *nethaniumLeggings;
 	static Item *nethaniumBoots;
 	static Item *relicMallet;
+	static Item *netherBread;
+	static Item *goldBread;
+	static Item *nethaniumBread;
 
 
 	static const int shovel_iron_Id			= 256;
@@ -643,6 +648,9 @@ public:
 	static const int nethaniumLeggings_Id = 431;
 	static const int nethaniumBoots_Id = 432;
 	static const int relicMallet_Id = 433;
+	static const int netherBread_Id = 434;
+	static const int goldBread_Id = 435;
+	static const int nethaniumBread_Id = 436;
 
 public:
 	const int id;

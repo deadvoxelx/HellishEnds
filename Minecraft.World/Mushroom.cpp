@@ -13,7 +13,7 @@ Mushroom::Mushroom(int id) : Bush(id)
 // 4J Added override
 void Mushroom::updateDefaultShape()
 {
-	float ss = 0.2f;
+	float ss = 0.4f;
 	this->setShape(0.5f - ss, 0, 0.5f - ss, 0.5f + ss, ss * 2, 0.5f + ss);
 }
 
@@ -69,7 +69,7 @@ bool Mushroom::canSurvive(Level *level, int x, int y, int z)
 
 	int below = level->getTile(x, y - 1, z);
 
-	return below == Tile::mycel_Id || (level->getDaytimeRawBrightness(x, y, z) < 13 && mayPlaceOn(below));
+	return below == Tile::mycel_Id || below == Tile::netherSoil_Id || (level->getDaytimeRawBrightness(x, y, z) < 13 && mayPlaceOn(below));
 }
 
 bool Mushroom::growTree(Level *level, int x, int y, int z, Random *random)

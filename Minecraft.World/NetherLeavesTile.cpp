@@ -10,7 +10,6 @@ NetherLeavesTile::NetherLeavesTile(int id) : TransparentTile(id, Material::leave
 int NetherLeavesTile::getResource(int data, Random *random, int playerBonusLevel)
 {
 	return Item::stick->id;
-	//return Tile::netherSapling_Id + type;
 }
 
 int NetherLeavesTile::getResourceCountForLootBonus(int bonusLevel, Random *random)
@@ -30,5 +29,36 @@ shared_ptr<ItemInstance> NetherLeavesTile::getSilkTouchItemInstance(int data)
 
 void NetherLeavesTile::spawnResources(Level *level, int x, int y, int z, int data, float odds, int playerBonusLevel)
 {
-	Tile::spawnResources(level, x, y, z, data, odds, playerBonusLevel);
+	if (!level->isClientSide)
+	{
+		int chance = 5;
+
+		chance = 5;
+		if (playerBonusLevel > 0)
+		{
+			chance -= 1 << playerBonusLevel;
+			if (chance < 2)
+			{
+				chance = 2;
+			}
+		}
+		if (level->random->nextInt(chance) == 0)
+		{
+			popResource(level, x, y, z, std::make_shared<ItemInstance>(Tile::netherSapling_Id, 1, 0));
+		}
+
+		chance = 5;
+		if (playerBonusLevel > 0)
+		{
+			chance -= 1 << playerBonusLevel;
+			if (chance < 2)
+			{
+				chance = 2;
+			}
+		}
+		if (level->random->nextInt(chance) == 0)
+		{
+			popResource(level, x, y, z, std::make_shared<ItemInstance>(Item::stick_Id, 1, 0));
+		}
+	}
 }

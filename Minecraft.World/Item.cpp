@@ -264,6 +264,9 @@ Item *Item::nethaniumChestplate = NULL;
 Item *Item::nethaniumLeggings = NULL;
 Item *Item::nethaniumBoots = NULL;
 Item *Item::relicMallet = NULL;
+Item *Item::netherBread = NULL;
+Item *Item::goldBread = NULL;
+Item *Item::nethaniumBread = NULL;
 
 
 void Item::staticCtor()
@@ -368,7 +371,7 @@ void Item::staticCtor()
 
 	Item::seeds_wheat = ( new SeedItem(39, Tile::wheat_Id, Tile::farmland_Id) )			->setIconName(L"seeds")->setDescriptionId(IDS_ITEM_WHEAT_SEEDS)->setUseDescriptionId(IDS_DESC_WHEAT_SEEDS);
 	Item::wheat = ( new Item(40) )														->setBaseItemTypeAndMaterial(eBaseItemType_treasure,	eMaterial_wheat)->setIconName(L"wheat")->setDescriptionId(IDS_ITEM_WHEAT)->setUseDescriptionId(IDS_DESC_WHEAT);
-	Item::bread = ( new FoodItem(41, 5, FoodConstants::FOOD_SATURATION_NORMAL, false) )	->setIconName(L"bread")->setDescriptionId(IDS_ITEM_BREAD)->setUseDescriptionId(IDS_DESC_BREAD);
+	Item::bread = ( new FoodItem(41, 5, FoodConstants::FOOD_SATURATION_NORMAL, false) )	->setBaseItemTypeAndMaterial(eBaseItemType_bread,	eMaterial_bread)->setIconName(L"bread")->setDescriptionId(IDS_ITEM_BREAD)->setUseDescriptionId(IDS_DESC_BREAD);
 
 
 	Item::flint = ( new Item(62) )																->setIconName(L"flint")->setDescriptionId(IDS_ITEM_FLINT)->setUseDescriptionId(IDS_DESC_FLINT);
@@ -498,9 +501,9 @@ void Item::staticCtor()
 
 	Item::emptyMap = (EmptyMapItem *) (new EmptyMapItem(139))->setIconName(L"map_empty")->setDescriptionId(IDS_ITEM_MAP_EMPTY)->setUseDescriptionId(IDS_DESC_MAP_EMPTY);
 
-	Item::carrotGolden = (new FoodItem(140, 6, FoodConstants::FOOD_SATURATION_SUPERNATURAL, false))			->setBaseItemTypeAndMaterial(eBaseItemType_giltFruit,	eMaterial_carrot)->setIconName(L"carrotGolden")->setPotionBrewingFormula(PotionBrewing::MOD_GOLDENCARROT)->setDescriptionId(IDS_ITEM_CARROT_GOLDEN)->setUseDescriptionId(IDS_DESC_CARROT_GOLDEN);
+	Item::carrotGolden = (new FoodItem(140, 6, FoodConstants::FOOD_SATURATION_SUPERNATURAL, false))	->setBaseItemTypeAndMaterial(eBaseItemType_giltFruit,	eMaterial_carrot)->setIconName(L"carrotGolden")->setPotionBrewingFormula(PotionBrewing::MOD_GOLDENCARROT)->setDescriptionId(IDS_ITEM_CARROT_GOLDEN)->setUseDescriptionId(IDS_DESC_CARROT_GOLDEN);
 
-	Item::carrotOnAStick = (new CarrotOnAStickItem(142))													->setBaseItemTypeAndMaterial(eBaseItemType_rod, eMaterial_carrot)->setIconName(L"carrotOnAStick")->setDescriptionId(IDS_ITEM_CARROT_ON_A_STICK)->setUseDescriptionId(IDS_DESC_CARROT_ON_A_STICK);
+	Item::carrotOnAStick = (new CarrotOnAStickItem(142))											->setBaseItemTypeAndMaterial(eBaseItemType_rod, eMaterial_carrot)->setIconName(L"carrotOnAStick")->setDescriptionId(IDS_ITEM_CARROT_ON_A_STICK)->setUseDescriptionId(IDS_DESC_CARROT_ON_A_STICK);
 	Item::netherStar = (new SimpleFoiledItem(143))													->setIconName(L"nether_star")->setDescriptionId(IDS_NETHER_STAR)->setUseDescriptionId(IDS_DESC_NETHER_STAR);
 	Item::pumpkinPie = (new FoodItem(144, 8, FoodConstants::FOOD_SATURATION_LOW, false))			->setIconName(L"pumpkinPie")->setDescriptionId(IDS_ITEM_PUMPKIN_PIE)->setUseDescriptionId(IDS_DESC_PUMPKIN_PIE);
 	Item::fireworks = (new FireworksItem(145))														->setBaseItemTypeAndMaterial(Item::eBaseItemType_fireworks,	Item::eMaterial_undefined)->setIconName(L"fireworks")->setDescriptionId(IDS_FIREWORKS)->setUseDescriptionId(IDS_DESC_FIREWORKS);
@@ -519,7 +522,10 @@ void Item::staticCtor()
 	Item::nameTag = (new NameTagItem(165))															->setIconName(L"name_tag")->setDescriptionId(IDS_ITEM_NAME_TAG)->setUseDescriptionId(IDS_DESC_NAME_TAG);
 	Item::nethanium = (new Item(166))																->setIconName(L"nethanium")->setBaseItemTypeAndMaterial(eBaseItemType_treasure,    eMaterial_nethanium)->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
 	Item::hellSphere = ( new HellSphereItem(172) )													->setIconName(L"hellsphere")->setDescriptionId(IDS_ITEM_HELLSPHERE)->setUseDescriptionId(IDS_DESC_HELLSPHERE);
-	Item::relicMallet	= ( new RelicMalletItem(177, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_nethanium)	->setIconName(L"relic_mallet")->setDescriptionId(IDS_ITEM_RELICMALLET)->setUseDescriptionId(IDS_DESC_RELICMALLET);
+	Item::relicMallet	= ( new RelicMalletItem(177, _Tier::NETHANIUM) )							->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_nethanium)->setIconName(L"relic_mallet")->setDescriptionId(IDS_ITEM_RELICMALLET)->setUseDescriptionId(IDS_DESC_RELICMALLET);
+	Item::netherBread = ( new FoodItem(178, 6, FoodConstants::FOOD_SATURATION_GOOD, false) )		->setBaseItemTypeAndMaterial(eBaseItemType_bread,	eMaterial_bread)->setIconName(L"nether_bread")->setDescriptionId(IDS_ITEM_BREAD)->setUseDescriptionId(IDS_DESC_BREAD);
+	Item::goldBread = ( new FoodItem(179, 7, FoodConstants::FOOD_SATURATION_GOOD, false) )			->setCanAlwaysEat()->setEatEffect(MobEffect::regeneration->id, 10, 1, 1.0f)->setBaseItemTypeAndMaterial(eBaseItemType_bread,	eMaterial_bread)->setIconName(L"gold_bread")->setDescriptionId(IDS_ITEM_BREAD)->setUseDescriptionId(IDS_DESC_BREAD);
+	Item::nethaniumBread = ( new FoodItem(180, 8, FoodConstants::FOOD_SATURATION_SUPERNATURAL, false) ) ->setCanAlwaysEat()->setEatEffect(MobEffect::damageResistance->id, 300, 3, 1.0f)->setBaseItemTypeAndMaterial(eBaseItemType_bread,	eMaterial_bread)->setIconName(L"nethanium_bread")->setDescriptionId(IDS_ITEM_BREAD)->setUseDescriptionId(IDS_DESC_BREAD);
 }
 
 

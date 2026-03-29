@@ -107,16 +107,19 @@ bool PigZombie::hurt(DamageSource *source, float dmg)
 	shared_ptr<Entity> sourceEntity = source->getEntity();
 	if ( sourceEntity != nullptr && sourceEntity->instanceof(eTYPE_PLAYER) )
 	{
-		vector<shared_ptr<Entity> > *nearby = level->getEntities( shared_from_this(), bb->grow(32, 32, 32));
-		for (auto& e : *nearby)
+		if (!dynamic_pointer_cast<Player>(source->getEntity())->abilities.invulnerable)
 		{
-			if ( e->instanceof(eTYPE_PIGZOMBIE) )
+			vector<shared_ptr<Entity> > *nearby = level->getEntities( shared_from_this(), bb->grow(32, 32, 32));
+			for (auto& e : *nearby)
 			{
-				shared_ptr<PigZombie> pigZombie = dynamic_pointer_cast<PigZombie>(e);
-				pigZombie->alert(sourceEntity);
+				if ( e->instanceof(eTYPE_PIGZOMBIE) )
+				{
+					shared_ptr<PigZombie> pigZombie = dynamic_pointer_cast<PigZombie>(e);
+					pigZombie->alert(sourceEntity);
+				}
 			}
+			alert(sourceEntity);
 		}
-		alert(sourceEntity);
 	}
 	return Zombie::hurt(source, dmg);
 }

@@ -420,3 +420,16 @@ shared_ptr<TileEntity> FurnaceTileEntity::clone()
 	}
 	return result;
 }
+
+int FurnaceTileEntity::getCookInterval(Level *level, int x, int y, int z)
+{
+	if (level != NULL)
+	{
+		int tileId = level->getTile(x, y, z);
+		if (tileId == Tile::nether_furnace_Id || tileId == Tile::nether_furnace_lit_Id)
+		{
+			return (std::max)(1, FurnaceTileEntity::BURN_INTERVAL / 2);
+		}
+	}
+	return FurnaceTileEntity::BURN_INTERVAL;
+}

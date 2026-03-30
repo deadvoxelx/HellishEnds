@@ -8,7 +8,7 @@ class HitResult;
 class HellSphere : public Throwable
 {
 public:
-	eINSTANCEOF GetType() { return eTYPE_SNOWBALL; }
+	eINSTANCEOF GetType() { return eTYPE_HELLSPHERE; }
 	static Entity *create(Level *level) { return new HellSphere(level); }
 
 private:

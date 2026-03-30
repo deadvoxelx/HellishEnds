@@ -161,6 +161,8 @@ const wchar_t *Textures::preLoaded[TN_COUNT] =
 	//L"item/christmas",
 	//L"item/christmas_double",
 
+	L"mob/pigman",
+
 #ifdef _LARGE_WORLDS
 	L"misc/additionalmapicons",
 #endif

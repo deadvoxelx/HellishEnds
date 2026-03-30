@@ -2,7 +2,7 @@
 #include "net.minecraft.world.level.h"
 #include "HouseFeature.h"
 #include "net.minecraft.world.level.tile.h"
-#include "net.minecraft.world.entity.monster.h"
+#include "net.minecraft.world.entity.animal.h"
 #include "net.minecraft.world.item.h"
 
 bool HouseFeature::place(Level *level, Random *random, int x, int y, int z)
@@ -162,7 +162,7 @@ bool HouseFeature::place(Level *level, Random *random, int x, int y, int z)
 			}
 		}
 	}
-	shared_ptr<PigZombie>(pz) = shared_ptr<PigZombie>(new PigZombie(level));
+	shared_ptr<Pigman>(pz) = shared_ptr<Pigman>(new Pigman(level));
 	pz->moveTo(x0 + w / 2.0 + 0.5, y0 + 0.5, z0 + d / 2.0 + 0.5, 0, 0);
 	level->addEntity(pz);
 

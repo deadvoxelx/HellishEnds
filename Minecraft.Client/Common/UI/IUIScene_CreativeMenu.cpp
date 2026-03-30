@@ -354,6 +354,7 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Item::spawnEgg_Id, 55); // Slime
 		ITEM_AUX(Item::spawnEgg_Id, 56); // Ghast
 		ITEM_AUX(Item::spawnEgg_Id, 57); // Zombie Pigman
+		ITEM_AUX(Item::spawnEgg_Id, 102); // Pigman
 		ITEM_AUX(Item::spawnEgg_Id, 58); // Enderman
 		ITEM_AUX(Item::spawnEgg_Id, 59); // Cave Spider
 		ITEM_AUX(Item::spawnEgg_Id, 60); // Silverfish

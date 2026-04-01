@@ -374,6 +374,7 @@ set(_MINECRAFT_SERVER_COMMON_ROOT
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/PendingConnection.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/PigModel.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/PigRenderer.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/PigmanRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/PistonPieceRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/PlayerChunkMap.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/PlayerCloudParticle.cpp"

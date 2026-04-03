@@ -105,7 +105,8 @@ void EntityIO::staticCtor()
 	setId(VillagerGolem::create, eTYPE_VILLAGERGOLEM, L"VillagerGolem", 99);
 	setId(EntityHorse::create, eTYPE_HORSE, L"EntityHorse", 100, eMinecraftColour_Mob_Horse_Colour1, eMinecraftColour_Mob_Horse_Colour2, IDS_HORSE);
 	setId(HellSphere::create, eTYPE_HELLSPHERE, L"hellsphere", 101);
-	setId(Pigman::create, eTYPE_PIGMAN, L"Pigman", 102, eMinecraftColour_Mob_Pig_Colour1, eMinecraftColour_Mob_Pig_Colour2, IDS_PIG);
+	setId(Pigman::create, eTYPE_PIGMAN, L"Pigman", 102, eMinecraftColour_Mob_Pig_Colour1, eMinecraftColour_Mob_Pig_Colour2, IDS_PIGMAN);
+	setId(Watcher::create, eTYPE_WATCHER, L"Watcher", 103, eMinecraftColour_Mob_Enderman_Colour1, eMinecraftColour_Mob_Enderman_Colour2, IDS_WATCHER);
 
 	setId(Villager::create, eTYPE_VILLAGER, L"Villager", 120, eMinecraftColour_Mob_Villager_Colour1, eMinecraftColour_Mob_Villager_Colour2, IDS_VILLAGER);
 

@@ -24,3 +24,6 @@
 #include "RangedAttackMob.h"
 #include "SharedMonsterAttributes.h"
 #include "Witch.h"
+
+// Added by DeadVoxelx
+#include "Watcher.h"

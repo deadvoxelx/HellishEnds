@@ -469,6 +469,8 @@ set(_MINECRAFT_SERVER_COMMON_ROOT
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/VillagerModel.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/VillagerRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/VillagerZombieModel.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/WatcherModel.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/WatcherRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/WaterDropParticle.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/Windows64/Iggy/gdraw/gdraw_d3d11.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/Windows64/KeyboardMouseInput.cpp"

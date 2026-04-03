@@ -2320,3 +2320,7 @@
 #define IDS_DESC_SAPLING_NETHER                                2314
 #define IDS_ITEM_RELICMALLET                            	   2315
 #define IDS_DESC_RELICMALLET                             	   2316
+#define IDS_WATCHER                                            2317
+#define IDS_DESC_WATCHER                                       2318
+#define IDS_PIGMAN                                             2319
+#define IDS_DESC_PIGMAN                                        2320

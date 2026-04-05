@@ -77,7 +77,8 @@ public:
 	{
 		DIMENSION_NETHER=-1,
 		DIMENSION_OVERWORLD=0,
-		DIMENSION_END=1
+		DIMENSION_END=1,
+		DIMENSION_OUTER_END=2
 	};
 
 protected:
@@ -96,7 +97,7 @@ public:
 	virtual int64_t getDayTime();
 	virtual  int64_t getSizeOnDisk();
 	virtual CompoundTag *getLoadedPlayerTag();
-	//int getDimension(); // 4J Removed TU 9 as it's never accurate
+	int getDimension(); // 4J Removed TU 9 as it's never accurate
 	virtual void setSeed(int64_t seed);
 	virtual void setXSpawn(int xSpawn);
 	virtual void setYSpawn(int ySpawn);
@@ -114,7 +115,7 @@ public:
 	virtual void setDayTime(int64_t time);
 	virtual void setSizeOnDisk(int64_t sizeOnDisk);
 	virtual void setLoadedPlayerTag(CompoundTag *loadedPlayerTag);
-	//void setDimension(int dimension); // 4J Removed TU 9 as it's never used
+	void setDimension(int dimension); // 4J Removed TU 9 as it's never used
 	virtual void setSpawn(int xSpawn, int ySpawn, int zSpawn);
 	virtual wstring getLevelName();
 	virtual void setLevelName(const wstring& levelName);

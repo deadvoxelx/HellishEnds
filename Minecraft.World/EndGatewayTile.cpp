@@ -48,29 +48,62 @@ void EndGatewayTile::entityInside(Level* level, int x, int y, int z, shared_ptr<
 {
     if (entity->GetType() == eTYPE_EXPERIENCEORB) return;
 
-    if (entity->riding == nullptr && entity->rider.lock() == nullptr)
-    {
-        if (!level->isClientSide)
-        {
-            MinecraftServer* server = MinecraftServer::getInstance();
-            if (server == nullptr)
-            {
-                printf("MINECRAFT SERVER IS NULL\n");
-                return;
-            }
+    if (level->getBiome(x, z) == Biome::sky)
+	{
+		if (entity->riding == nullptr && entity->rider.lock() == nullptr)
+    	{
+        	if (!level->isClientSide)
+        	{
+            	MinecraftServer* server = MinecraftServer::getInstance();
+            	if (server == nullptr)
+            	{
+                	printf("MINECRAFT SERVER IS NULL\n");
+                	return;
+            	}
 
-            ServerLevel* target = server->getLevel(2);
+            	ServerLevel* target = server->getLevel(2);
 
-            if (target == nullptr)
-            {
-                printf("DIMENSION 2 IS NULL\n");
-                return; // STOP BEFORE CRASH
-            }
+            	if (target == nullptr)
+            	{
+                	printf("DIMENSION 2 IS NULL\n");
+                	return; // STOP BEFORE CRASH
+            	}
  
-            entity->changeDimension(2);
+            	entity->changeDimension(2);
 
-        }
-    }
+        	}
+    	}
+	}
+	else 
+	{
+		if (level->getBiome(x, z) == Biome::outerIslands)
+		{
+			if (entity->riding == nullptr && entity->rider.lock() == nullptr)
+    		{
+        		if (!level->isClientSide)
+        		{
+            		MinecraftServer* server = MinecraftServer::getInstance();
+            		if (server == nullptr)
+            		{
+                		printf("MINECRAFT SERVER IS NULL\n");
+                		return;
+            		}
+
+            		ServerLevel* target = server->getLevel(1);
+
+            		if (target == nullptr)
+            		{
+                		printf("DIMENSION 1 IS NULL\n");
+                		return; // STOP BEFORE CRASH
+            		}
+ 
+            		entity->changeDimension(1);
+
+        		}
+    		}
+		}
+	}
+	
 }
 
 void EndGatewayTile::animateTick(Level *level, int xt, int yt, int zt, Random *random)

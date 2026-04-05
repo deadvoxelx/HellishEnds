@@ -128,7 +128,7 @@ Minecraft::Minecraft(Component *mouseComponent, Canvas *parent, MinecraftApplet 
 	timer = new Timer(SharedConstants::TICKS_PER_SECOND);
 	oldLevel = nullptr; //4J Stu added
 	level = nullptr;
-	levels = MultiPlayerLevelArray(3); // 4J Added
+	levels = MultiPlayerLevelArray(4); // 4J Added (overworld, nether, end, outer end)
 	levelRenderer = nullptr;
 	player = nullptr;
 	cameraTargetPlayer = nullptr;
@@ -4212,6 +4212,7 @@ MultiPlayerLevel *Minecraft::getLevel(int dimension)
 {
 	if (dimension == -1) return levels[1];
 	else if(dimension == 1) return levels[2];
+	else if(dimension == 2) return levels[3];
 	else return levels[0];
 }
 
@@ -4233,6 +4234,7 @@ void Minecraft::forceaddLevel(MultiPlayerLevel *level)
 	int dimId = level->dimension->id;
 	if (dimId == -1) levels[1] = level;
 	else if(dimId == 1) levels[2] = level;
+	else if(dimId == 2) levels[3] = level;
 	else levels[0] = level;
 }
 
@@ -4308,6 +4310,11 @@ void Minecraft::setLevel(MultiPlayerLevel *level, int message /*=-1*/, shared_pt
 			delete levels[2];
 			levels[2] = nullptr;
 		}
+		if(levels[3]!=nullptr)
+		{
+			delete levels[3];
+			levels[3] = nullptr;
+		}
 
 		// Delete all the player objects
 		for(unsigned int idx = 0; idx < XUSER_MAX_COUNT; ++idx)
@@ -4349,6 +4356,7 @@ void Minecraft::setLevel(MultiPlayerLevel *level, int message /*=-1*/, shared_pt
 		int dimId = level->dimension->id;
 		if (dimId == -1) levels[1] = level;
 		else if(dimId == 1) levels[2] = level;
+		else if(dimId == 2) levels[3] = level;
 		else levels[0] = level;
 
 		// If no player has been set, then this is the first level to be set this game, so set up
@@ -5260,4 +5268,3 @@ int Minecraft::MustSignInReturnedPSN(void *pParam, int iPad, C4JStorage::EMessag
 	return 0;
 }
 #endif
-

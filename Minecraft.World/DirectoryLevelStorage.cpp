@@ -25,7 +25,7 @@ _MapDataMappings::_MapDataMappings()
 int _MapDataMappings::getDimension(int id)
 {
 	const int offset = (2*(id%4));
-	const int val = (dimensions[id>>2] & (3 << offset))>>offset;
+	const int val = (dimensions[id>>3] & (4 << offset))>>offset;
 
 	int returnVal=0;
 
@@ -39,6 +39,9 @@ int _MapDataMappings::getDimension(int id)
 		break;
 	case 2:
 		returnVal = 1; // End
+		break;
+	case 3:
+		returnVal = 2; // Outer End
 		break;
 	default:
 #ifndef _CONTENT_PACKAGE
@@ -69,9 +72,12 @@ void _MapDataMappings::setMapping(int id, PlayerUID xuid, int dimension)
 	case 1: // End
 		dimensions[id>>2] |= ( 2 << offset );
 		break;
+	case 2: // Outer End
+		dimensions[id>>3] |= ( 3 << offset );
+		break;
 	default:
 #ifndef _CONTENT_PACKAGE
-		printf("Trinyg to set a MapDataMapping for an invalid dimension.\n");
+		printf("Trying to set a MapDataMapping for an invalid dimension.\n");
 		__debugbreak();
 #endif
 		break;
@@ -89,7 +95,7 @@ _MapDataMappings_old::_MapDataMappings_old()
 
 int _MapDataMappings_old::getDimension(int id)
 {
-	return dimensions[id>>3] & (128 >> (id%8) ) ? -1 : 0;
+	return dimensions[id>>4] & (128 >> (id%8) ) ? -1 : 0;
 }
 
 void _MapDataMappings_old::setMapping(int id, PlayerUID xuid, int dimension)
@@ -97,11 +103,11 @@ void _MapDataMappings_old::setMapping(int id, PlayerUID xuid, int dimension)
 	xuids[id] = xuid;
 	if( dimension == 0 )
 	{
-		dimensions[id>>3] &= ~( 128 >> (id%8) );
+		dimensions[id>>4] &= ~( 128 >> (id%8) );
 	}
 	else
 	{
-		dimensions[id>>3] |= ( 128 >> (id%8) );
+		dimensions[id>>4] |= ( 128 >> (id%8) );
 	}
 }
 
@@ -226,6 +232,12 @@ ChunkStorage *DirectoryLevelStorage::createChunkStorage(Dimension *dimension)
 	if (dynamic_cast<TheEndDimension *>(dimension) != nullptr)
 	{
 		const File dir2 = File(dir, LevelStorage::ENDER_FOLDER);
+		//dir2.mkdirs(); // 4J Removed
+		return new OldChunkStorage(dir2, true);
+	}
+	if (dynamic_cast<TheOuterEndDimension *>(dimension) != nullptr)
+	{
+		const File dir2 = File(dir, LevelStorage::OUTEREND_FOLDER);
 		//dir2.mkdirs(); // 4J Removed
 		return new OldChunkStorage(dir2, true);
 	}

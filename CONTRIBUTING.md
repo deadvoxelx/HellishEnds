@@ -1,2 +1,2 @@
 # Scope of Project
-Mainly overhauling the Nether, but other stuff is welcome.
+Mainly overhauling the Nether and the End, but other stuff is welcome.

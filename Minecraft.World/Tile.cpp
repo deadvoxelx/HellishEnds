@@ -15,6 +15,7 @@
 #include "net.minecraft.world.food.h"
 #include "net.minecraft.world.h"
 #include "net.minecraft.h"
+#include "EndGatewayTile.h"
 #include "Tile.h"
 
 wstring Tile::TILE_DESCRIPTION_PREFIX = L"Tile."; 
@@ -235,6 +236,8 @@ Tile *Tile::nethaniumBlock = NULL;
 Tile *Tile::netherSapling = NULL;
 Tile *Tile::nether_furnace = NULL;
 Tile *Tile::nether_furnace_lit = NULL;
+Tile *Tile::endGateway = NULL;
+
 
 DWORD Tile::tlsIdxShape = TlsAlloc();
 
@@ -479,7 +482,11 @@ void Tile::staticCtor()
 	Tile::netherSapling = (Bush *) (new Mushroom(187))							->setDestroyTime(0.0f)->setSoundType(Tile::SOUND_GRASS)->setIconName(L"sapling_nether")->setDescriptionId(IDS_TILE_SAPLING_NETHER)->setUseDescriptionId(IDS_DESC_SAPLING_NETHER)->disableMipmap();
 	Tile::nether_furnace = (new NetherFurnaceTile(188, false))							->setBaseItemTypeAndMaterial(Item::eBaseItemType_device,	Item::eMaterial_stone)->setDestroyTime(3.0f)->setSoundType(Tile::SOUND_STONE)->setIconName(L"nether_furnace")->setDescriptionId(IDS_TILE_FURNACE)->sendTileData()->setUseDescriptionId(IDS_DESC_FURNACE);
 	Tile::nether_furnace_lit = (new NetherFurnaceTile(189, true))							->setDestroyTime(3.0f)->setSoundType(Tile::SOUND_STONE)->setLightEmission(14 / 16.0f)->setIconName(L"nether_furnace")->setDescriptionId(IDS_TILE_FURNACE)->sendTileData()->setUseDescriptionId(IDS_DESC_FURNACE);
-	
+	Tile::endGateway = (new EndGatewayTile(200, Material::portal))
+    ->setDestroyTime(INDESTRUCTIBLE_DESTROY_TIME)
+    ->setExplodeable(6000000)
+    ->setDescriptionId(IDS_TILE_END_PORTAL)
+    ->setUseDescriptionId(IDS_DESC_END_PORTAL);
 
 
 	// Special cases for certain items since they can have different icons

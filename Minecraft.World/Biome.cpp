@@ -42,6 +42,8 @@ Biome *Biome::smallerExtremeHills = nullptr;
 Biome *Biome::jungle = nullptr;
 Biome *Biome::jungleHills = nullptr;
 
+Biome *Biome::outerIslands = nullptr;
+
 
 void Biome::staticCtor()
 {
@@ -78,6 +80,8 @@ void Biome::staticCtor()
 
 	Biome::jungle = (new JungleBiome(21))->setColor(0x537b09)->setName(L"Jungle")->setLeafColor(0x537b09)->setTemperatureAndDownfall(1.2f, 0.9f)->setDepthAndScale(0.1f, 1.5f)->setLeafFoliageWaterSkyColor(eMinecraftColour_Grass_Jungle, eMinecraftColour_Foliage_Jungle, eMinecraftColour_Water_Jungle,eMinecraftColour_Sky_Jungle);
 	Biome::jungleHills = (new JungleBiome(22))->setColor(0x2c4205)->setName(L"JungleHills")->setLeafColor(0x537b09)->setTemperatureAndDownfall(1.2f, 0.9f)->setDepthAndScale(0.1f, 2)->setLeafFoliageWaterSkyColor(eMinecraftColour_Grass_JungleHills, eMinecraftColour_Foliage_JungleHills, eMinecraftColour_Water_JungleHills,eMinecraftColour_Sky_JungleHills);
+
+	Biome::outerIslands = (new TheOuterEndBiome(23))->setColor(0x8080ff)->setName(L"OuterIslands")->setNoRain()->setLeafFoliageWaterSkyColor(eMinecraftColour_Grass_Sky, eMinecraftColour_Foliage_Sky, eMinecraftColour_Water_Sky,eMinecraftColour_Sky_Sky);
 }
 
 Biome::Biome(int id) : id(id)

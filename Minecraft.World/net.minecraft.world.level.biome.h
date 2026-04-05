@@ -30,3 +30,6 @@
 
 //1.2.3
 #include "JungleBiome.h"
+
+#include "TheOuterEndBiome.h"
+#include "TheOuterEndBiomeDecorator.h"

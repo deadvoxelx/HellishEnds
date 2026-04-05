@@ -1007,6 +1007,44 @@ void LevelRenderer::renderSky(float alpha)
 		return;
 	}
 
+	if (mc->level->dimension->id == 2)
+	{
+		glDisable(GL_FOG);
+		glDisable(GL_ALPHA_TEST);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		Lighting::turnOff();
+
+
+		glDepthMask(false);
+		textures->bindTexture(&END_SKY_LOCATION); // 4J was L"/1_2_2/misc/tunnel.png"
+		Tesselator *t = Tesselator::getInstance();
+		t->setMipmapEnable(false);
+		for (int i = 0; i < 6; i++)
+		{
+			glPushMatrix();
+			if (i == 1) glRotatef(90, 1, 0, 0);
+			if (i == 2) glRotatef(-90, 1, 0, 0);
+			if (i == 3) glRotatef(180, 1, 0, 0);
+			if (i == 4) glRotatef(90, 0, 0, 1);
+			if (i == 5) glRotatef(-90, 0, 0, 1);
+			t->begin();
+			t->color(0x282828);
+			t->vertexUV(-100, -100, -100, 0, 0);
+			t->vertexUV(-100, -100, +100, 0, 16);
+			t->vertexUV(+100, -100, +100, 16, 16);
+			t->vertexUV(+100, -100, -100, 16, 0);
+			t->end();
+			glPopMatrix();
+		}
+		t->setMipmapEnable(true);
+		glDepthMask(true);
+		glEnable(GL_TEXTURE_2D);
+		glEnable(GL_ALPHA_TEST);
+
+		return;
+	}
+
 	if (!mc->level->dimension->isNaturalDimension()) return;
 
 	glDisable(GL_TEXTURE_2D);

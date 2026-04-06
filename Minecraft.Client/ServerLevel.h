@@ -138,7 +138,7 @@ public:
 	static const int MAX_HANGING_ENTITIES = 400;
 	static const int MAX_ITEM_ENTITIES = 200;
 	static const int MAX_ARROW_ENTITIES = 200;
-	static const int MAX_EXPERIENCEORB_ENTITIES = 50;
+	static const int MAX_EXPERIENCEORB_ENTITIES = 200;
 	static const int MAX_PRIMED_TNT = 20;
 	static const int MAX_FALLING_TILE = 20;
 
@@ -165,18 +165,18 @@ public:
 	static const int MAX_UPDATES = 256;
 
 	// Each of these need to be duplicated for each level in the current game. As we currently only have 2 (over/nether), making this constant
-	static Level 				*m_level[3];
-	static int					m_updateChunkX[3][LEVEL_CHUNKS_TO_UPDATE_MAX];
-	static int					m_updateChunkZ[3][LEVEL_CHUNKS_TO_UPDATE_MAX];
-	static int					m_updateChunkCount[3];
-	static int					m_updateTileX[3][MAX_UPDATES];
-	static int					m_updateTileY[3][MAX_UPDATES];
-	static int					m_updateTileZ[3][MAX_UPDATES];
-	static int					m_updateTileCount[3];
-	static int					m_randValue[3];
+	static Level 				*m_level[4];
+	static int					m_updateChunkX[4][LEVEL_CHUNKS_TO_UPDATE_MAX];
+	static int					m_updateChunkZ[4][LEVEL_CHUNKS_TO_UPDATE_MAX];
+	static int					m_updateChunkCount[4];
+	static int					m_updateTileX[4][MAX_UPDATES];
+	static int					m_updateTileY[4][MAX_UPDATES];
+	static int					m_updateTileZ[4][MAX_UPDATES];
+	static int					m_updateTileCount[4];
+	static int					m_randValue[4];
 
 	static C4JThread::EventArray*	m_updateTrigger;
-	static CRITICAL_SECTION		m_updateCS[3];
+	static CRITICAL_SECTION		m_updateCS[4];
 
 	static C4JThread*			m_updateThread;
 	static int 	runUpdate(void* lpParam);

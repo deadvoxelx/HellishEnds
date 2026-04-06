@@ -1545,7 +1545,7 @@ int ServerLevel::runUpdate(void* lpParam)
 		// 4J Stu - Grass and Lava ticks currently take up the majority of all tile updates, so I am limiting them
 		int grassTicks = 0;
 		int lavaTicks = 0;
-		for( unsigned int iLev = 0; iLev < 3; ++iLev )
+		for( unsigned int iLev = 0; iLev < 4; ++iLev )
 		{
 			EnterCriticalSection(&m_updateCS[iLev]);
 			for( int i = 0; i < m_updateChunkCount[iLev]; i++ )

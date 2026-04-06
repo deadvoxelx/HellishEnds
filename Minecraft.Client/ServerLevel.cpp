@@ -44,24 +44,25 @@ WeighedTreasureArray ServerLevel::RANDOM_BONUS_ITEMS;
 
 C4JThread* ServerLevel::m_updateThread = nullptr;
 C4JThread::EventArray* ServerLevel::m_updateTrigger;
-CRITICAL_SECTION ServerLevel::m_updateCS[3];
+CRITICAL_SECTION ServerLevel::m_updateCS[4];
 
-Level *ServerLevel::m_level[3];
-int	   ServerLevel::m_updateChunkX[3][LEVEL_CHUNKS_TO_UPDATE_MAX];
-int	   ServerLevel::m_updateChunkZ[3][LEVEL_CHUNKS_TO_UPDATE_MAX];
-int	   ServerLevel::m_updateChunkCount[3];
-int	   ServerLevel::m_updateTileX[3][MAX_UPDATES];
-int	   ServerLevel::m_updateTileY[3][MAX_UPDATES];
-int	   ServerLevel::m_updateTileZ[3][MAX_UPDATES];
-int	   ServerLevel::m_updateTileCount[3];
-int	   ServerLevel::m_randValue[3];
+Level *ServerLevel::m_level[4];
+int	   ServerLevel::m_updateChunkX[4][LEVEL_CHUNKS_TO_UPDATE_MAX];
+int	   ServerLevel::m_updateChunkZ[4][LEVEL_CHUNKS_TO_UPDATE_MAX];
+int	   ServerLevel::m_updateChunkCount[4];
+int	   ServerLevel::m_updateTileX[4][MAX_UPDATES];
+int	   ServerLevel::m_updateTileY[4][MAX_UPDATES];
+int	   ServerLevel::m_updateTileZ[4][MAX_UPDATES];
+int	   ServerLevel::m_updateTileCount[4];
+int	   ServerLevel::m_randValue[4];
 
 void ServerLevel::staticCtor()
 {
-	m_updateTrigger  = new C4JThread::EventArray(3);
+	m_updateTrigger  = new C4JThread::EventArray(4);
 	InitializeCriticalSection(&m_updateCS[0]);
 	InitializeCriticalSection(&m_updateCS[1]);
 	InitializeCriticalSection(&m_updateCS[2]);
+	InitializeCriticalSection(&m_updateCS[3]);
 
 	m_updateThread = new C4JThread(runUpdate, nullptr, "Tile update");
 	m_updateThread->SetProcessor(CPU_CORE_TILE_UPDATE);
@@ -188,6 +189,8 @@ ServerLevel::~ServerLevel()
 	LeaveCriticalSection(&m_updateCS[1]);
 	EnterCriticalSection(&m_updateCS[2]);
 	LeaveCriticalSection(&m_updateCS[2]);
+	EnterCriticalSection(&m_updateCS[3]);
+	LeaveCriticalSection(&m_updateCS[3]);
 	m_updateTrigger->ClearAll();
 }
 
@@ -414,6 +417,10 @@ void ServerLevel::tickTiles()
 	else if( dimension->id == 1 )
 	{
 		iLev = 2;
+	}
+	else if( dimension->id == 2 )
+	{
+		iLev = 3;
 	}
 	chunksToPoll.clear();
 

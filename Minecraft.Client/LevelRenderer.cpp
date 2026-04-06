@@ -3376,7 +3376,7 @@ void LevelRenderer::registerTextures(IconRegister *iconRegister)
 // Gets a dimension index (0, 1, or 2) from an id ( 0, -1, 1)
 int LevelRenderer::getDimensionIndexFromId(int id)
 {
-	return ( 3 - id ) % 3;
+	return ( 3 - id ) % 3;					//Voxel - come back to this later
 }
 
 // 4J - added for new render list handling. Render lists used to be allocated per chunk, but these are now allocated per fixed chunk position

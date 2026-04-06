@@ -122,6 +122,8 @@ bool McRegionLevelStorageSource::convertLevel(ConsoleSaveFile *saveFile, const w
 	vector<File *> *netherBaseFolders = new vector<File *>;
     ArrayList<ChunkFile> enderRegions = new ArrayList<ChunkFile>();
     ArrayList<File> enderBaseFolders = new ArrayList<File>();
+	ArrayList<ChunkFile> outerEndRegions = new ArrayList<ChunkFile>();
+    ArrayList<File> outerEndBaseFolders = new ArrayList<File>();
 
 	//File baseFolder = File(baseDir, levelId);
 	//File netherFolder = File(baseFolder, LevelStorage::HELL_FOLDER);
@@ -138,12 +140,18 @@ bool McRegionLevelStorageSource::convertLevel(ConsoleSaveFile *saveFile, const w
 	{
 		addRegions(netherFolder, netherRegions, netherBaseFolders);
 	}
+
 	if (enderFolder.exists())
 	{
         addRegions(enderFolder, enderRegions, enderBaseFolders);
     }
 
-	int totalCount = normalRegions->size() + netherRegions->size() + enderRegions.size() + normalBaseFolders->size() + netherBaseFolders->size() + enderBaseFolders.size();
+	if (outerEndFolder.exists())
+	{
+        addRegions(outerEndFolder, outerEndRegions, outerEndBaseFolders);
+    }
+
+	int totalCount = normalRegions->size() + netherRegions->size() + enderRegions.size() + outerEndRegions.size() + normalBaseFolders->size() + netherBaseFolders->size() + enderBaseFolders.size() + outerEndBaseFolders.size();
 
 	// System.out.println("Total conversion count is " + totalCount); 4J Jev, TODO
 
@@ -153,6 +161,8 @@ bool McRegionLevelStorageSource::convertLevel(ConsoleSaveFile *saveFile, const w
 	convertRegions(netherFolder, netherRegions, normalRegions->size(), totalCount, progress);
     // convert hell world
     convertRegions(enderFolder, enderRegions, normalRegions.size() + netherRegions.size(), totalCount, progress);
+
+	convertRegions(outerEndFolder, outerEndRegions, normalRegions.size(), totalCount, progress);
 
 	LevelData *levelData = getDataTagFor(levelId);
 	levelData->setVersion(McRegionLevelStorage::MCREGION_VERSION_ID);

@@ -41,7 +41,7 @@ class ConsoleSoundEngine
 {
 public:
 
-	ConsoleSoundEngine() : m_bIsPlayingStreamingCDMusic(false),m_bIsPlayingStreamingGameMusic(false), m_bIsPlayingEndMusic(false),m_bIsPlayingNetherMusic(false){};
+	ConsoleSoundEngine() : m_bIsPlayingStreamingCDMusic(false),m_bIsPlayingStreamingGameMusic(false), m_bIsPlayingEndMusic(false),m_bIsPlayingNetherMusic(false), m_bIsPlayingOuterEndMusic(false){};
 	virtual void tick(shared_ptr<Mob> *players, float a) =0;
 	virtual void destroy()=0;
 	virtual void play(int iSound, float x, float y, float z, float volume, float pitch) =0;
@@ -57,14 +57,16 @@ public:
 	virtual char *ConvertSoundPathToName(const wstring& name, bool bConvertSpaces) =0;
 	virtual void playMusicTick() =0;
 
-	virtual bool GetIsPlayingStreamingCDMusic()				;
-	virtual bool GetIsPlayingStreamingGameMusic()			;
-	virtual void SetIsPlayingStreamingCDMusic(bool bVal)	;
-	virtual void SetIsPlayingStreamingGameMusic(bool bVal)	;
-	virtual bool GetIsPlayingEndMusic()						;
-	virtual bool GetIsPlayingNetherMusic()					;
-	virtual void SetIsPlayingEndMusic(bool bVal)			;
-	virtual void SetIsPlayingNetherMusic(bool bVal)			;
+	virtual bool GetIsPlayingStreamingCDMusic();
+	virtual bool GetIsPlayingStreamingGameMusic();
+	virtual void SetIsPlayingStreamingCDMusic(bool bVal);
+	virtual void SetIsPlayingStreamingGameMusic(bool bVal);
+	virtual bool GetIsPlayingEndMusic();
+	virtual bool GetIsPlayingNetherMusic();
+	virtual bool GetIsPlayingOuterEndMusic();
+	virtual void SetIsPlayingEndMusic(bool bVal);
+	virtual void SetIsPlayingNetherMusic(bool bVal);
+	virtual void SetIsPlayingOuterEndMusic(bool bVal);
 	static const WCHAR *wchSoundNames[eSoundType_MAX];
 	static const WCHAR *wchUISoundNames[eSFX_MAX];
 
@@ -96,4 +98,5 @@ private:
 	bool m_bIsPlayingStreamingGameMusic;
 	bool m_bIsPlayingEndMusic;
 	bool m_bIsPlayingNetherMusic;
+	bool m_bIsPlayingOuterEndMusic;
 };

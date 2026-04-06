@@ -92,3 +92,4 @@ public:
 
 	// virtual void flushSave() = 0; // 4J removed
 };
+

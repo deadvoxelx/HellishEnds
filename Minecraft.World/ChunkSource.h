@@ -44,8 +44,8 @@ class TilePos;
 #define END_LEVEL_SCALE 1
 // 4J Stu - Fix the size of the end for all platforms
 // 54 / 3 = 18
-#define END_LEVEL_MAX_WIDTH 54
-#define END_LEVEL_MIN_WIDTH 54
+#define END_LEVEL_MAX_WIDTH 40
+#define END_LEVEL_MIN_WIDTH 40
 //#define END_LEVEL_MAX_WIDTH (LEVEL_MAX_WIDTH / END_LEVEL_SCALE)
 
 class ChunkSource
@@ -92,4 +92,3 @@ public:
 
 	// virtual void flushSave() = 0; // 4J removed
 };
-

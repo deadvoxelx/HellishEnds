@@ -40,3 +40,4 @@
 #include "NetherSoilFireFeature.h"
 #include "NetherMushroomHuge.h"
 #include "MelonFeature.h"
+#include "EndGatewayFeature.h"

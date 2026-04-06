@@ -905,6 +905,13 @@ void GameRenderer::updateLightTexture(float a)
                 _b = (0.25f + bb * 0.75f);
             }
 
+			if (level->dimension->id == 2)
+            {
+                _r = (0.22f + rb * 0.75f);
+                _g = (0.28f + gb * 0.75f);
+                _b = (0.25f + bb * 0.75f);
+            }
+
             if (player->hasEffect(MobEffect::nightVision))
             {
                 const float scale = getNightVisionScale(player, a);

@@ -269,6 +269,49 @@ void ConsoleSaveFileConverter::ConvertSave(ConsoleSaveFile *sourceSave, ConsoleS
 		}
 	}
 
+	// Outer End
+	{
+		app.DebugPrintf("Processing the outer end\n");
+		int halfXZSize = END_LEVEL_MAX_WIDTH / 2;
+
+		int progressTarget = (END_LEVEL_MAX_WIDTH) * (END_LEVEL_MAX_WIDTH);
+		int currentProgress = 0;
+		if(progress) progress->progressStagePercentage((currentProgress*100)/progressTarget);
+
+		for(int x = -halfXZSize; x < halfXZSize; ++x)
+		{
+			for(int z = -halfXZSize; z < halfXZSize; ++z)
+			{
+				//app.DebugPrintf("Processing outer end chunk %d,%d\n",x,z);
+				DataInputStream *dis = sourceCache._getChunkDataInputStream(sourceSave,L"DIM2/",x,z);
+
+				if(dis)
+				{
+					int read = dis->read();
+					DataOutputStream *dos = targetCache._getChunkDataOutputStream(targetSave,L"DIM2/",x,z);
+					BufferedOutputStream bos(dos, 1024 * 1024);
+					while(read != -1)
+					{
+
+						bos.write( read & 0xff );
+
+						read = dis->read();
+					}
+					bos.flush();
+					dos->close();
+					dos->deleteChildStream();
+					delete dos;
+					dis->deleteChildStream();
+					delete dis;
+				}
+
+
+				++currentProgress;
+				if(progress) progress->progressStagePercentage((currentProgress*100)/progressTarget);
+			}
+		}
+	}
+
 #else
 	// 4J Stu - Old version that just changes the compression of chunks, not usable for XboxOne style split saves or compressed tile formats
 	// Process region files

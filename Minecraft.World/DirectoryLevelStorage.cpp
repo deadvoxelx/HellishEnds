@@ -830,3 +830,4 @@ void DirectoryLevelStorage::saveAllCachedData()
 	}
 	m_mapFilesToDelete.clear();
 }
+

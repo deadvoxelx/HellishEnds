@@ -22,6 +22,7 @@ FurnaceRecipes::FurnaceRecipes()
 	addFurnaceRecipy(Tile::diamondOre_Id, new ItemInstance(Item::diamond), 1);
 	addFurnaceRecipy(Tile::sand_Id, new ItemInstance(Tile::glass), .1f);
 	addFurnaceRecipy(Tile::soulsand_Id, new ItemInstance(Tile::glass), .1f);
+	addFurnaceRecipy(Tile::endSand_Id, new ItemInstance(Tile::glass), .1f);
 	addFurnaceRecipy(Item::porkChop_raw_Id, new ItemInstance(Item::porkChop_cooked), .35f);
 	addFurnaceRecipy(Item::beef_raw_Id, new ItemInstance(Item::beef_cooked), .35f);
 	addFurnaceRecipy(Item::chicken_raw_Id, new ItemInstance(Item::chicken_cooked), .35f);
@@ -35,6 +36,7 @@ FurnaceRecipes::FurnaceRecipes()
 	addFurnaceRecipy(Item::potato_Id, new ItemInstance(Item::potatoBaked), .35f);
 	addFurnaceRecipy(Tile::netherRack_Id, new ItemInstance(Tile::netherBrick), .1f);
 	addFurnaceRecipy(Tile::goldenclin_Id, new ItemInstance(Tile::goldenclinBricks), .1f);
+	addFurnaceRecipy(Tile::endStone_Id, new ItemInstance(Tile::endStoneSmooth), .1f);
 	
 	// special silk touch related recipes:
 	addFurnaceRecipy(Tile::coalOre_Id, new ItemInstance(Item::coal), .1f);

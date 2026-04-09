@@ -87,6 +87,13 @@ Recipes::Recipes()
 		L'#', new ItemInstance(Tile::netherWood, 1, 0),
 		L'S');
 
+	addShapedRecipy(new ItemInstance(Tile::purulPlanks, 4, 0), //
+		L"sczg",
+		L"#", //
+
+		L'#', new ItemInstance(Tile::purulLog, 1, 0),
+		L'S');
+
 	addShapedRecipy(new ItemInstance(Item::stick, 4), //
 		L"ssctg",
 		L"#", //
@@ -686,6 +693,14 @@ Recipes::Recipes()
 		L"##", //
 
 		L'#', Item::yellowDust,
+		L'T');
+
+	addShapedRecipy(new ItemInstance(Tile::endoriumLamp, 4), //
+		L"sssctctg",
+		L" R ", //
+		L"RGR", //
+		L" R ", //
+		L'R', Tile::endoriumGrate, 'G', Tile::torch,
 		L'T');
 
 	addShapedRecipy(new ItemInstance(Tile::quartzBlock, 1), //

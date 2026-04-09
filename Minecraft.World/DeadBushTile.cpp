@@ -17,9 +17,17 @@ void DeadBushTile::updateDefaultShape()
     this->setShape(0.5f - ss, 0, 0.5f - ss, 0.5f + ss, 0.8f, 0.5f + ss);
 }
 
-bool DeadBushTile::mayPlaceOn(int tile)
+bool DeadBushTile::mayPlace(Level *level, int x, int y, int z)
 {
-	return tile == Tile::sand_Id;
+	if (!Tile::mayPlace(level, x, y, z)) return false;
+
+	return canSurvive(level, x, y, z);
+}
+
+bool DeadBushTile::canSurvive(Level *level, int x, int y, int z)
+{
+	int below = level->getTile(x, y - 1, z);
+	return below == Tile::sand_Id || below == Tile::endSand_Id;
 }
 
 int DeadBushTile::getResource(int data, Random *random, int playerBonusLevel)

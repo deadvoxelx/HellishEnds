@@ -195,6 +195,20 @@ bool DyePowderItem::growCrop(shared_ptr<ItemInstance> itemInstance, Level *level
 		}
 		return true;
 	}
+
+	else if (tile == Tile::veloettFlower_Id)
+	{
+		if(!bTestUseOnOnly)
+		{
+			if (!level->isClientSide)
+			{
+				if (level->random->nextFloat() < 0.4) static_cast<VeloettFlowerTile *>(Tile::tiles[tile])->growTree(level, x, y, z, level->random);
+				itemInstance->count--;
+			}
+		}
+		return true;
+	}
+
 	else if (tile == Tile::melonStem_Id || tile == Tile::pumpkinStem_Id)
 	{
 		if (level->getData(x, y, z) == 7) return false;

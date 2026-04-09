@@ -555,7 +555,18 @@ ADD_ICON(12,	13,	L"map_empty")
 ADD_ICON(12,	14,	L"frame")
 ADD_ICON(12,	15,	L"enchantedBook")
 
+ADD_ICON(13,	0,	L"endorium")
+ADD_ICON(13,	1,	L"endorium_sword")
+ADD_ICON(13,	2,	L"endorium_axe")
+ADD_ICON(13,	3,	L"endorium_pickaxe")
+ADD_ICON(13,	4,	L"endorium_shovel")
+ADD_ICON(13,	5,	L"endorium_hoe")
 ADD_ICON(13,	6,	L"gold_bread")
+ADD_ICON(13,	7,	L"endorium_helmet")
+ADD_ICON(13,	8,	L"endorium_chestplate")
+ADD_ICON(13,	9,	L"endorium_leggings")
+ADD_ICON(13,	10,	L"endorium_boots")
+ADD_ICON(13,	11,	L"veloett_berry")
 
 ADD_ICON(14,	0,	L"skull_skeleton")
 ADD_ICON(14,	1,	L"skull_wither")
@@ -1000,5 +1011,30 @@ ADD_ICON(15,		11,	L"record_where are we now")
 	ADD_ICON(20,	8,	L"nether_furnace_side");
 	ADD_ICON(20,	9,	L"nether_furnace_front");
 	ADD_ICON(20,	10,	L"nether_furnace_front_lit");
+	ADD_ICON(20,	11,	L"end_bricks");
+	ADD_ICON(20,	12,	L"end_bricks_chiseled");
+	ADD_ICON(20,	13,	L"end_stone_smooth");
+	ADD_ICON(20,	14,	L"end_stone_mossy");
+	ADD_ICON(20,	15,	L"end_bricks_mossy");
+
+	ADD_ICON(21,	0,	L"veloett_grass_side");
+	ADD_ICON(21,	1,	L"veloett_grass_top");
+	ADD_ICON(21,	2,	L"end_sand");
+	ADD_ICON(21,	3,	L"endorium_ore");
+	ADD_ICON(21,	4,	L"endorium_block");
+	ADD_ICON(21,	5,	L"endorium_grate");
+	ADD_ICON(21,	6,	L"endorium_lamp");
+	ADD_ICON(21,	7,	L"purul_veloett");
+	ADD_ICON(21,	8,	L"purul_log_side");
+	ADD_ICON(21,	9,	L"purul_log_top");
+	ADD_ICON(21,	10,	L"purul_planks");
+	ADD_ICON(21,	11,	L"endactus_side");
+	ADD_ICON(21,	12,	L"endactus_top");
+	ADD_ICON(21,	13,	L"endactus_bottom");
+	ADD_ICON(21,	14,	L"endesert_bush");
+	ADD_ICON(21,	15,	L"veloett_shrub");
+
+	ADD_ICON(22,	0,	L"veloett_flower");
+	ADD_ICON(22,	1,	L"veloett_vine");
 	}
 }

@@ -202,4 +202,12 @@ for (int i = 0; i < 16; i++)
 
 		L'G', Tile::glass, L'S', Item::netherStar, L'O', Tile::obsidian,
 		L'M');
+
+	r->addShapedRecipy(new ItemInstance(Tile::endoriumGrate, 1), //
+		L"ssscig",
+		L" R ", //
+		L"R R", //
+		L" R ", //
+		L'R', Item::endorium,
+		L'S');
 }

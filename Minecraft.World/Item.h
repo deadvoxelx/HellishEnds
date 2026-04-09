@@ -92,6 +92,7 @@ public:
 		eMaterial_wheat,
 		eMaterial_nethanium,
 		eMaterial_bread,
+		eMaterial_endorium,
 
 	}
 	eMaterial;
@@ -162,6 +163,7 @@ public:
 		static const Tier *DIAMOND; //
 		static const Tier *GOLD;
 		static const Tier *NETHANIUM; //
+		static const Tier *ENDORIUM; //
 
 	private:
 		const int level;
@@ -430,6 +432,7 @@ public:
 	static Item *netherBread;
 	static Item *goldBread;
 	static Item *nethaniumBread;
+	static Item *endorium;
 
 
 	static const int shovel_iron_Id			= 256;
@@ -651,6 +654,7 @@ public:
 	static const int netherBread_Id = 434;
 	static const int goldBread_Id = 435;
 	static const int nethaniumBread_Id = 436;
+	static const int endorium_Id = 437;
 
 public:
 	const int id;

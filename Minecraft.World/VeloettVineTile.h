@@ -14,6 +14,4 @@ public:
 	virtual bool mayPlace(Level *level, int x, int y, int z);
 
     virtual void updateDefaultShape();
-    virtual int getResource(int data, Random *random, int playerBonusLevel);
-	virtual void playerDestroy(Level *level, shared_ptr<Player> player, int x, int y, int z, int data);
 };

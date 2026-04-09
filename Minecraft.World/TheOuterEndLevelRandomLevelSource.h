@@ -1,7 +1,10 @@
 #pragma once
 
 #include "ChunkSource.h"
-class PerlinNoise;
+#include "PerlinNoise.h".
+#include "LevelChunk.h"
+
+class ProgressListener;
 
 class TheOuterEndLevelRandomLevelSource : public ChunkSource
 {
@@ -20,11 +23,11 @@ private:
 	PerlinNoise *lperlinNoise1;
 	PerlinNoise *lperlinNoise2;
 	PerlinNoise *perlinNoise1;
+	PerlinNoise *perlinNoise2;
+	PerlinNoise *perlinNoise3;
 public:
 	PerlinNoise *scaleNoise;
 	PerlinNoise *depthNoise;
-	PerlinNoise *forestNoise;
-
 
 private:
 	Level *level;
@@ -33,8 +36,8 @@ public:
 	TheOuterEndLevelRandomLevelSource(Level *level, int64_t seed);
 	~TheOuterEndLevelRandomLevelSource();
 
-	void prepareHeights(int xOffs, int zOffs, byteArray blocks, BiomeArray biomes);
-	void buildSurfaces(int xOffs, int zOffs, byteArray blocks, BiomeArray biomes);
+	void prepareHeights(int xOffs, int zOffs, byteArray blocks);
+	void buildSurfaces(int xOffs, int zOffs, byteArray blocks);
 
 public:
 	virtual LevelChunk *create(int x, int z);
@@ -45,8 +48,6 @@ private:
 
 public:
 	virtual bool hasChunk(int x, int y);
-private:
-	void calcWaterDepths(ChunkSource *parent, int xt, int zt);
 public:
 	virtual void postProcess(ChunkSource *parent, int xt, int zt);
 	virtual bool save(bool force, ProgressListener *progressListener);

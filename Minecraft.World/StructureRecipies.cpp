@@ -210,4 +210,28 @@ for (int i = 0; i < 16; i++)
 		L" R ", //
 		L'R', Item::endorium,
 		L'S');
+
+	r->addShapedRecipy(new ItemInstance(Tile::endBricks, 4), //
+		L"ssctg",
+		L"##", //
+		L"##", //
+
+		L'#', Tile::endStone,
+		L'S');
+
+	r->addShapedRecipy(new ItemInstance(Tile::endBricksChiseled, 4), //
+		L"ssctg",
+		L"##", //
+		L"##", //
+
+		L'#', Tile::endBricks,
+		L'S');
+
+	r->addShapedRecipy(new ItemInstance(Tile::endBricksMossy, 4), //
+		L"ssctg",
+		L"##", //
+		L"##", //
+
+		L'#', Tile::endStoneMossy,
+		L'S');
 }

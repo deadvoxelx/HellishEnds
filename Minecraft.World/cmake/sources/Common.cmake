@@ -1987,6 +1987,8 @@ set(_MINECRAFT_WORLD_COMMON_NET_MINECRAFT_WORLD_LEVEL_TILE
   "${CMAKE_CURRENT_SOURCE_DIR}/TripWireSourceTile.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/TripWireTile.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/TripWireTile.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/VeloettFlowerTile.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/VeloettFlowerTile.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/VeloettGrassTile.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/VeloettGrassTile.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/VeloettShrubTile.cpp"

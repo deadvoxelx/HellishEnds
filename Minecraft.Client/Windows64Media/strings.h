@@ -2324,3 +2324,5 @@
 #define IDS_DESC_WATCHER                                       2318
 #define IDS_PIGMAN                                             2319
 #define IDS_DESC_PIGMAN                                        2320
+#define IDS_ITEM_ENDORIUM									   2321
+#define IDS_DESC_ENDORIUM									   2322

@@ -135,5 +135,10 @@
 #include "NetherPlanks.h"
 #include "NetherVineTile.h"
 #include "NetherFurnaceTile.h"
+#include "VeloettGrassTile.h"
+#include "EndactusTile.h"
+#include "VeloettShrubTile.h"
+#include "PurulVeloettTile.h"
+#include "VeloettVineTile.h"
 
 

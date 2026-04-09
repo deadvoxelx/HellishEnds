@@ -10,7 +10,6 @@ DeadBushTile::DeadBushTile(int id) : Bush(id,Material::replaceable_plant)
     updateDefaultShape();
 }
 
-// 4J Added override
 void DeadBushTile::updateDefaultShape()
 {
     float ss = 0.4f;
@@ -27,28 +26,47 @@ bool DeadBushTile::mayPlace(Level *level, int x, int y, int z)
 bool DeadBushTile::canSurvive(Level *level, int x, int y, int z)
 {
 	int below = level->getTile(x, y - 1, z);
-	return below == Tile::sand_Id || below == Tile::endSand_Id;
+	return below == Tile::sand_Id || below == Tile::endSand_Id || below == Tile::grass_Id || below == Tile::dirt_Id || below == Tile::clay_Id || below == Tile::netherSoil_Id;
 }
 
 int DeadBushTile::getResource(int data, Random *random, int playerBonusLevel)
 {
-	return -1;
+	return Item::stick->id;
 }
 
-void DeadBushTile::playerDestroy(Level *level, shared_ptr<Player> player, int x, int y, int z, int data)
+int DeadBushTile::getResourceCount(Random *random)
 {
-	if (!level->isClientSide && player->getSelectedItem() != nullptr && player->getSelectedItem()->id == Item::shears_Id)
-	{
-		player->awardStat(
-			GenericStats::blocksMined(id),
-			GenericStats::param_blocksMined(id,data,1)
-			);
+	return 1 + random->nextInt(2);
+}
 
-		// drop leaf block instead of sapling
-		popResource(level, x, y, z, std::make_shared<ItemInstance>(Tile::deadBush, 1, data));
-	}
-	else
+int DeadBushTile::getResourceCountForLootBonus(int bonusLevel, Random *random)
+{
+	return getResourceCount(random) + random->nextInt(bonusLevel + 1);
+}
+
+shared_ptr<ItemInstance> DeadBushTile::getSilkTouchItemInstance(int data)
+{
+	return shared_ptr<ItemInstance>(new ItemInstance(Tile::deadBush));
+}
+
+void DeadBushTile::spawnResources(Level *level, int x, int y, int z, int data, float odds,  int playerBonusLevel)
+{
+	if (!level->isClientSide)
 	{
-		Bush::playerDestroy(level, player, x, y, z, data);
+		int chance = 2;
+
+		chance = 2;
+		if (playerBonusLevel > 0)
+		{
+			chance -= 1 << playerBonusLevel;
+			if (chance < 2)
+			{
+				chance = 2;
+			}
+		}
+		if (level->random->nextInt(chance) == 0)
+		{
+			popResource(level, x, y, z, std::make_shared<ItemInstance>(Item::stick_Id, 1, 0));
+		}
 	}
 }

@@ -8940,4 +8940,12 @@ All Ender Chests in a world are linked. Items placed into an Ender Chest are acc
 		<value>Drops porkchops when killed. Reside in Nether houses.</value>
 	</data>
 	
+	<data name="IDS_ITEM_ENDORIUM">
+		<value>Endorium</value>
+	</data>
+	
+	<data name="IDS_DESC_ENDORIUM">
+		<value>A unique mineral only found in the Outer End. Believed to be a key to an alternate reality....</value>
+	</data>
+	
 </root>

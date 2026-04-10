@@ -142,3 +142,4 @@
 #include "VeloettVineTile.h"
 #include "EndesertBushTile.h"
 #include "VeloettFlowerTile.h"
+#include "EndoriumGrateTile.h"

@@ -269,6 +269,7 @@ Item *Item::netherBread = NULL;
 Item *Item::goldBread = NULL;
 Item *Item::nethaniumBread = NULL;
 Item *Item::endorium = NULL;
+Item *Item::veloettBerry = NULL;
 
 
 void Item::staticCtor()
@@ -529,6 +530,7 @@ void Item::staticCtor()
 	Item::goldBread = ( new FoodItem(179, 7, FoodConstants::FOOD_SATURATION_GOOD, false) )			->setCanAlwaysEat()->setEatEffect(MobEffect::regeneration->id, 10, 1, 1.0f)->setBaseItemTypeAndMaterial(eBaseItemType_bread,	eMaterial_bread)->setIconName(L"gold_bread")->setDescriptionId(IDS_ITEM_BREAD)->setUseDescriptionId(IDS_DESC_BREAD);
 	Item::nethaniumBread = ( new FoodItem(180, 8, FoodConstants::FOOD_SATURATION_SUPERNATURAL, false) ) ->setCanAlwaysEat()->setEatEffect(MobEffect::damageResistance->id, 300, 3, 1.0f)->setBaseItemTypeAndMaterial(eBaseItemType_bread,	eMaterial_bread)->setIconName(L"nethanium_bread")->setDescriptionId(IDS_ITEM_BREAD)->setUseDescriptionId(IDS_DESC_BREAD);
 	Item::endorium = (new Item(181))																->setIconName(L"endorium")->setBaseItemTypeAndMaterial(eBaseItemType_treasure,    eMaterial_endorium)->setDescriptionId(IDS_ITEM_ENDORIUM)->setUseDescriptionId(IDS_DESC_ENDORIUM);
+	Item::veloettBerry = ( new FoodItem(182, 4, FoodConstants::FOOD_SATURATION_NORMAL, false) )		->setIconName(L"veloett_berry")->setDescriptionId(IDS_ITEM_VELOETTBERRY)->setUseDescriptionId(IDS_DESC_VELOETTBERRY);
 
 }
 

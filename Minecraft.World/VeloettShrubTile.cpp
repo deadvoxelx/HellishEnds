@@ -23,11 +23,42 @@ bool VeloettShrubTile::mayPlaceOn(int tile)
 
 int VeloettShrubTile::getResource(int data, Random *random, int playerBonusLevel)
 {
-	return 1;
+	return Item::veloettBerry->id;
 }
 
-void VeloettShrubTile::playerDestroy(Level *level, shared_ptr<Player> player, int x, int y, int z, int data)
+int VeloettShrubTile::getResourceCount(Random *random)
 {
-	VeloettShrubTile::playerDestroy(level, player, x, y, z, data);
-	popResource(level, x, y, z, std::make_shared<ItemInstance>(Tile::veloettShrub, 1, data));
+	return 1 + random->nextInt(2);
+}
+
+int VeloettShrubTile::getResourceCountForLootBonus(int bonusLevel, Random *random)
+{
+	return getResourceCount(random) + random->nextInt(bonusLevel + 1);
+}
+
+shared_ptr<ItemInstance> VeloettShrubTile::getSilkTouchItemInstance(int data)
+{
+	return shared_ptr<ItemInstance>(new ItemInstance(Tile::veloettShrub));
+}
+
+void VeloettShrubTile::spawnResources(Level *level, int x, int y, int z, int data, float odds,  int playerBonusLevel)
+{
+	if (!level->isClientSide)
+	{
+		int chance = 2;
+
+		chance = 2;
+		if (playerBonusLevel > 0)
+		{
+			chance -= 1 << playerBonusLevel;
+			if (chance < 2)
+			{
+				chance = 2;
+			}
+		}
+		if (level->random->nextInt(chance) == 0)
+		{
+			popResource(level, x, y, z, std::make_shared<ItemInstance>(Item::veloettBerry_Id, 1, 0));
+		}
+	}
 }

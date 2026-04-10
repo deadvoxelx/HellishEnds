@@ -2326,3 +2326,5 @@
 #define IDS_DESC_PIGMAN                                        2320
 #define IDS_ITEM_ENDORIUM									   2321
 #define IDS_DESC_ENDORIUM									   2322
+#define IDS_ITEM_VELOETTBERRY								   2323
+#define IDS_DESC_VELOETTBERRY								   2324

@@ -509,7 +509,7 @@ void Tile::staticCtor()
 	Tile::endSand = (new NetherSoilTile(196))							->setDestroyTime(0.5f)->setSoundType(Tile::SOUND_SAND)->setIconName(L"end_sand")->setDescriptionId(IDS_TILE_SAND)->setUseDescriptionId(IDS_DESC_SAND);
 	Tile::endoriumOre = (new OreTile(197))								->setDestroyTime(3.0f)->setExplodeable(9)->setSoundType(Tile::SOUND_STONE)->setIconName(L"endorium_ore")->setDescriptionId(IDS_TILE_WHITESTONE)->setUseDescriptionId(IDS_DESC_WHITESTONE);
 	Tile::endoriumBlock = (new MetalTile(198))							->setBaseItemTypeAndMaterial(Item::eBaseItemType_block,	Item::eMaterial_diamond)->setDestroyTime(5.0f)->setExplodeable(1200)->setSoundType(Tile::SOUND_METAL)->setIconName(L"endorium_block")->setDescriptionId(IDS_TILE_NETHANIUMBLOCK)->setUseDescriptionId(IDS_DESC_NETHANIUMBLOCK);
-	Tile::endoriumGrate = (new MetalTile(199))							->setBaseItemTypeAndMaterial(Item::eBaseItemType_structblock,	Item::eMaterial_diamond)->setDestroyTime(5.0f)->setExplodeable(1200)->setSoundType(Tile::SOUND_METAL)->setIconName(L"endorium_grate")->setDescriptionId(IDS_TILE_NETHANIUMBLOCK)->setUseDescriptionId(IDS_DESC_NETHANIUMBLOCK);
+	Tile::endoriumGrate = (new EndoriumGrateTile(199))					->setBaseItemTypeAndMaterial(Item::eBaseItemType_structblock,	Item::eMaterial_diamond)->setDestroyTime(5.0f)->setExplodeable(1200)->setSoundType(Tile::SOUND_METAL)->setIconName(L"endorium_grate")->setDescriptionId(IDS_TILE_NETHANIUMBLOCK)->setUseDescriptionId(IDS_DESC_NETHANIUMBLOCK);
 	Tile::endGateway = (new EndGatewayTile(200, Material::portal))
     ->setDestroyTime(INDESTRUCTIBLE_DESTROY_TIME)
     ->setExplodeable(6000000)

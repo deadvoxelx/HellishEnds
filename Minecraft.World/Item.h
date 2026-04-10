@@ -433,6 +433,7 @@ public:
 	static Item *goldBread;
 	static Item *nethaniumBread;
 	static Item *endorium;
+	static Item *veloettBerry;
 
 
 	static const int shovel_iron_Id			= 256;
@@ -655,6 +656,7 @@ public:
 	static const int goldBread_Id = 435;
 	static const int nethaniumBread_Id = 436;
 	static const int endorium_Id = 437;
+	static const int veloettBerry_Id = 438;
 
 public:
 	const int id;

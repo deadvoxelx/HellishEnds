@@ -526,6 +526,11 @@ void ClientConnection::handleAddEntity(shared_ptr<AddEntityPacket> packet)
 	case AddEntityPacket::SNOWBALL:
 		e = std::make_shared<Snowball>(level, x, y, z);
 		break;
+
+	case AddEntityPacket::HELLSPHERE:
+		e = std::make_shared<Snowball>(level, x, y, z);
+		break;
+
 	case AddEntityPacket::ITEM_FRAME:
 		{
 			int ix=(int) x;
@@ -2940,6 +2945,16 @@ void ClientConnection::handleRespawn(shared_ptr<RespawnPacket> packet)
 		{
 			param->stringId = IDS_PROGRESS_LEAVING_END;
 		}
+
+		else if( packet->dimension == 2)
+		{
+			param->stringId = IDS_PROGRESS_ENTERING_END;
+		}
+		else if( oldDimension == 2)
+		{
+			param->stringId = IDS_PROGRESS_LEAVING_END;
+		}
+
 		param->showTooltips = false;
 		param->setFailTimer = false;
 

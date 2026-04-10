@@ -8948,4 +8948,12 @@ All Ender Chests in a world are linked. Items placed into an Ender Chest are acc
 		<value>A unique mineral only found in the Outer End. Believed to be a key to an alternate reality....</value>
 	</data>
 	
+	<data name="IDS_ITEM_VELOETTBERRY">
+		<value>Veloett Berry</value>
+	</data>
+	
+	<data name="IDS_DESC_VELOETTBERRY">
+		<value>A type of food found in the Outer End.</value>
+	</data>
+	
 </root>

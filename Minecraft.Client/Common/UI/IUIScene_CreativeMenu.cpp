@@ -456,6 +456,7 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Item::carrots_Id)
 		ITEM(Item::carrotGolden_Id)
 		ITEM(Item::pumpkinPie_Id)
+		ITEM(Item::veloettBerry_Id)
 
 	// Tools, Armour and Weapons (Complete)
 	DEF(eCreativeInventory_ToolsArmourWeapons)

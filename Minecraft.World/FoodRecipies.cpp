@@ -67,6 +67,13 @@ void FoodRecipies::addRecipes(Recipes *r)
 		L"sctg",
 		L"M", //
 
+		L'M', Tile::pumpkinFaceless,
+		L'F');
+
+	r->addShapedRecipy(new ItemInstance(Item::seeds_pumpkin, 4), //
+		L"sctg",
+		L"M", //
+
 		L'M', Tile::pumpkin,
 		L'F');
 

@@ -143,3 +143,4 @@
 #include "EndesertBushTile.h"
 #include "VeloettFlowerTile.h"
 #include "EndoriumGrateTile.h"
+#include "PumpkinFacelessTile.h"

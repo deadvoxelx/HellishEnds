@@ -10,6 +10,7 @@ private:
 	static ResourceLocation ZOMBIE_PIGMAN_LOCATION;
     static ResourceLocation ZOMBIE_LOCATION;
     static ResourceLocation ZOMBIE_VILLAGER_LOCATION;
+	static ResourceLocation HUSK_LOCATION;
 
 	HumanoidModel *defaultModel;
 	VillagerZombieModel *villagerModel;

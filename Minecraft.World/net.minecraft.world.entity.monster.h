@@ -27,3 +27,4 @@
 
 // Added by DeadVoxelx
 #include "Watcher.h"
+#include "Husk.h"

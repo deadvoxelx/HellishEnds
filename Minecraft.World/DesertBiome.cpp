@@ -17,13 +17,15 @@ DesertBiome::DesertBiome(int id) : Biome(id)
 	decorator->deadBushCount = 2;
 	decorator->reedsCount = 50;
 	decorator->cactusCount = 10;
+
+	enemies.push_back(new MobSpawnerData(eTYPE_HUSK, 50, 4, 4));
 }
 
 void DesertBiome::decorate(Level *level, Random *random, int xo, int zo)
 {
 	Biome::decorate(level, random, xo, zo);
 
-	if (random->nextInt(1000) == 0)
+	if (random->nextInt(250) == 0)
 	{
 		int x = xo + random->nextInt(16) + 8;
 		int z = zo + random->nextInt(16) + 8;

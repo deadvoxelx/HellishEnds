@@ -83,6 +83,15 @@ void StructureRecipies::addRecipes(Recipes *r)
 		L'#', Tile::goldenclin,
 		L'S');
 
+	r->addShapedRecipy(new ItemInstance(Tile::furnace), //
+		L"sssctg",
+		L"###", //
+		L"# #", //
+		L"###", //
+
+		L'#', Tile::endStone,
+		L'S');
+
 	r->addShapedRecipy(new ItemInstance(Tile::nether_furnace), //
 		L"sssctg",
 		L"###", //

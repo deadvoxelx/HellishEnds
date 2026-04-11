@@ -2552,6 +2552,10 @@ void Minecraft::tick(bool bFirst, bool bUpdateTextures)
 				case Item::melon_Id:
 				case Item::rotten_flesh_Id:
 				case Item::spiderEye_Id:
+				case Item::netherBread_Id:
+				case Item::goldBread_Id:
+				case Item::nethaniumBread_Id:
+				case Item::veloettBerry_Id:
 					// Check that we are actually hungry so will eat this item
 					{
 						FoodItem *food = static_cast<FoodItem *>(itemInstance->getItem());
@@ -2573,6 +2577,7 @@ void Minecraft::tick(bool bFirst, bool bUpdateTextures)
 
 				case Item::egg_Id:			// throw
 				case Item::snowBall_Id:
+				case Item::hellSphere_Id:
 					*piUse=IDS_TOOLTIPS_THROW;
 					break;
 
@@ -2589,6 +2594,9 @@ void Minecraft::tick(bool bFirst, bool bUpdateTextures)
 				case Item::sword_iron_Id:
 				case Item::sword_diamond_Id:
 				case Item::sword_gold_Id:
+				case Item::nethaniumSword_Id:
+				//case Item::endoriumSword_Id:
+				case Item::relicMallet_Id:
 					*piUse=IDS_TOOLTIPS_BLOCK;
 					break;
 
@@ -2683,6 +2691,8 @@ void Minecraft::tick(bool bFirst, bool bUpdateTextures)
 							case Item::hoe_iron_Id:
 							case Item::hoe_diamond_Id:
 							case Item::hoe_gold_Id:
+							case Item::nethaniumHoe_Id:
+							//case Item::endoriumHoe_Id:
 								*piUse=IDS_TOOLTIPS_TILL;
 								break;
 
@@ -2706,6 +2716,8 @@ void Minecraft::tick(bool bFirst, bool bUpdateTextures)
 									case Tile::pumpkinStem_Id:
 									case Tile::carrots_Id:
 									case Tile::potatoes_Id:
+									case Tile::netherSapling_Id:
+									case Tile::veloettFlower_Id:
 										*piUse=IDS_TOOLTIPS_GROW;
 										break;
 									}
@@ -2751,6 +2763,8 @@ void Minecraft::tick(bool bFirst, bool bUpdateTextures)
 						case Tile::trapdoor_Id:
 						case Tile::fenceGate_Id:
 						case Tile::beacon_Id:
+						case Tile::nether_furnace_Id:
+						case Tile::nether_furnace_lit_Id:
 							*piAction=IDS_TOOLTIPS_MINE;
 							*piUse=IDS_TOOLTIPS_USE;
 							break;

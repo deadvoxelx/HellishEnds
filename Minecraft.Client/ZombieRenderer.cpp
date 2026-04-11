@@ -7,6 +7,7 @@
 ResourceLocation ZombieRenderer::ZOMBIE_PIGMAN_LOCATION(TN_MOB_PIGZOMBIE);
 ResourceLocation ZombieRenderer::ZOMBIE_LOCATION(TN_MOB_ZOMBIE);
 ResourceLocation ZombieRenderer::ZOMBIE_VILLAGER_LOCATION(TN_MOB_ZOMBIE_VILLAGER);
+ResourceLocation ZombieRenderer::HUSK_LOCATION(TN_MOB_HUSK);
 
 ZombieRenderer::ZombieRenderer() : HumanoidMobRenderer(new ZombieModel(), .5f, 1.0f)
 {
@@ -60,6 +61,11 @@ ResourceLocation *ZombieRenderer::getTextureLocation(shared_ptr<Entity> entity)
     if ( entity->instanceof(eTYPE_PIGZOMBIE) )
 	{
         return &ZOMBIE_PIGMAN_LOCATION;
+    }
+
+	if ( entity->instanceof(eTYPE_HUSK) )
+	{
+        return &HUSK_LOCATION;
     }
 
     if (mob->isVillager())

@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "ShearsItem.h"
+#include "net.minecraft.world.entity.player.h"
 #include "Tile.h"
 #include "net.minecraft.world.entity.h"
+#include "net.minecraft.world.level.h"
+#include "net.minecraft.world.level.tile.h"
 
 ShearsItem::ShearsItem(int itemId) : Item(itemId)
 {
@@ -35,4 +38,27 @@ float ShearsItem::getDestroySpeed(shared_ptr<ItemInstance> itemInstance, Tile *t
 		return 5;
 	}
 	return Item::getDestroySpeed(itemInstance, tile);
+}
+
+bool ShearsItem::useOn(shared_ptr<ItemInstance> instance, shared_ptr<Player> player, Level *level, int x, int y, int z, int face, float clickX, float clickY, float clickZ, bool bTestUseOnOnly)
+{
+	if (!player->mayUseItemAt(x, y, z, face, instance)) return false;
+
+	int targetType = level->getTile(x, y, z);
+
+	if ((targetType == Tile::pumpkinFaceless_Id)) 
+	{
+		if(!bTestUseOnOnly)
+		{
+			Tile *tile = Tile::pumpkin;
+			level->playSound(x + 0.5f, y + 0.5f, z + 0.5f, tile->soundType->getStepSound(), (tile->soundType->getVolume() + 1) / 2, tile->soundType->getPitch() * 0.8f);
+
+			if (level->isClientSide) return true;
+			level->setTileAndUpdate(x, y, z, tile->id);
+			instance->hurtAndBreak(1, player);
+		}
+		return true;
+	}
+
+	return false;
 }

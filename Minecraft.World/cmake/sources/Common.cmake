@@ -1911,6 +1911,8 @@ set(_MINECRAFT_WORLD_COMMON_NET_MINECRAFT_WORLD_LEVEL_TILE
   "${CMAKE_CURRENT_SOURCE_DIR}/PoweredRailTile.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/PressurePlateTile.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PressurePlateTile.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/PumpkinFacelessTile.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/PumpkinFacelessTile.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/PumpkinTile.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PumpkinTile.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/PurulVeloettTile.cpp"

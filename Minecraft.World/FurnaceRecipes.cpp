@@ -37,6 +37,12 @@ FurnaceRecipes::FurnaceRecipes()
 	addFurnaceRecipy(Tile::netherRack_Id, new ItemInstance(Tile::netherBrick), .1f);
 	addFurnaceRecipy(Tile::goldenclin_Id, new ItemInstance(Tile::goldenclinBricks), .1f);
 	addFurnaceRecipy(Tile::endStone_Id, new ItemInstance(Tile::endStoneSmooth), .1f);
+	addFurnaceRecipy(Tile::netherWood_Id, new ItemInstance(Item::coal, 1, CoalItem::CHAR_COAL), .15f);
+	addFurnaceRecipy(Tile::purulLog_Id, new ItemInstance(Item::coal, 1, CoalItem::CHAR_COAL), .15f);
+	addFurnaceRecipy(Tile::endoriumOre_Id, new ItemInstance(Item::endorium), 1);
+	addFurnaceRecipy(Tile::netherDiamond_Id, new ItemInstance(Item::diamond), 1);
+	addFurnaceRecipy(Tile::netherGold_Id, new ItemInstance(Item::goldIngot), 1);
+	addFurnaceRecipy(Tile::nethaniumOre_Id, new ItemInstance(Item::nethanium), 1);
 	
 	// special silk touch related recipes:
 	addFurnaceRecipy(Tile::coalOre_Id, new ItemInstance(Item::coal), .1f);

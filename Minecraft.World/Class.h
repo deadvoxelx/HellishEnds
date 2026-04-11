@@ -169,6 +169,7 @@ enum eINSTANCEOF
 						eTYPE_WITCH			= eTYPE_MONSTER | eTYPE_VALID_IN_SPAWNER_FLAG | 0x7,
 						eTYPE_WITHERBOSS	= eTYPE_MONSTER | eTYPE_VALID_IN_SPAWNER_FLAG | 0x8,
 						eTYPE_WATCHER		= eTYPE_MONSTER | eTYPE_VALID_IN_SPAWNER_FLAG | 0x9,
+						eTYPE_HUSK			= eTYPE_MONSTER | eTYPE_VALID_IN_SPAWNER_FLAG | 0x10,
 
 
 				eTYPE_AMBIENT			= eTYPE_MOB | BIT_AMBIENT_MOB,
@@ -428,6 +429,9 @@ public:
 		classes->push_back( SUBCLASS(eTYPE_CAVESPIDER			)->addParent( eTYPE_SPIDER  ) );
 		classes->push_back( SUBCLASS(eTYPE_ZOMBIE				)->addParent( eTYPE_MONSTER)->addParent(eTYPE_VALID_IN_SPAWNER_FLAG ) );
 		classes->push_back( SUBCLASS(eTYPE_PIGZOMBIE			)->addParent( eTYPE_ZOMBIE ) );
+
+		classes->push_back( SUBCLASS(eTYPE_HUSK					)->addParent( eTYPE_ZOMBIE ) );
+
 		classes->push_back( SUBCLASS(eTYPE_CREEPER				)->addParent( eTYPE_MONSTER)->addParent(eTYPE_VALID_IN_SPAWNER_FLAG ) );
 		classes->push_back( SUBCLASS(eTYPE_GIANT				)->addParent( eTYPE_MONSTER)->addParent(eTYPE_VALID_IN_SPAWNER_FLAG ) );
 		classes->push_back( SUBCLASS(eTYPE_SKELETON				)->addParent( eTYPE_MONSTER)->addParent(eTYPE_VALID_IN_SPAWNER_FLAG ) );

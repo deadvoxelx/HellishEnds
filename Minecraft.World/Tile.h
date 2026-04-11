@@ -400,6 +400,7 @@ public:
 	static const int veloettShrub_Id = 207;
 	static const int veloettFlower_Id = 208;
 	static const int veloettVine_Id = 209;
+	static const int pumpkinFaceless_Id = 210;
 
 
 	static Tile *stone;
@@ -612,6 +613,7 @@ public:
 	static Tile *veloettShrub;
 	static Tile *veloettFlower;
 	static Tile *veloettVine;
+	static Tile *pumpkinFaceless;
 
 	static void staticCtor();
 

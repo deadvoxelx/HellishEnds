@@ -29,3 +29,4 @@
 #include "Watcher.h"
 #include "Husk.h"
 #include "Zombice.h"
+#include "WhiteEnderman.h"

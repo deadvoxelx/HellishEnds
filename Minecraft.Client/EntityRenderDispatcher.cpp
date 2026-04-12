@@ -121,7 +121,10 @@ EntityRenderDispatcher::EntityRenderDispatcher()
 	renderers[eTYPE_BLAZE] = new BlazeRenderer();
 	renderers[eTYPE_ZOMBIE] = new ZombieRenderer();
 	renderers[eTYPE_PIGZOMBIE] = new ZombieRenderer();
+
 	renderers[eTYPE_HUSK] = new ZombieRenderer();
+	renderers[eTYPE_ZOMBICE] = new ZombieRenderer();
+
 	renderers[eTYPE_SLIME] = new SlimeRenderer(new SlimeModel(16), new SlimeModel(0), 0.25f);
 	renderers[eTYPE_LAVASLIME] = new LavaSlimeRenderer();
 	renderers[eTYPE_PLAYER] = new PlayerRenderer();

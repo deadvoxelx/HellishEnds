@@ -880,6 +880,8 @@ set(_MINECRAFT_CLIENT_COMMON_NET_MINECRAFT_CLIENT_RENDERER_ENTITY
   "${CMAKE_CURRENT_SOURCE_DIR}/VillagerRenderer.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/WatcherRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/WatcherRenderer.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/WhiteEndermanRenderer.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/WhiteEndermanRenderer.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/WitchRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/WitchRenderer.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/WitherBossRenderer.cpp"

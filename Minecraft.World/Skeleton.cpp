@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "net.minecraft.world.h"
 #include "net.minecraft.world.level.h"
-#include "net.minecraft.world.level.dimension.h"
+#include "net.minecraft.world.level.biome.h"
 #include "net.minecraft.world.level.tile.entity.h"
 #include "net.minecraft.world.item.h"
 #include "net.minecraft.world.item.enchantment.h"
@@ -98,6 +98,10 @@ bool Skeleton::doHurtTarget(shared_ptr<Entity> target)
 		if ( (getSkeletonType() == TYPE_WITHER) && target->instanceof(eTYPE_LIVINGENTITY) )
 		{
 			dynamic_pointer_cast<LivingEntity>(target)->addEffect(new MobEffectInstance(MobEffect::wither->id, SharedConstants::TICKS_PER_SECOND * 10));
+		}
+		else if ( (getSkeletonType() == TYPE_STRAY) && target->instanceof(eTYPE_LIVINGENTITY) )
+		{
+			dynamic_pointer_cast<LivingEntity>(target)->addEffect(new MobEffectInstance(MobEffect::movementSlowdown->id, SharedConstants::TICKS_PER_SECOND * 10));
 		}
 		return true;
 	}
@@ -233,13 +237,41 @@ MobGroupData *Skeleton::finalizeMobSpawn(MobGroupData *groupData, int extraData 
 {
 	groupData = Monster::finalizeMobSpawn(groupData);
 
-	if ( dynamic_cast<HellDimension *>(level->dimension) != NULL && getRandom()->nextInt(5) > 0)
+	if ( (level->getBiome(x, z) == Biome::hell) && getRandom()->nextInt(5) > 0)
 	{
 		goalSelector.addGoal(4, meleeGoal, false);
 
 		setSkeletonType(TYPE_WITHER);
 		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::sword_stone)));
 		getAttribute(SharedMonsterAttributes::ATTACK_DAMAGE)->setBaseValue(4);
+	}
+	else if ( (level->getBiome(x, z) == Biome::iceFlats) && getRandom()->nextInt(5) > 0)
+	{
+		goalSelector.addGoal(4, bowGoal, false);
+
+		setSkeletonType(TYPE_STRAY);
+		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::bow)));
+	}
+	else if ( (level->getBiome(x, z) == Biome::iceMountains) && getRandom()->nextInt(5) > 0)
+	{
+		goalSelector.addGoal(4, bowGoal, false);
+
+		setSkeletonType(TYPE_STRAY);
+		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::bow)));
+	}
+	else if ( (level->getBiome(x, z) == Biome::taiga) && getRandom()->nextInt(5) > 0)
+	{
+		goalSelector.addGoal(4, bowGoal, false);
+
+		setSkeletonType(TYPE_STRAY);
+		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::bow)));
+	}
+	else if ( (level->getBiome(x, z) == Biome::taigaHills) && getRandom()->nextInt(5) > 0)
+	{
+		goalSelector.addGoal(4, bowGoal, false);
+
+		setSkeletonType(TYPE_STRAY);
+		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::bow)));
 	}
 	else
 	{

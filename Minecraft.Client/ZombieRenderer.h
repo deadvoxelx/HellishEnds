@@ -11,6 +11,7 @@ private:
     static ResourceLocation ZOMBIE_LOCATION;
     static ResourceLocation ZOMBIE_VILLAGER_LOCATION;
 	static ResourceLocation HUSK_LOCATION;
+	static ResourceLocation ZOMBICE_LOCATION;
 
 	HumanoidModel *defaultModel;
 	VillagerZombieModel *villagerModel;

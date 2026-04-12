@@ -6,6 +6,7 @@ class SkeletonRenderer : public HumanoidMobRenderer
 private:
     static ResourceLocation SKELETON_LOCATION;
     static ResourceLocation WITHER_SKELETON_LOCATION;
+    static ResourceLocation STRAY_LOCATION;
 
 public:
 	SkeletonRenderer();

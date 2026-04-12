@@ -11,6 +11,7 @@
 #include "..\..\..\Minecraft.World\net.minecraft.world.item.enchantment.h"
 #include "..\..\..\Minecraft.World\net.minecraft.world.entity.h"
 #include "..\..\..\Minecraft.World\net.minecraft.world.entity.animal.h"
+#include "..\..\..\Minecraft.World\net.minecraft.world.entity.monster.h"
 #include "..\..\..\Minecraft.World\JavaMath.h"
 
 // 4J JEV - Images for each tab.
@@ -369,6 +370,8 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Item::netherStar_Id)
 		ITEM_AUX(Item::spawnEgg_Id, 50); // Creeper
 		ITEM_AUX(Item::spawnEgg_Id, 51); // Skeleton
+		//ITEM_AUX(Item::spawnEgg_Id, 51 | ((Skeleton::TYPE_STRAY + 1) << 12) ); // Stray
+		//ITEM_AUX(Item::spawnEgg_Id, 51 | ((Skeleton::TYPE_WITHER + 1) << 12) ); // Wither Skeleton
 		ITEM_AUX(Item::spawnEgg_Id, 52); // Spider
 		ITEM_AUX(Item::spawnEgg_Id, 54); // Zombie
 		ITEM_AUX(Item::spawnEgg_Id, 104); // Husk
@@ -379,6 +382,7 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Item::spawnEgg_Id, 102); // Pigman
 		ITEM_AUX(Item::spawnEgg_Id, 103); // Watcher
 		ITEM_AUX(Item::spawnEgg_Id, 58); // Enderman
+		ITEM_AUX(Item::spawnEgg_Id, 106); // White Enderman
 		ITEM_AUX(Item::spawnEgg_Id, 59); // Cave Spider
 		ITEM_AUX(Item::spawnEgg_Id, 60); // Silverfish
 		ITEM_AUX(Item::spawnEgg_Id, 61); // Blaze
@@ -396,6 +400,8 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Item::spawnEgg_Id, 100); // Horse
 		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_DONKEY + 1) << 12) ); // Donkey
 		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_MULE + 1) << 12)); // Mule
+		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_SKELETON + 1) << 12)); // Skeleton
+		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_UNDEAD + 1) << 12)); // Zombie
 		ITEM_AUX(Item::spawnEgg_Id, 120); // Villager
 		ITEM(Item::record_01_Id)
 		ITEM(Item::record_02_Id)
@@ -420,8 +426,6 @@ void IUIScene_CreativeMenu::staticCtor()
 	DEF(eCreativeInventory_ArtToolsMisc)
 		if(app.DebugSettingsOn())
 		{
-			ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_SKELETON + 1) << 12)); // Skeleton
-			ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_UNDEAD + 1) << 12)); // Zombie
 			ITEM_AUX(Item::spawnEgg_Id,  98 | ((Ocelot::TYPE_BLACK + 1) << 12));
 			ITEM_AUX(Item::spawnEgg_Id,  98 | ((Ocelot::TYPE_RED + 1) << 12));
 			ITEM_AUX(Item::spawnEgg_Id,  98 | ((Ocelot::TYPE_SIAMESE + 1) << 12));

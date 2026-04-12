@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "TaigaBiome.h"
 #include "net.minecraft.world.entity.animal.h"
+#include "net.minecraft.world.entity.monster.h"
 #include "net.minecraft.world.level.levelgen.feature.h"
 #include "net.minecraft.world.level.biome.h"
 
 TaigaBiome::TaigaBiome(int id) : Biome(id)
 {
 	friendlies_wolf.push_back(new MobSpawnerData(eTYPE_WOLF, 8, 4, 4));	// 4J - moved to their own category
+	enemies.push_back(new MobSpawnerData(eTYPE_ZOMBICE, 30, 4, 4));
 
     decorator->treeCount = 10;
     decorator->grassCount = 1;

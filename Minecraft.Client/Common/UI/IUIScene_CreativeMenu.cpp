@@ -372,6 +372,7 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Item::spawnEgg_Id, 52); // Spider
 		ITEM_AUX(Item::spawnEgg_Id, 54); // Zombie
 		ITEM_AUX(Item::spawnEgg_Id, 104); // Husk
+		ITEM_AUX(Item::spawnEgg_Id, 105); // Zombice
 		ITEM_AUX(Item::spawnEgg_Id, 55); // Slime
 		ITEM_AUX(Item::spawnEgg_Id, 56); // Ghast
 		ITEM_AUX(Item::spawnEgg_Id, 57); // Zombie Pigman

@@ -472,6 +472,7 @@ set(_MINECRAFT_SERVER_COMMON_ROOT
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/WatcherModel.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/WatcherRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/WaterDropParticle.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/WhiteEndermanRenderer.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/Windows64/Iggy/gdraw/gdraw_d3d11.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/Windows64/KeyboardMouseInput.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../Minecraft.Client/Windows64/Leaderboards/WindowsLeaderboardManager.cpp"

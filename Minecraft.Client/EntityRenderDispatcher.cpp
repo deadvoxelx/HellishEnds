@@ -84,6 +84,7 @@
 #include "CaveSpiderRenderer.h"
 #include "PigmanRenderer.h"
 #include "WatcherRenderer.h"
+#include "WhiteEndermanRenderer.h"
 
 double EntityRenderDispatcher::xOff = 0.0;
 double EntityRenderDispatcher::yOff = 0.0;
@@ -115,6 +116,9 @@ EntityRenderDispatcher::EntityRenderDispatcher()
 	renderers[eTYPE_SILVERFISH] = new SilverfishRenderer();
 	renderers[eTYPE_CREEPER] = new CreeperRenderer();
 	renderers[eTYPE_ENDERMAN] = new EndermanRenderer();
+
+	renderers[eTYPE_WHITE_ENDERMAN] = new WhiteEndermanRenderer();
+
 	renderers[eTYPE_SNOWMAN] = new SnowManRenderer();
 	renderers[eTYPE_SKELETON] = new SkeletonRenderer();
 	renderers[eTYPE_WITCH] = new WitchRenderer();

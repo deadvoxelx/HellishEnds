@@ -5,6 +5,7 @@
 
 ResourceLocation SkeletonRenderer::SKELETON_LOCATION = ResourceLocation(TN_MOB_SKELETON);
 ResourceLocation SkeletonRenderer::WITHER_SKELETON_LOCATION = ResourceLocation(TN_MOB_WITHER_SKELETON);
+ResourceLocation SkeletonRenderer::STRAY_LOCATION = ResourceLocation(TN_MOB_STRAY);
 
 SkeletonRenderer::SkeletonRenderer() : HumanoidMobRenderer(new SkeletonModel(), .5f)
 {
@@ -30,6 +31,10 @@ ResourceLocation *SkeletonRenderer::getTextureLocation(shared_ptr<Entity> entity
     if (skeleton->getSkeletonType() == Skeleton::TYPE_WITHER)
 	{
         return &WITHER_SKELETON_LOCATION;
+    }
+    if (skeleton->getSkeletonType() == Skeleton::TYPE_STRAY)
+	{
+        return &STRAY_LOCATION;
     }
     return &SKELETON_LOCATION;
 }

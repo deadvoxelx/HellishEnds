@@ -3,6 +3,7 @@
 #include "net.minecraft.world.level.tile.h"
 #include "net.minecraft.world.level.levelgen.feature.h"
 #include "net.minecraft.world.level.biome.h"
+#include "HerobrineFeature.h"
 
 BiomeDecorator::BiomeDecorator(Biome *biome)
 {
@@ -61,6 +62,8 @@ void BiomeDecorator::_init()
 	reedsFeature = new ReedsFeature();
 	cactusFeature = new CactusFeature();
 	waterlilyFeature = new WaterlilyFeature();
+
+	herobrineFeature = new HerobrineFeature(Tile::goldBlock_Id);
 
 	waterlilyCount = 0;
 	treeCount = 0;
@@ -253,6 +256,14 @@ void BiomeDecorator::decorate()
 		int y = random->nextInt(Level::genDepth);
 		int z = zo + random->nextInt(16) + 8;
 		cactusFeature->place(level, random, x, y, z);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		int x = xo + random->nextInt(16) + 8;
+		int y = random->nextInt(Level::genDepth);
+		int z = zo + random->nextInt(16) + 8;
+		herobrineFeature->place(level, random, x, y, z);
 	}
 
 

@@ -48,6 +48,8 @@ protected:
 	Feature *cactusFeature;
 	Feature *waterlilyFeature;
 
+	Feature *herobrineFeature;
+
 	int waterlilyCount;
 	int treeCount;
 	int flowerCount;

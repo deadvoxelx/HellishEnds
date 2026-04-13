@@ -1482,6 +1482,8 @@ set(_MINECRAFT_WORLD_COMMON_NET_MINECRAFT_WORLD_LEVEL_LEVELGEN_FEATURE
   "${CMAKE_CURRENT_SOURCE_DIR}/HellPortalFeature.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/HellSpringFeature.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/HellSpringFeature.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/HerobrineFeature.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/HerobrineFeature.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/HouseFeature.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/HouseFeature.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/HugeMushroomFeature.cpp"

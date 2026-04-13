@@ -258,7 +258,7 @@ void BiomeDecorator::decorate()
 		cactusFeature->place(level, random, x, y, z);
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		int x = xo + random->nextInt(16) + 8;
 		int y = random->nextInt(Level::genDepth);

@@ -47,3 +47,4 @@
 #include "VeloettFlowerFeature.h"
 #include "PurulTreeFeature.h"
 #include "VeloettVineFeature.h"
+#include "HerobrineFeature.h"

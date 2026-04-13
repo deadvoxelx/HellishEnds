@@ -48,3 +48,4 @@
 #include "PurulTreeFeature.h"
 #include "VeloettVineFeature.h"
 #include "HerobrineFeature.h"
+#include "EndTowerFeature.h"

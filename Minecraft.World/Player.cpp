@@ -1637,6 +1637,11 @@ void Player::attack(shared_ptr<Entity> entity)
 		}
 
 		DamageSource *damageSource = DamageSource::playerAttack(dynamic_pointer_cast<Player>(shared_from_this()));
+
+		if (bCrit) {
+			damageSource->setIsCritical();
+		}
+
 		bool wasHurt = entity->hurt(damageSource, dmg);
 		delete damageSource;
 		if (wasHurt)
@@ -2844,6 +2849,8 @@ bool Player::isAllowedToUse(Tile *tile)
 			case Tile::workBench_Id:
 			case Tile::anvil_Id:
 			case Tile::enderChest_Id:
+			case Tile::nether_furnace_Id:
+			case Tile::nether_furnace_lit_Id:
 				allowed = true;
 				break;
 			}
@@ -2868,6 +2875,8 @@ bool Player::isAllowedToUse(Tile *tile)
 			case Tile::workBench_Id:
 			case Tile::anvil_Id:
 			case Tile::enderChest_Id:
+			case Tile::nether_furnace_Id:
+			case Tile::nether_furnace_lit_Id:
 				allowed =  false;
 				break;
 			default:

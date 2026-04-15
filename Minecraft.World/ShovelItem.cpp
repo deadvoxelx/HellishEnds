@@ -20,6 +20,7 @@ void ShovelItem::staticCtor()
 	diggables->data[9] = Tile::mycel;
 	diggables->data[10] = Tile::netherSoil;
 	diggables->data[11] = Tile::lavaRock;
+	diggables->data[11] = Tile::endSand;
 }
 
 ShovelItem::ShovelItem(int id, const Tier *tier) : DiggerItem(id, 1, tier, diggables)

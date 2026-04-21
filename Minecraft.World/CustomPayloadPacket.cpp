@@ -13,6 +13,8 @@ const wstring CustomPayloadPacket::TRADER_SELECTION_PACKET = L"MC|TrSel";
 const wstring CustomPayloadPacket::SET_ADVENTURE_COMMAND_PACKET = L"MC|AdvCdm";
 const wstring CustomPayloadPacket::SET_BEACON_PACKET = L"MC|Beacon";
 const wstring CustomPayloadPacket::SET_ITEM_NAME_PACKET = L"MC|ItemName";
+const wstring CustomPayloadPacket::QUICK_EQUIP_PACKET = L"MC|QEquip";
+const wstring CustomPayloadPacket::QUICK_EQUIP_SERVER_PACKET = L"MC|QEquipServer";
 
 CustomPayloadPacket::CustomPayloadPacket()
 {

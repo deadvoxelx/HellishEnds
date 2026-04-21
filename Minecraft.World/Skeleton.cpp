@@ -242,8 +242,19 @@ MobGroupData *Skeleton::finalizeMobSpawn(MobGroupData *groupData, int extraData 
 		goalSelector.addGoal(4, meleeGoal, false);
 
 		setSkeletonType(TYPE_WITHER);
-		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::sword_stone)));
 		getAttribute(SharedMonsterAttributes::ATTACK_DAMAGE)->setBaseValue(4);
+		if (getRandom()->nextInt(8) > 0)
+		{
+			setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::sword_stone)));
+		}
+		else
+		{
+			setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::sword_iron)));
+			setEquippedSlot(SLOT_HELM, shared_ptr<ItemInstance>( new ItemInstance(Item::helmet_iron)));
+			setEquippedSlot(SLOT_CHEST, shared_ptr<ItemInstance>( new ItemInstance(Item::chestplate_iron)));
+			setEquippedSlot(SLOT_LEGGINGS, shared_ptr<ItemInstance>( new ItemInstance(Item::leggings_iron)));
+			setEquippedSlot(SLOT_BOOTS, shared_ptr<ItemInstance>( new ItemInstance(Item::boots_iron)));
+		}
 	}
 	else if ( (level->getBiome(x, z) == Biome::iceFlats) && getRandom()->nextInt(5) > 0)
 	{

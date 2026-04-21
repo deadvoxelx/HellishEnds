@@ -6,7 +6,6 @@
 #include "PlayerList.h"
 #include "MinecraftServer.h"
 #include "..\Minecraft.World\net.minecraft.commands.h"
-#include "..\Minecraft.World\net.minecraft.network.h"
 #include "..\Minecraft.World\net.minecraft.world.entity.item.h"
 #include "..\Minecraft.World\net.minecraft.world.level.h"
 #include "..\Minecraft.World\net.minecraft.world.level.dimension.h"
@@ -1548,6 +1547,40 @@ void PlayerConnection::handleCustomPayload(shared_ptr<CustomPayloadPacket> custo
 				static_cast<MerchantMenu *>(menu)->setSelectionHint(selection);
 			}
 		}
+
+		else if (CustomPayloadPacket::QUICK_EQUIP_PACKET.compare(customPayloadPacket->identifier) == 0) {
+		ByteArrayInputStream bais(customPayloadPacket->data);
+		DataInputStream input(&bais);
+		shared_ptr<ItemInstance> sentItem = Packet::readItem(&input);
+		//->connection->send(std::make_shared<SetEquippedItemPacket>(e->entityId, i, item));
+		int slot = Mob::getEquipmentSlotForItem(sentItem) - 1;
+
+		// If player is in survival mode (not creative)
+		if(!player->abilities.instabuild) { //
+			// Equip the armor to the appropriate slot
+			if (player->inventory->armor[slot] == nullptr) {
+				player->inventory->setItem(36 + slot, sentItem);
+				player->inventory->removeItemNoUpdate(player->inventory->selected);
+			}
+			else {
+				player->inventory->setItem(player->inventory->selected, player->inventory->armor[slot]);
+				player->inventory->setItem(36 + slot, sentItem);
+			}
+		}
+		else {
+			if (player->inventory->armor[slot] == nullptr) {
+				player->inventory->setItem(36 + slot, sentItem);
+			}
+			else {
+				player->inventory->setItem(player->inventory->selected, player->inventory->armor[slot]);
+				player->inventory->setItem(36 + slot, sentItem);
+			}
+		}
+		PlayerList* playerList = MinecraftServer::getInstance()->getPlayers();
+		//playerList->broadcastAll(std::make_shared<SetEquippedItemPacket>(player->entityId, slot, sentItem));
+
+	}
+
 		else if (CustomPayloadPacket::SET_ADVENTURE_COMMAND_PACKET.compare(customPayloadPacket->identifier) == 0)
 		{
 			if (!server->isCommandBlockEnabled())

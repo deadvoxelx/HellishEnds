@@ -1065,11 +1065,11 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
         vector<wstring> lines;
 
         // Only show version/branch for player 0 to avoid cluttering each splitscreen viewport
-        if (iPad == 0)
-        {
-            lines.push_back(ClientConstants::VERSION_STRING);
-            lines.push_back(ClientConstants::BRANCH_STRING);
-        }
+        //if (iPad == 0)
+        //{
+        //    lines.push_back(ClientConstants::VERSION_STRING);
+        //    lines.push_back(ClientConstants::BRANCH_STRING);
+        //}
 
         if (minecraft->options->renderDebug && minecraft->player != nullptr && minecraft->level != nullptr)
         {
@@ -1092,6 +1092,9 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
                 break;
             case 1:
                 dimension = L"minecraft:the_end";
+                break;
+			case 2:
+                dimension = L"minecraft:the_outer_end";
                 break;
             }
             lines.push_back(dimension);
@@ -1161,7 +1164,7 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
             lines.push_back(minecraft->gatherStats2()); // Empty currently - CPlatformNetworkManagerStub::GatherStats()
             lines.push_back(minecraft->gatherStats3()); // RTT
 
-#ifdef _DEBUG // Only show terrain features in debug builds not release
+//#ifdef _DEBUG // Only show terrain features in debug builds not release
 			
 			// No point trying to render this when not in the overworld
             if (minecraft->level->dimension->id == 0)
@@ -1203,7 +1206,7 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
                 }
                 lines.push_back(L""); // Spacer
             }
-#endif
+//#endif
         }
 
 		// Disable the depth test so the text shows on top of the paperdoll

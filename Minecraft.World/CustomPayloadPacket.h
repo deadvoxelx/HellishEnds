@@ -16,6 +16,8 @@ public:
 	static const wstring SET_ADVENTURE_COMMAND_PACKET;
 	static const wstring SET_BEACON_PACKET;
 	static const wstring SET_ITEM_NAME_PACKET;
+	static const wstring QUICK_EQUIP_PACKET;
+	static const wstring QUICK_EQUIP_SERVER_PACKET;
 
 	wstring identifier;
 	int length;

@@ -177,7 +177,46 @@ int PigZombie::getDeathLoot()
 
 void PigZombie::populateDefaultEquipmentSlots()
 {
-	setEquippedSlot(SLOT_WEAPON, std::make_shared<ItemInstance>(Item::sword_gold));
+	if (getRandom()->nextInt(2) > 0)
+	{
+		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::sword_gold)));
+		if (getRandom()->nextInt(5) < 1)
+		{
+			setEquippedSlot(SLOT_HELM, shared_ptr<ItemInstance>( new ItemInstance(Item::helmet_gold)));
+			if (getRandom()->nextInt(4) < 1)
+			{
+				setEquippedSlot(SLOT_CHEST, shared_ptr<ItemInstance>( new ItemInstance(Item::chestplate_gold)));
+				if (getRandom()->nextInt(3) < 1)
+				{
+					setEquippedSlot(SLOT_LEGGINGS, shared_ptr<ItemInstance>( new ItemInstance(Item::leggings_gold)));
+					if (getRandom()->nextInt(2) < 1)
+					{
+						setEquippedSlot(SLOT_BOOTS, shared_ptr<ItemInstance>( new ItemInstance(Item::boots_gold)));
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		setEquippedSlot(SLOT_WEAPON, shared_ptr<ItemInstance>( new ItemInstance(Item::hatchet_gold)));
+		if (getRandom()->nextInt(5) < 1)
+		{
+			setEquippedSlot(SLOT_HELM, shared_ptr<ItemInstance>( new ItemInstance(Item::helmet_gold)));
+			if (getRandom()->nextInt(4) < 1)
+			{
+				setEquippedSlot(SLOT_CHEST, shared_ptr<ItemInstance>( new ItemInstance(Item::chestplate_gold)));
+				if (getRandom()->nextInt(3) < 1)
+				{
+					setEquippedSlot(SLOT_LEGGINGS, shared_ptr<ItemInstance>( new ItemInstance(Item::leggings_gold)));
+					if (getRandom()->nextInt(2) < 1)
+					{
+						setEquippedSlot(SLOT_BOOTS, shared_ptr<ItemInstance>( new ItemInstance(Item::boots_gold)));
+					}
+				}
+			}
+		}
+	}
 }
 
 MobGroupData *PigZombie::finalizeMobSpawn(MobGroupData *groupData, int extraData /*= 0*/) // 4J Added extraData param

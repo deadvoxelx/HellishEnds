@@ -12,7 +12,7 @@ NetherBridgeFeature::NetherBridgeFeature() : StructureFeature()
 {
 	bridgeEnemies.push_back(new Biome::MobSpawnerData(eTYPE_BLAZE, 10, 2, 3));
 	bridgeEnemies.push_back(new Biome::MobSpawnerData(eTYPE_PIGZOMBIE, 5, 4, 4));
-	bridgeEnemies.push_back(new Biome::MobSpawnerData(eTYPE_SKELETON, 10, 4, 4));
+	bridgeEnemies.push_back(new Biome::MobSpawnerData(eTYPE_SKELETON, 15, 4, 4));
 	bridgeEnemies.push_back(new Biome::MobSpawnerData(eTYPE_LAVASLIME, 3, 4, 4));
 	isSpotSelected=false;
 	netherFortressPos = nullptr;

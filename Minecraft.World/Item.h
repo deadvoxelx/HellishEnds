@@ -434,6 +434,11 @@ public:
 	static Item *nethaniumBread;
 	static Item *endorium;
 	static Item *veloettBerry;
+	static Item *endoriumSword;
+	static Item *endoriumAxe;
+	static Item *endoriumPickaxe;
+	static Item *endoriumShovel;
+	static Item *endoriumHoe;
 
 
 	static const int shovel_iron_Id			= 256;
@@ -657,6 +662,11 @@ public:
 	static const int nethaniumBread_Id = 436;
 	static const int endorium_Id = 437;
 	static const int veloettBerry_Id = 438;
+	static const int endoriumSword_Id = 439;
+	static const int endoriumAxe_Id = 440;
+	static const int endoriumPickaxe_Id = 441;
+	static const int endoriumShovel_Id = 442;
+	static const int endoriumHoe_Id = 443;
 
 public:
 	const int id;

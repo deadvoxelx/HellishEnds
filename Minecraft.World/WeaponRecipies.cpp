@@ -9,9 +9,9 @@
 // 4J-PB - adding "" on the end of these so we can detect it
 wstring WeaponRecipies::shapes[][4] = 
 {
-			{L"X", //
-			 L"X",//
-			 L"#",L""},//
+	{L"X", //
+	L"X",//
+	L"#",L""},//
 };
 
 void WeaponRecipies::_init()
@@ -24,6 +24,7 @@ void WeaponRecipies::_init()
 	ADD_OBJECT(map[0],Item::diamond);
 	ADD_OBJECT(map[0],Item::goldIngot);
 	ADD_OBJECT(map[0],Item::nethanium);
+	ADD_OBJECT(map[0],Item::endorium);
 
 	ADD_OBJECT(map[1],Item::sword_wood);
 	ADD_OBJECT(map[1],Item::sword_stone);
@@ -31,6 +32,7 @@ void WeaponRecipies::_init()
 	ADD_OBJECT(map[1],Item::sword_diamond);
 	ADD_OBJECT(map[1],Item::sword_gold);
 	ADD_OBJECT(map[1],Item::nethaniumSword);
+	ADD_OBJECT(map[1],Item::endoriumSword);
 }
 
 void WeaponRecipies::addRecipes(Recipes *r) 

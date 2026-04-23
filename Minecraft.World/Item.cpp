@@ -270,6 +270,11 @@ Item *Item::goldBread = NULL;
 Item *Item::nethaniumBread = NULL;
 Item *Item::endorium = NULL;
 Item *Item::veloettBerry = NULL;
+Item *Item::endoriumSword = NULL;
+Item *Item::endoriumAxe = NULL;
+Item *Item::endoriumPickaxe = NULL;
+Item *Item::endoriumShovel = NULL;
+Item *Item::endoriumHoe = NULL;
 
 
 void Item::staticCtor()
@@ -279,44 +284,49 @@ void Item::staticCtor()
 	Item::sword_iron		= ( new WeaponItem(11, _Tier::IRON) )		->setBaseItemTypeAndMaterial(eBaseItemType_sword,	eMaterial_iron)		->setIconName(L"swordIron")->setDescriptionId(IDS_ITEM_SWORD_IRON)->setUseDescriptionId(IDS_DESC_SWORD);
 	Item::sword_diamond		= ( new WeaponItem(20, _Tier::DIAMOND) )	->setBaseItemTypeAndMaterial(eBaseItemType_sword,	eMaterial_diamond)	->setIconName(L"swordDiamond")->setDescriptionId(IDS_ITEM_SWORD_DIAMOND)->setUseDescriptionId(IDS_DESC_SWORD);
 	Item::sword_gold		= ( new WeaponItem(27, _Tier::GOLD) )		->setBaseItemTypeAndMaterial(eBaseItemType_sword,	eMaterial_gold)		->setIconName(L"swordGold")->setDescriptionId(IDS_ITEM_SWORD_GOLD)->setUseDescriptionId(IDS_DESC_SWORD);
-	Item::nethaniumSword	= ( new WeaponItem(167, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_sword,	eMaterial_nethanium)	->setIconName(L"nethaniumSword")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::nethaniumSword	= ( new WeaponItem(167, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_sword,	eMaterial_nethanium)->setIconName(L"nethaniumSword")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::endoriumSword		= ( new WeaponItem(183, _Tier::ENDORIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_sword,	eMaterial_endorium)	->setIconName(L"endorium_sword")->setDescriptionId(IDS_ITEM_ENDORIUM)->setUseDescriptionId(IDS_DESC_ENDORIUM);
 
 	Item::shovel_wood		= ( new ShovelItem(13, _Tier::WOOD) )		->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_wood)		->setIconName(L"shovelWood")->setDescriptionId(IDS_ITEM_SHOVEL_WOOD)->setUseDescriptionId(IDS_DESC_SHOVEL);
 	Item::shovel_stone		= ( new ShovelItem(17, _Tier::STONE) )		->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_stone)	->setIconName(L"shovelStone")->setDescriptionId(IDS_ITEM_SHOVEL_STONE)->setUseDescriptionId(IDS_DESC_SHOVEL);
 	Item::shovel_iron		= ( new ShovelItem(0, _Tier::IRON) )		->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_iron)		->setIconName(L"shovelIron")->setDescriptionId(IDS_ITEM_SHOVEL_IRON)->setUseDescriptionId(IDS_DESC_SHOVEL);
 	Item::shovel_diamond	= ( new ShovelItem(21, _Tier::DIAMOND) )	->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_diamond)	->setIconName(L"shovelDiamond")->setDescriptionId(IDS_ITEM_SHOVEL_DIAMOND)->setUseDescriptionId(IDS_DESC_SHOVEL);
 	Item::shovel_gold		= ( new ShovelItem(28, _Tier::GOLD) )		->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_gold)		->setIconName(L"shovelGold")->setDescriptionId(IDS_ITEM_SHOVEL_GOLD)->setUseDescriptionId(IDS_DESC_SHOVEL);
-	Item::nethaniumShovel	= ( new ShovelItem(170, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_nethanium)	->setIconName(L"nethaniumShovel")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::nethaniumShovel	= ( new ShovelItem(170, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_nethanium)->setIconName(L"nethaniumShovel")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::endoriumShovel	= ( new ShovelItem(186, _Tier::ENDORIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_shovel,	eMaterial_endorium)	->setIconName(L"endorium_shovel")->setDescriptionId(IDS_ITEM_ENDORIUM)->setUseDescriptionId(IDS_DESC_ENDORIUM);
 
 	Item::pickAxe_wood		= ( new PickaxeItem(14, _Tier::WOOD) )		->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_wood)		->setIconName(L"pickaxeWood")->setDescriptionId(IDS_ITEM_PICKAXE_WOOD)->setUseDescriptionId(IDS_DESC_PICKAXE);
 	Item::pickAxe_stone		= ( new PickaxeItem(18, _Tier::STONE) )		->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_stone)	->setIconName(L"pickaxeStone")->setDescriptionId(IDS_ITEM_PICKAXE_STONE)->setUseDescriptionId(IDS_DESC_PICKAXE);
 	Item::pickAxe_iron		= ( new PickaxeItem(1, _Tier::IRON) )		->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_iron)		->setIconName(L"pickaxeIron")->setDescriptionId(IDS_ITEM_PICKAXE_IRON)->setUseDescriptionId(IDS_DESC_PICKAXE);
 	Item::pickAxe_diamond	= ( new PickaxeItem(22, _Tier::DIAMOND) )	->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_diamond)	->setIconName(L"pickaxeDiamond")->setDescriptionId(IDS_ITEM_PICKAXE_DIAMOND)->setUseDescriptionId(IDS_DESC_PICKAXE);
 	Item::pickAxe_gold		= ( new PickaxeItem(29, _Tier::GOLD) )		->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_gold)		->setIconName(L"pickaxeGold")->setDescriptionId(IDS_ITEM_PICKAXE_GOLD)->setUseDescriptionId(IDS_DESC_PICKAXE);
-	Item::nethaniumPickaxe	= ( new PickaxeItem(169, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_nethanium)	->setIconName(L"nethaniumPickaxe")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::nethaniumPickaxe	= ( new PickaxeItem(169, _Tier::NETHANIUM) )->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_nethanium)->setIconName(L"nethaniumPickaxe")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::endoriumPickaxe	= ( new PickaxeItem(185, _Tier::ENDORIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_pickaxe,	eMaterial_endorium)	->setIconName(L"endorium_pickaxe")->setDescriptionId(IDS_ITEM_ENDORIUM)->setUseDescriptionId(IDS_DESC_ENDORIUM);
 
 	Item::hatchet_wood		= ( new HatchetItem(15, _Tier::WOOD) )		->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_wood)		->setIconName(L"hatchetWood")->setDescriptionId(IDS_ITEM_HATCHET_WOOD)->setUseDescriptionId(IDS_DESC_HATCHET);
 	Item::hatchet_stone		= ( new HatchetItem(19, _Tier::STONE) )		->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_stone)	->setIconName(L"hatchetStone")->setDescriptionId(IDS_ITEM_HATCHET_STONE)->setUseDescriptionId(IDS_DESC_HATCHET);
 	Item::hatchet_iron		= ( new HatchetItem(2, _Tier::IRON) )		->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_iron)		->setIconName(L"hatchetIron")->setDescriptionId(IDS_ITEM_HATCHET_IRON)->setUseDescriptionId(IDS_DESC_HATCHET);
 	Item::hatchet_diamond	= ( new HatchetItem(23, _Tier::DIAMOND) )	->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_diamond)	->setIconName(L"hatchetDiamond")->setDescriptionId(IDS_ITEM_HATCHET_DIAMOND)->setUseDescriptionId(IDS_DESC_HATCHET);
 	Item::hatchet_gold		= ( new HatchetItem(30, _Tier::GOLD) )		->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_gold)		->setIconName(L"hatchetGold")->setDescriptionId(IDS_ITEM_HATCHET_GOLD)->setUseDescriptionId(IDS_DESC_HATCHET);
-	Item::nethaniumAxe	= ( new HatchetItem(168, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_nethanium)	->setIconName(L"nethaniumAxe")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::nethaniumAxe		= ( new HatchetItem(168, _Tier::NETHANIUM) )->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_nethanium)->setIconName(L"nethaniumAxe")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::endoriumAxe		= ( new HatchetItem(184, _Tier::ENDORIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_hatchet,	eMaterial_endorium)	->setIconName(L"endorium_axe")->setDescriptionId(IDS_ITEM_ENDORIUM)->setUseDescriptionId(IDS_DESC_ENDORIUM);
 
 	Item::hoe_wood			= ( new HoeItem(34, _Tier::WOOD) )			->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_wood)		->setIconName(L"hoeWood")->setDescriptionId(IDS_ITEM_HOE_WOOD)->setUseDescriptionId(IDS_DESC_HOE);
 	Item::hoe_stone			= ( new HoeItem(35, _Tier::STONE) )			->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_stone)	->setIconName(L"hoeStone")->setDescriptionId(IDS_ITEM_HOE_STONE)->setUseDescriptionId(IDS_DESC_HOE);
 	Item::hoe_iron			= ( new HoeItem(36, _Tier::IRON) )			->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_iron)		->setIconName(L"hoeIron")->setDescriptionId(IDS_ITEM_HOE_IRON)->setUseDescriptionId(IDS_DESC_HOE);
 	Item::hoe_diamond		= ( new HoeItem(37, _Tier::DIAMOND) )		->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_diamond)	->setIconName(L"hoeDiamond")->setDescriptionId(IDS_ITEM_HOE_DIAMOND)->setUseDescriptionId(IDS_DESC_HOE);
 	Item::hoe_gold			= ( new HoeItem(38, _Tier::GOLD) )			->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_gold)		->setIconName(L"hoeGold")->setDescriptionId(IDS_ITEM_HOE_GOLD)->setUseDescriptionId(IDS_DESC_HOE);
-	Item::nethaniumHoe		= ( new HoeItem(171, _Tier::NETHANIUM) )		->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_nethanium)	->setIconName(L"nethaniumHoe")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::nethaniumHoe		= ( new HoeItem(171, _Tier::NETHANIUM) )	->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_nethanium)->setIconName(L"nethaniumHoe")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM);
+	Item::endoriumHoe		= ( new HoeItem(187, _Tier::ENDORIUM) )		->setBaseItemTypeAndMaterial(eBaseItemType_hoe,	eMaterial_endorium)	->setIconName(L"endorium_hoe")->setDescriptionId(IDS_ITEM_ENDORIUM)->setUseDescriptionId(IDS_DESC_ENDORIUM);
 
 	Item::door_wood			= ( new DoorItem(68, Material::wood) )		->setBaseItemTypeAndMaterial(eBaseItemType_door,	eMaterial_wood)->setIconName(L"doorWood")->setDescriptionId(IDS_ITEM_DOOR_WOOD)->setUseDescriptionId(IDS_DESC_DOOR_WOOD);
 	Item::door_iron			= ( new DoorItem(74, Material::metal) )		->setBaseItemTypeAndMaterial(eBaseItemType_door,	eMaterial_iron)->setIconName(L"doorIron")->setDescriptionId(IDS_ITEM_DOOR_IRON)->setUseDescriptionId(IDS_DESC_DOOR_IRON);
 
-	Item::helmet_leather		= (ArmorItem *) ( ( new ArmorItem(42, ArmorItem::ArmorMaterial::CLOTH, 0, ArmorItem::SLOT_HEAD) )			->setBaseItemTypeAndMaterial(eBaseItemType_helmet,	eMaterial_cloth)		->setIconName(L"helmetCloth")->setDescriptionId(IDS_ITEM_HELMET_CLOTH)->setUseDescriptionId(IDS_DESC_HELMET_LEATHER) );
+	Item::helmet_leather	= (ArmorItem *) ( ( new ArmorItem(42, ArmorItem::ArmorMaterial::CLOTH, 0, ArmorItem::SLOT_HEAD) )			->setBaseItemTypeAndMaterial(eBaseItemType_helmet,	eMaterial_cloth)		->setIconName(L"helmetCloth")->setDescriptionId(IDS_ITEM_HELMET_CLOTH)->setUseDescriptionId(IDS_DESC_HELMET_LEATHER) );
 	Item::helmet_iron		= (ArmorItem *) ( ( new ArmorItem(50, ArmorItem::ArmorMaterial::IRON, 2, ArmorItem::SLOT_HEAD) )			->setBaseItemTypeAndMaterial(eBaseItemType_helmet,	eMaterial_iron)			->setIconName(L"helmetIron")->setDescriptionId(IDS_ITEM_HELMET_IRON)->setUseDescriptionId(IDS_DESC_HELMET_IRON) );
 	Item::helmet_diamond	= (ArmorItem *) ( ( new ArmorItem(54, ArmorItem::ArmorMaterial::DIAMOND, 3, ArmorItem::SLOT_HEAD) )			->setBaseItemTypeAndMaterial(eBaseItemType_helmet,	eMaterial_diamond)		->setIconName(L"helmetDiamond")->setDescriptionId(IDS_ITEM_HELMET_DIAMOND)->setUseDescriptionId(IDS_DESC_HELMET_DIAMOND) );
 	Item::helmet_gold		= (ArmorItem *) ( ( new ArmorItem(58, ArmorItem::ArmorMaterial::GOLD, 4, ArmorItem::SLOT_HEAD) )			->setBaseItemTypeAndMaterial(eBaseItemType_helmet,	eMaterial_gold)			->setIconName(L"helmetGold")->setDescriptionId(IDS_ITEM_HELMET_GOLD)->setUseDescriptionId(IDS_DESC_HELMET_GOLD) );
-	Item::nethaniumHelmet	= (ArmorItem *) ( ( new ArmorItem(173, ArmorItem::ArmorMaterial::NETHANIUM, 5, ArmorItem::SLOT_HEAD) )			->setBaseItemTypeAndMaterial(eBaseItemType_helmet,	eMaterial_nethanium)		->setIconName(L"nethanium_helmet")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM) );
+	Item::nethaniumHelmet	= (ArmorItem *) ( ( new ArmorItem(173, ArmorItem::ArmorMaterial::NETHANIUM, 5, ArmorItem::SLOT_HEAD) )		->setBaseItemTypeAndMaterial(eBaseItemType_helmet,	eMaterial_nethanium)		->setIconName(L"nethanium_helmet")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM) );
 
 	Item::chestplate_leather	= (ArmorItem *) ( ( new ArmorItem(43, ArmorItem::ArmorMaterial::CLOTH, 0, ArmorItem::SLOT_TORSO) )			->setBaseItemTypeAndMaterial(eBaseItemType_chestplate,	eMaterial_cloth)	->setIconName(L"chestplateCloth")->setDescriptionId(IDS_ITEM_CHESTPLATE_CLOTH)->setUseDescriptionId(IDS_DESC_CHESTPLATE_LEATHER) );
 	Item::chestplate_iron		= (ArmorItem *) ( ( new ArmorItem(51, ArmorItem::ArmorMaterial::IRON, 2, ArmorItem::SLOT_TORSO) )			->setBaseItemTypeAndMaterial(eBaseItemType_chestplate,	eMaterial_iron)		->setIconName(L"chestplateIron")->setDescriptionId(IDS_ITEM_CHESTPLATE_IRON)->setUseDescriptionId(IDS_DESC_CHESTPLATE_IRON) );
@@ -328,7 +338,7 @@ void Item::staticCtor()
 	Item::leggings_iron		= (ArmorItem *) ( ( new ArmorItem(52, ArmorItem::ArmorMaterial::IRON, 2, ArmorItem::SLOT_LEGS) )			->setBaseItemTypeAndMaterial(eBaseItemType_leggings,	eMaterial_iron)		->setIconName(L"leggingsIron")->setDescriptionId(IDS_ITEM_LEGGINGS_IRON)->setUseDescriptionId(IDS_DESC_LEGGINGS_IRON) );
 	Item::leggings_diamond	= (ArmorItem *) ( ( new ArmorItem(56, ArmorItem::ArmorMaterial::DIAMOND, 3, ArmorItem::SLOT_LEGS) )			->setBaseItemTypeAndMaterial(eBaseItemType_leggings,	eMaterial_diamond)	->setIconName(L"leggingsDiamond")->setDescriptionId(IDS_ITEM_LEGGINGS_DIAMOND)->setUseDescriptionId(IDS_DESC_LEGGINGS_DIAMOND) );
 	Item::leggings_gold		= (ArmorItem *) ( ( new ArmorItem(60, ArmorItem::ArmorMaterial::GOLD, 4, ArmorItem::SLOT_LEGS) )			->setBaseItemTypeAndMaterial(eBaseItemType_leggings,	eMaterial_gold)		->setIconName(L"leggingsGold")->setDescriptionId(IDS_ITEM_LEGGINGS_GOLD)->setUseDescriptionId(IDS_DESC_LEGGINGS_GOLD) );
-	Item::nethaniumLeggings	= (ArmorItem *) ( ( new ArmorItem(175, ArmorItem::ArmorMaterial::NETHANIUM, 5, ArmorItem::SLOT_LEGS) )			->setBaseItemTypeAndMaterial(eBaseItemType_leggings,	eMaterial_nethanium)	->setIconName(L"nethanium_leggings")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM) );
+	Item::nethaniumLeggings	= (ArmorItem *) ( ( new ArmorItem(175, ArmorItem::ArmorMaterial::NETHANIUM, 5, ArmorItem::SLOT_LEGS) )		->setBaseItemTypeAndMaterial(eBaseItemType_leggings,	eMaterial_nethanium)	->setIconName(L"nethanium_leggings")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM) );
 
 	Item::helmet_chain		= (ArmorItem *) ( ( new ArmorItem(46, ArmorItem::ArmorMaterial::CHAIN, 1, ArmorItem::SLOT_HEAD) )			->setBaseItemTypeAndMaterial(eBaseItemType_helmet,		eMaterial_chain)	->setIconName(L"helmetChain")->setDescriptionId(IDS_ITEM_HELMET_CHAIN)->setUseDescriptionId(IDS_DESC_HELMET_CHAIN) );
 	Item::chestplate_chain	= (ArmorItem *) ( ( new ArmorItem(47, ArmorItem::ArmorMaterial::CHAIN, 1, ArmorItem::SLOT_TORSO) )			->setBaseItemTypeAndMaterial(eBaseItemType_chestplate,	eMaterial_chain)	->setIconName(L"chestplateChain")->setDescriptionId(IDS_ITEM_CHESTPLATE_CHAIN)->setUseDescriptionId(IDS_DESC_CHESTPLATE_CHAIN) );
@@ -339,7 +349,7 @@ void Item::staticCtor()
 	Item::boots_iron		= (ArmorItem *) ( ( new ArmorItem(53, ArmorItem::ArmorMaterial::IRON, 2, ArmorItem::SLOT_FEET) )				->setBaseItemTypeAndMaterial(eBaseItemType_boots,	eMaterial_iron)			->setIconName(L"bootsIron")->setDescriptionId(IDS_ITEM_BOOTS_IRON)->setUseDescriptionId(IDS_DESC_BOOTS_IRON) );
 	Item::boots_diamond		= (ArmorItem *) ( ( new ArmorItem(57, ArmorItem::ArmorMaterial::DIAMOND, 3, ArmorItem::SLOT_FEET) )				->setBaseItemTypeAndMaterial(eBaseItemType_boots,	eMaterial_diamond)		->setIconName(L"bootsDiamond")->setDescriptionId(IDS_ITEM_BOOTS_DIAMOND)->setUseDescriptionId(IDS_DESC_BOOTS_DIAMOND) );
 	Item::boots_gold		= (ArmorItem *) ( ( new ArmorItem(61, ArmorItem::ArmorMaterial::GOLD, 4, ArmorItem::SLOT_FEET) )				->setBaseItemTypeAndMaterial(eBaseItemType_boots,	eMaterial_gold)			->setIconName(L"bootsGold")->setDescriptionId(IDS_ITEM_BOOTS_GOLD)->setUseDescriptionId(IDS_DESC_BOOTS_GOLD) );
-	Item::nethaniumBoots		= (ArmorItem *) ( ( new ArmorItem(176, ArmorItem::ArmorMaterial::NETHANIUM, 5, ArmorItem::SLOT_FEET) )				->setBaseItemTypeAndMaterial(eBaseItemType_boots,	eMaterial_nethanium)		->setIconName(L"nethanium_boots")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM) );
+	Item::nethaniumBoots		= (ArmorItem *) ( ( new ArmorItem(176, ArmorItem::ArmorMaterial::NETHANIUM, 5, ArmorItem::SLOT_FEET) )		->setBaseItemTypeAndMaterial(eBaseItemType_boots,	eMaterial_nethanium)		->setIconName(L"nethanium_boots")->setDescriptionId(IDS_ITEM_NETHANIUM)->setUseDescriptionId(IDS_DESC_NETHANIUM) );
 
 	Item::ironIngot = ( new Item(9) )->setIconName(L"ingotIron")					->setBaseItemTypeAndMaterial(eBaseItemType_treasure,	eMaterial_iron)->setDescriptionId(IDS_ITEM_INGOT_IRON)->setUseDescriptionId(IDS_DESC_INGOT);
 	Item::goldIngot = ( new Item(10) )->setIconName(L"ingotGold")					->setBaseItemTypeAndMaterial(eBaseItemType_treasure,	eMaterial_gold)->setDescriptionId(IDS_ITEM_INGOT_GOLD)->setUseDescriptionId(IDS_DESC_INGOT);

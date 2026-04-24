@@ -1,3 +1,5 @@
+![HellishEnds Banner](https://cdn.discordapp.com/attachments/1497037577746907227/1497044753420779522/hellishEndsTitle.png?ex=69ec1712&is=69eac592&hm=8094d9f99ca8a2473bb01814deea999aec06d4a2062e75ee823852cd4b821020&)
+
 ## Controls (Keyboard & Mouse)
 
 - **Movement**: `W` `A` `S` `D`

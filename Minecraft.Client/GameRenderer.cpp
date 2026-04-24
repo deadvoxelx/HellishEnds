@@ -2192,7 +2192,7 @@ void GameRenderer::setupFog(int i, float alpha)
 	else if (t > 0 && Tile::tiles[t]->material == Material::lava)
 	{
 		glFogi(GL_FOG_MODE, GL_EXP);
-		glFogf(GL_FOG_DENSITY, 2.0f); // was 0.06
+		glFogf(GL_FOG_DENSITY, 0.05f); // was 0.06
 	}
 	else
 	{

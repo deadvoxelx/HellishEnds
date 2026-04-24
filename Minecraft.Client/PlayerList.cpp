@@ -844,6 +844,15 @@ void PlayerList::toggleDimension(shared_ptr<ServerPlayer> player, int targetDime
 		player->displayClientMessage(IDS_PLAYER_LEFT_END);
 	}
 
+	else if(player->dimension != 2 && targetDimension == 2)
+	{
+		player->displayClientMessage(IDS_PLAYER_ENTERED_END);
+	}
+	else if( player->dimension == 2 )
+	{
+		player->displayClientMessage(IDS_PLAYER_LEFT_END);
+	}
+
 	player->dimension = targetDimension;
 
 	ServerLevel *newLevel = server->getLevel(player->dimension);

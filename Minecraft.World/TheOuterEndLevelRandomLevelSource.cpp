@@ -13,7 +13,7 @@
 
 TheOuterEndLevelRandomLevelSource::TheOuterEndLevelRandomLevelSource(Level *level, int64_t seed)
 {
-	m_XZSize = END_LEVEL_MIN_WIDTH;
+	m_XZSize = OUTER_END_LEVEL_MIN_WIDTH;
 
 	this->level = level;
 

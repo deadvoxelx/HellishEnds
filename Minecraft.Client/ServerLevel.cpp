@@ -253,15 +253,24 @@ void ServerLevel::tick()
 
 	int64_t time = levelData->getGameTime() + 1;
 	// 4J Stu - Putting this back in, but I have reduced the number of chunks that save when not forced
-#ifdef _LARGE_WORLDS
-	if (time % (saveInterval) == (dimension->id + 1))
-#else
-	if (time % (saveInterval) == (dimension->id * dimension->id * (saveInterval/2)))
-#endif
+
 	{
-		PIXBeginNamedEvent(0,"Incremental save");
-		save(false, nullptr);
-		PIXEndNamedEvent();
+		int saveSlot = 0;
+		if (dimension->id == 0) saveSlot = 0;
+		else if (dimension->id == -1) saveSlot = 1;
+		else if (dimension->id == 1) saveSlot = 2;
+		else if (dimension->id == 2) saveSlot = 3;
+
+#ifdef _LARGE_WORLDS
+		if (time % 4 == saveSlot)
+#else
+		if (time % (saveInterval) == (saveSlot * (saveInterval / 4)))
+#endif
+		{
+			PIXBeginNamedEvent(0,"Incremental save");
+			save(false, nullptr);
+			PIXEndNamedEvent();
+		}
 	}
 
 	// 4J : WESTY : Changed so that time update goes through stats tracking update code.

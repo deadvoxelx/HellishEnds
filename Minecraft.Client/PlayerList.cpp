@@ -1071,7 +1071,7 @@ void PlayerList::tick()
 	LeaveCriticalSection(&m_kickPlayersCS);
 
 	// Check our receiving players, and if they are dead see if we can replace them
-	for(unsigned int dim = 0; dim < 2; ++dim)
+	for(unsigned int dim = 0; dim < 4; ++dim)
 	{
 		for(unsigned int i = 0; i < receiveAllPlayers[dim].size(); ++i)
 		{
@@ -1490,6 +1490,7 @@ shared_ptr<ServerPlayer> PlayerList::findAlivePlayerOnSystem(shared_ptr<ServerPl
 	dimIndex = playerDim = player->dimension;
 	if( dimIndex == -1 ) dimIndex = 1;
 	else if( dimIndex == 1) dimIndex = 2;
+	else if( dimIndex == 2) dimIndex = 3;
 
 	INetworkPlayer *thisPlayer = player->connection->getNetworkPlayer();
 	if( thisPlayer )
@@ -1519,6 +1520,7 @@ void PlayerList::removePlayerFromReceiving(shared_ptr<ServerPlayer> player, bool
 	dimIndex = playerDim = usePlayerDimension ? player->dimension : dimension;
 	if( dimIndex == -1 ) dimIndex = 1;
 	else if( dimIndex == 1) dimIndex = 2;
+	else if( dimIndex == 2) dimIndex = 3;
 
 #ifndef _CONTENT_PACKAGE
 	app.DebugPrintf("Requesting remove player %ls as primary in dimension %d\n", player->name.c_str(), dimIndex);
@@ -1572,6 +1574,7 @@ void PlayerList::removePlayerFromReceiving(shared_ptr<ServerPlayer> player, bool
 				int newPlayerDim = 0;
 				if( newPlayer->dimension == -1 ) newPlayerDim = 1;
 				else if( newPlayer->dimension == 1) newPlayerDim = 2;
+				else if( newPlayer->dimension == 2) newPlayerDim = 3;
 				bool foundPrimary = false;
 				for(auto& primaryPlayer : receiveAllPlayers[newPlayerDim])
 				{

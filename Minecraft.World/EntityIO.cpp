@@ -107,9 +107,9 @@ void EntityIO::staticCtor()
 	setId(HellSphere::create, eTYPE_HELLSPHERE, L"hellsphere", 101);
 	setId(Pigman::create, eTYPE_PIGMAN, L"Pigman", 102, eMinecraftColour_Mob_Pig_Colour1, eMinecraftColour_Mob_Pig_Colour2, IDS_PIGMAN);
 	setId(Watcher::create, eTYPE_WATCHER, L"Watcher", 103, eMinecraftColour_Mob_Enderman_Colour1, eMinecraftColour_Mob_Slime_Colour2, IDS_WATCHER);
-	setId(Husk::create, eTYPE_HUSK, L"Husk", 104, eMinecraftColour_Mob_Ocelot_Colour1, eMinecraftColour_Mob_Zombie_Colour2, IDS_ZOMBIE);
-	setId(Zombice::create, eTYPE_ZOMBICE, L"Zombice", 105, eMinecraftColour_Mob_Zombie_Colour1, eMinecraftColour_Mob_Zombie_Colour1, IDS_ZOMBIE);
-	setId(WhiteEnderman::create, eTYPE_WHITE_ENDERMAN, L"WhiteEnderman", 106, eMinecraftColour_Mob_Ghast_Colour1, eMinecraftColour_Mob_Ghast_Colour1, IDS_ENDERMAN);
+	setId(Husk::create, eTYPE_HUSK, L"Husk", 104, eMinecraftColour_Mob_Ocelot_Colour1, eMinecraftColour_Mob_Zombie_Colour2, IDS_HUSK);
+	setId(Zombice::create, eTYPE_ZOMBICE, L"Zombice", 105, eMinecraftColour_Mob_Zombie_Colour1, eMinecraftColour_Mob_Zombie_Colour1, IDS_ZOMBICE);
+	setId(WhiteEnderman::create, eTYPE_WHITE_ENDERMAN, L"WhiteEnderman", 106, eMinecraftColour_Mob_Ghast_Colour1, eMinecraftColour_Mob_Ghast_Colour1, IDS_WHITEENDERMAN);
 
 	setId(Villager::create, eTYPE_VILLAGER, L"Villager", 120, eMinecraftColour_Mob_Villager_Colour1, eMinecraftColour_Mob_Villager_Colour2, IDS_VILLAGER);
 
@@ -124,7 +124,7 @@ void EntityIO::staticCtor()
 	setId(EntityHorse::create,	eTYPE_HORSE,	L"EntityHorse", 100 | ((EntityHorse::TYPE_MULE + 1) << 12),		eMinecraftColour_Mob_Horse_Colour1,		eMinecraftColour_Mob_Horse_Colour2,		IDS_MULE);
 	setId(EntityHorse::create,	eTYPE_HORSE,	L"EntityHorse", 100 | ((EntityHorse::TYPE_SKELETON + 1) << 12),	eMinecraftColour_Mob_Horse_Colour1,		eMinecraftColour_Mob_Horse_Colour2,		IDS_SKELETON_HORSE);
 	setId(EntityHorse::create,	eTYPE_HORSE,	L"EntityHorse", 100 | ((EntityHorse::TYPE_UNDEAD + 1) << 12),	eMinecraftColour_Mob_Horse_Colour1,		eMinecraftColour_Mob_Horse_Colour2,		IDS_ZOMBIE_HORSE);
-	setId(Skeleton::create,		eTYPE_SKELETON,	L"Skeleton",	51 | ((Skeleton::TYPE_STRAY + 1) << 12),		eMinecraftColour_Mob_Skeleton_Colour2,	eMinecraftColour_Mob_Skeleton_Colour1,	IDS_SKELETON);
+	setId(Skeleton::create,		eTYPE_SKELETON,	L"Skeleton",	51 | ((Skeleton::TYPE_STRAY + 1) << 12),		eMinecraftColour_Mob_Skeleton_Colour2,	eMinecraftColour_Mob_Skeleton_Colour1,	IDS_STRAY);
 	setId(Skeleton::create,		eTYPE_SKELETON,	L"Skeleton",	51 | ((Skeleton::TYPE_WITHER + 1) << 12),		eMinecraftColour_Mob_Enderman_Colour1,	eMinecraftColour_Mob_Skeleton_Colour2,	IDS_SKELETON);
 
 #ifndef _CONTENT_PACKAGE

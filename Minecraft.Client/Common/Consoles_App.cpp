@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "..\..\Minecraft.World\net.minecraft.world.entity.item.h"
 #include "..\..\Minecraft.World\net.minecraft.world.entity.player.h"
 #include "..\..\Minecraft.World\net.minecraft.world.level.tile.entity.h"
@@ -4493,6 +4493,61 @@ void CMinecraftApp::loadStringTable()
 		byteArray locFile = m_mediaArchive->getFile(localisationFile);
 		m_stringTable = new StringTable(locFile.data, locFile.length);
 		delete locFile.data;
+
+		m_stringTable->registerString(IDS_TILE_GOLDENCLIN, L"Goldenclin");
+		m_stringTable->registerString(IDS_TILE_GOLDENCLIN_BRICKS, L"Goldenclin Bricks");
+		m_stringTable->registerString(IDS_TILE_NETHER_DIAMOND, L"Nether Diamond Ore");
+		m_stringTable->registerString(IDS_TILE_NETHER_GOLD, L"Nether Gold Ore");
+		m_stringTable->registerString(IDS_TILE_NETHANIUMORE, L"Nethanium Ore");
+		m_stringTable->registerString(IDS_TILE_NETHANIUMBLOCK, L"Nethanium Block");
+		m_stringTable->registerString(IDS_TILE_LAVAROCK, L"Lava Rock");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUM, L"Nethanium");
+		m_stringTable->registerString(IDS_ITEM_ENDORIUM, L"Endorium");
+		m_stringTable->registerString(IDS_TILE_NETHERSOIL, L"Nether Soil");
+		m_stringTable->registerString(IDS_ITEM_HELLSPHERE, L"Hell Sphere");
+		m_stringTable->registerString(IDS_TILE_LOG_NETHER, L"Nether Wood");
+		m_stringTable->registerString(IDS_TILE_NETHER_PLANKS, L"Nether Planks");
+		m_stringTable->registerString(IDS_PIGMAN, L"Pigman");
+		m_stringTable->registerString(IDS_WATCHER, L"Watcher");
+		m_stringTable->registerString(IDS_ITEM_RELICMALLET, L"Relic Mallet");
+		m_stringTable->registerString(IDS_TILE_NETHERLEAVES, L"Nether Leaves");
+		m_stringTable->registerString(IDS_TILE_SAPLING_NETHER, L"Nether Sapling");
+		m_stringTable->registerString(IDS_ITEM_VELOETTBERRY, L"Veloett Berry");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMSWORD, L"Nethanium Sword");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMAXE, L"Nethanium Axe");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMPICKAXE, L"Nethanium Pickaxe");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMSHOVEL, L"Nethanium Shovel");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMHOE, L"Nethanium Hoe");
+		m_stringTable->registerString(IDS_ITEM_ENDORIUMSWORD, L"Endorium Sword");
+		m_stringTable->registerString(IDS_ITEM_ENDORIUMAXE, L"Endorium Axe");
+		m_stringTable->registerString(IDS_ITEM_ENDORIUMPICKAXE, L"Endorium Pickaxe");
+		m_stringTable->registerString(IDS_ITEM_ENDORIUMSHOVEL, L"Endorium Shovel");
+		m_stringTable->registerString(IDS_ITEM_ENDORIUMHOE, L"Endorium Hoe");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMHELMET, L"Nethanium Helmet");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMCHESTPLATE, L"Nethanium Chestplate");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMLEGGINGS, L"Nethanium Leggings");
+		m_stringTable->registerString(IDS_ITEM_NETHANIUMBOOTS, L"Nethanium Boots");
+		m_stringTable->registerString(IDS_ITEM_NETHERWARTBREAD, L"Netherwart Bread");
+		m_stringTable->registerString(IDS_TILE_ENDORIUMBLOCK, L"Endorium Block");
+		m_stringTable->registerString(IDS_TILE_ENDORIUMORE, L"Endorium Ore");
+		m_stringTable->registerString(IDS_TILE_ENDORIUMGRATE, L"Endorium Grate");
+		m_stringTable->registerString(IDS_TILE_ENDORIUMLAMP, L"Endorium Lamp");
+		m_stringTable->registerString(IDS_TILE_ENDBRICKS, L"End Stone Bricks");
+		m_stringTable->registerString(IDS_TILE_ENDBRICKSCHISELED, L"Chiseled End Stone Bricks");
+		m_stringTable->registerString(IDS_TILE_ENDBRICKSMOSSY, L"Mossy End Stone Bricks");
+		m_stringTable->registerString(IDS_TILE_VELOETTGRASS, L"Veloett Grass");
+		m_stringTable->registerString(IDS_TILE_ENDSTONESMOOTH, L"Smooth End Stone");
+		m_stringTable->registerString(IDS_TILE_PURULLOG, L"Purul Log");
+		m_stringTable->registerString(IDS_TILE_PURULVELOETT, L"Purul Veloett");
+		m_stringTable->registerString(IDS_TILE_PURULPLANKS, L"Purul Planks");
+		m_stringTable->registerString(IDS_TILE_ENDACTUS, L"Endactus");
+		m_stringTable->registerString(IDS_TILE_NETHERBRICKSMOSSY, L"Mossy Nether Bricks");
+		m_stringTable->registerString(IDS_TILE_ENDSAND, L"End Sand");
+		m_stringTable->registerString(IDS_TILE_ENDSTONEMOSSY, L"Mossy End Stone");
+		m_stringTable->registerString(IDS_HUSK, L"Husk");
+		m_stringTable->registerString(IDS_STRAY, L"Stray");
+		m_stringTable->registerString(IDS_ZOMBICE, L"Zombice");
+		m_stringTable->registerString(IDS_WHITEENDERMAN, L"White Enderman");
 	}
 	else
 	{

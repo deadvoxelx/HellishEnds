@@ -981,6 +981,16 @@ bool TileRenderer::tesselateFlowerPotInWorld(FlowerPotTile *tt, int x, int y, in
 			{
 				tesselateCrossTexture(Tile::deadBush, TallGrass::FERN, x, y, z, 0.75f);
 			}
+
+			else if (type == FlowerPotTile::TYPE_SHRUB)
+			{
+				col = Tile::tallgrass->getColor(level, x, y, z);
+				r = ((col >> 16) & 0xff) / 255.0f;
+				g = ((col >> 8) & 0xff) / 255.0f;
+				b = ((col) & 0xff) / 255.0f;
+				t->color(br * r, br * g, br * b);
+				tesselateCrossTexture(Tile::tallgrass, TallGrass::DEAD_SHRUB, x, y, z, 0.75f);
+			}
 		}
 
 		t->addOffset(-xOff / 16.0f, -yOff / 16.0f, -zOff / 16.0f);

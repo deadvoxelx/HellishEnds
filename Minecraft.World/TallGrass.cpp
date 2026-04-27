@@ -35,7 +35,7 @@ Icon *TallGrass::getTexture(int face, int data)
 
 int TallGrass::getColor(int auxData)
 {
-    if (auxData == DEAD_SHRUB) return 0xffffff;
+    //if (auxData == DEAD_SHRUB) return 0xffffff;
 
     return FoliageColor::getDefaultColor();
 }
@@ -59,8 +59,8 @@ int TallGrass::getColor(LevelSource *level, int x, int y, int z )
 // 4J - changed interface to have data passed in, and put existing interface as wrapper above
 int TallGrass::getColor(LevelSource *level, int x, int y, int z, int data)
 {
-	int d = data;
-	if (d == DEAD_SHRUB) return 0xffffff;
+	//int d = data;
+	//if (d == DEAD_SHRUB) return 0xffffff;
 
 	return level->getBiome(x, z)->getGrassColor();
 }

@@ -148,6 +148,8 @@ shared_ptr<ItemInstance> FlowerPotTile::getItemFromType(int type)
 		return std::make_shared<ItemInstance>(Tile::sapling, 1, Sapling::TYPE_JUNGLE);
 	case TYPE_FERN:
 		return std::make_shared<ItemInstance>(Tile::tallgrass, 1, TallGrass::FERN);
+	case TYPE_SHRUB:
+		return std::make_shared<ItemInstance>(Tile::tallgrass, 1, TallGrass::DEAD_SHRUB);
 	}
 
 	return nullptr;
@@ -185,6 +187,8 @@ int FlowerPotTile::getTypeFromItem(shared_ptr<ItemInstance> item)
 		{
 		case TallGrass::FERN:
 			return TYPE_FERN;
+		case TallGrass::DEAD_SHRUB:
+			return TYPE_SHRUB;
 		}
 	}
 

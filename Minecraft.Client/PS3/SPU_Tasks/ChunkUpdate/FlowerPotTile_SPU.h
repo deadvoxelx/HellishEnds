@@ -16,6 +16,7 @@ public:
 	static const int TYPE_CACTUS = 9;
 	static const int TYPE_DEAD_BUSH = 10;
 	static const int TYPE_FERN = 11;
+	static const int TYPE_SHRUB = 12;
 
 	FlowerPotTile_SPU(int id) : Tile_SPU(id) {}
 

@@ -16,6 +16,12 @@ private:
 	HumanoidModel *humanoidModel;
     HumanoidModel *armorParts1;
     HumanoidModel *armorParts2;
+	HumanoidModel *armorParts3;
+
+	static ResourceLocation SKELETON_LOCATION;
+	static ResourceLocation WITHER_SKELETON_LOCATION;
+	static ResourceLocation ZOMBIE_LOCATION;
+	static ResourceLocation CREEPER_LOCATION;
 
 public:
 	PlayerRenderer();
